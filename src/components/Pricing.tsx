@@ -26,9 +26,14 @@ export default function Pricing() {
               <span className="text-[#202020] ml-2 font-sans font-medium text-[20px]">/mo</span>
             </div>
 
-            <button className="w-full bg-black text-white h-[58px] rounded-[7px] font-medium text-[17px] mt-2 mb-3 hover:opacity-90 transition-opacity">
+            <a
+              href="https://buy.stripe.com/eVqaEZfE6edcgfAfFr6Na0l"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-black text-white h-[58px] rounded-[7px] font-medium text-[17px] mt-2 mb-3 hover:opacity-90 transition-opacity flex items-center justify-center"
+            >
               Secure your next slot
-            </button>
+            </a>
             <p className="text-center text-[16px] mb-6 font-sans">
               <span className="font-semibold text-black">11 bought</span> <span className="text-neutral-400 font-medium">in past year</span>
             </p>
@@ -63,9 +68,14 @@ export default function Pricing() {
               <span className="text-[#202020] ml-2 font-sans font-medium text-[20px]">/mo</span>
             </div>
 
-            <button className="w-full bg-black text-white h-[58px] rounded-[7px] font-medium text-[17px] mt-2 mb-3 hover:opacity-90 transition-opacity">
+            <a
+              href="https://buy.stripe.com/6oU8wR8bE9WW3sOdxj6Na0k"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-black text-white h-[58px] rounded-[7px] font-medium text-[17px] mt-2 mb-3 hover:opacity-90 transition-opacity flex items-center justify-center"
+            >
               Secure your next slot
-            </button>
+            </a>
             <p className="text-center text-[16px] mb-6 font-sans">
               <span className="font-semibold text-black">9 bought</span> <span className="text-neutral-400 font-medium">in past year</span>
             </p>
