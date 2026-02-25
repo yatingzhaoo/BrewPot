@@ -6,7 +6,7 @@ export default function Pricing() {
       <div className="max-w-[960px] mx-auto px-6 lg:px-0 flex flex-col gap-8">
         <div className="text-center">
           <h2 className="font-heading font-normal text-[42px] md:text-[52px] text-[#202020] mb-2 tracking-tight leading-tight">Truly Unlimited Design Requests</h2>
-          <p className="text-[18px] text-gray-500 max-w-2xl mx-auto font-sans">Accept truly unlimited design requests and efficiently deliver multiple tasks with speed.</p>
+          <p className="text-[18px] text-neutral-500 max-w-2xl mx-auto font-sans">Accept truly unlimited design requests and efficiently deliver multiple tasks with speed.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-4">
@@ -19,7 +19,7 @@ export default function Pricing() {
               </div>
             </div>
 
-            <p className="text-gray-500 text-[16px] mb-4 font-sans">Ongoing design support</p>
+            <p className="text-neutral-500 text-[16px] mb-4 font-sans">Ongoing design support</p>
 
             <div className="flex items-baseline mb-4">
               <span className="text-[56px] font-heading font-normal text-[#202020] tracking-tight leading-none">$2,799</span>
@@ -30,7 +30,7 @@ export default function Pricing() {
               Secure your next slot
             </button>
             <p className="text-center text-[16px] mb-6 font-sans">
-              <span className="font-semibold text-black">11 bought</span> <span className="text-gray-400 font-medium">in past year</span>
+              <span className="font-semibold text-black">11 bought</span> <span className="text-neutral-400 font-medium">in past year</span>
             </p>
 
             <ul className="space-y-4">
@@ -40,7 +40,7 @@ export default function Pricing() {
                 { bold: "Same-day", rest: " Replies" },
                 { bold: "3-Day", rest: " Free Trial" }
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-[16px] text-gray-900 font-sans">
+                <li key={i} className="flex items-center gap-3 text-[16px] text-neutral-900 font-sans">
                   <Check className="w-[18px] h-[18px] text-black mt-[1px] flex-shrink-0" strokeWidth={1.5} />
                   <span>
                     <span className="font-semibold text-black">{item.bold}</span>{item.rest}
@@ -56,7 +56,7 @@ export default function Pricing() {
               <h3 className="text-[17px] font-sans font-medium text-black tracking-tight">Pro</h3>
             </div>
 
-            <p className="text-gray-500 text-[16px] mb-4 font-sans">Deep product partnership</p>
+            <p className="text-neutral-500 text-[16px] mb-4 font-sans">Deep product partnership</p>
 
             <div className="flex items-baseline mb-4">
               <span className="text-[56px] font-heading font-normal text-[#202020] tracking-tight leading-none">$3,999</span>
@@ -67,7 +67,7 @@ export default function Pricing() {
               Secure your next slot
             </button>
             <p className="text-center text-[16px] mb-6 font-sans">
-              <span className="font-semibold text-black">9 bought</span> <span className="text-gray-400 font-medium">in past year</span>
+              <span className="font-semibold text-black">9 bought</span> <span className="text-neutral-400 font-medium">in past year</span>
             </p>
 
             <ul className="space-y-4">
@@ -77,7 +77,7 @@ export default function Pricing() {
                 { bold: "Instant", rest: " Replies" },
                 { bold: "1-Day", rest: " Free Trial" }
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-[16px] text-gray-900 font-sans">
+                <li key={i} className="flex items-center gap-3 text-[16px] text-neutral-900 font-sans">
                   <Check className="w-[18px] h-[18px] text-black mt-[1px] flex-shrink-0" strokeWidth={1.5} />
                   <span>
                     <span className="font-semibold text-black">{item.bold}</span>{item.rest}

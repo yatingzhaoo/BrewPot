@@ -32,7 +32,7 @@ export default function Navbar() {
           </div>
 
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-gray-900">
+            <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-neutral-900">
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
@@ -40,9 +40,9 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white border-b border-gray-100 p-6 absolute top-full left-0 right-0 shadow-lg">
+        <div className="md:hidden bg-white border-b border-neutral-100 p-6 absolute top-full left-0 right-0 shadow-lg">
           <div className="flex flex-col space-y-5">
-            <a href="#pricing" className="text-base font-medium text-gray-600" onClick={() => setIsOpen(false)}>Pricing</a>
+            <a href="#pricing" className="text-base font-medium text-neutral-600" onClick={() => setIsOpen(false)}>Pricing</a>
             <a href="#contact" className="text-base font-medium text-black flex items-center gap-2" onClick={() => setIsOpen(false)}>
               Let's talk <ArrowRight className="w-4 h-4" />
             </a>

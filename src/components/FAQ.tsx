@@ -64,11 +64,11 @@ export default function FAQ() {
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                     className="w-full flex justify-between items-start text-left py-3 group"
                   >
-                    <span className="text-lg font-normal text-gray-200 group-hover:text-white transition-colors pr-8">
+                    <span className="text-lg font-normal text-neutral-200 group-hover:text-white transition-colors pr-8">
                       {faq.question}
                     </span>
                     <Plus
-                      className={`w-5 h-5 text-gray-400 transform transition-transform duration-300 ${openIndex === index ? 'rotate-45' : ''}`}
+                      className={`w-5 h-5 text-neutral-400 transform transition-transform duration-300 ${openIndex === index ? 'rotate-45' : ''}`}
                     />
                   </button>
                   <AnimatePresence>
@@ -80,7 +80,7 @@ export default function FAQ() {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <p className="text-gray-400 pt-1 pb-3 leading-relaxed whitespace-pre-line">
+                        <p className="text-neutral-400 pt-1 pb-3 leading-relaxed whitespace-pre-line">
                           {faq.answer}
                         </p>
                       </motion.div>
@@ -93,7 +93,7 @@ export default function FAQ() {
         </div>
 
         <div className="mt-20 text-center">
-          <p className="text-gray-500 text-[16px] font-sans">
+          <p className="text-neutral-500 text-[16px] font-sans">
             Have more questions? Reach out at <a href="mailto:yatzhao@brewpot.co" className="text-white font-medium hover:underline">yatzhao@brewpot.co</a> for a reply within 12 hours.
           </p>
         </div>

@@ -108,14 +108,14 @@ export default function Hero() {
         {/* Navigation Arrows for Thumbnail Row */}
         <button
           onClick={() => scroll('left')}
-          className="absolute left-8 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/90 hover:bg-white backdrop-blur-md rounded-full shadow-lg border border-gray-100 text-black transition-all hover:scale-110 hidden md:block"
+          className="absolute left-8 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/90 hover:bg-white backdrop-blur-md rounded-full shadow-lg border border-neutral-100 text-black transition-all hover:scale-110 hidden md:block"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
 
         <button
           onClick={() => scroll('right')}
-          className="absolute right-8 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/90 hover:bg-white backdrop-blur-md rounded-full shadow-lg border border-gray-100 text-black transition-all hover:scale-110 hidden md:block"
+          className="absolute right-8 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/90 hover:bg-white backdrop-blur-md rounded-full shadow-lg border border-neutral-100 text-black transition-all hover:scale-110 hidden md:block"
         >
           <ChevronRight className="w-6 h-6" />
         </button>
@@ -132,7 +132,7 @@ export default function Hero() {
             {SHOWCASE_IMAGES.map(({ src, alt }, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-[270px] md:w-[360px] h-[210px] md:h-[281.5px] rounded-[10px] overflow-hidden shadow-[0_4px_20px_-10px_rgba(0,0,0,0.1)] bg-white border border-gray-100 cursor-pointer snap-center group"
+                className="flex-shrink-0 w-[270px] md:w-[360px] h-[210px] md:h-[281.5px] rounded-[10px] overflow-hidden shadow-[0_4px_20px_-10px_rgba(0,0,0,0.1)] bg-white border border-neutral-100 cursor-pointer snap-center group"
                 onClick={() => setSelectedIndex(index)}
               >
                 <img

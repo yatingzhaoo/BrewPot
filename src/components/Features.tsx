@@ -58,7 +58,7 @@ export default function Features() {
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-12">
           <h2 className="font-heading font-normal text-[42px] md:text-[52px] text-[#202020] mb-2 tracking-tight leading-tight">What's Included?</h2>
-          <p className="text-[18px] text-gray-500 max-w-2xl mx-auto font-sans">We value all work that helps your product succeed.</p>
+          <p className="text-[18px] text-neutral-500 max-w-2xl mx-auto font-sans">We value all work that helps your product succeed.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-[28px] gap-y-[36px]">
@@ -70,8 +70,8 @@ export default function Features() {
                 </div>
               </div>
               <div className="pt-0.5">
-                <h3 className="text-[17px] font-medium text-gray-900 mb-1 tracking-tight font-sans">{feature.title}</h3>
-                <p className="text-gray-500 text-[15px] leading-snug font-sans">{feature.description}</p>
+                <h3 className="text-[17px] font-medium text-neutral-900 mb-1 tracking-tight font-sans">{feature.title}</h3>
+                <p className="text-neutral-500 text-[15px] leading-snug font-sans">{feature.description}</p>
               </div>
             </div>
           ))}
