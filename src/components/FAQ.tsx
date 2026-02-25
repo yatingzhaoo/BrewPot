@@ -24,8 +24,8 @@ const faqs = [
     answer: "Payments are primarily in USD. Upon confirming our collaboration, I will send a formal invoice via Mercury. You can complete payment through the invoice portal, and a payment receipt will be issued immediately after your payment is processed. Alternative currencies and methods can be discussed case-by-case."
   },
   {
-    question: "Can I reserve a future slot if you're currently full?",
-    answer: "Yes. You can secure a future start date by paying in advance."
+    question: "Can I reserve a slot if you are fully booked?",
+    answer: "Yes. You can book a consultation to discuss your needs, and we can schedule a future slot based on my availability."
   },
   {
     question: "Can you sign an NDA?",
