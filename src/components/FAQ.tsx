@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     question: "Is there a limit to what I can request?",
-    answer: "Unlimited design and product problem-solving requests. I’ll complete all that fits my fixed weekly time commitment—quantity doesn’t matter."
+    answer: "Requests for design and product problem-solving are unlimited. Complex tasks may take up to one week, while simpler ones are completed quickly, usually within 24–48 hours. I work on multiple tasks in parallel, so no task queue is needed."
   },
   {
     question: "What types of design are supported?",
