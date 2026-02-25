@@ -63,10 +63,10 @@ export default function FAQ() {
           <div className="md:col-span-8">
             <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <div key={index} className={`${index !== faqs.length - 1 ? 'border-b border-white/10' : ''} pb-2`}>
+                <div key={index} className="border-t border-white/10">
                   <button
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                    className="w-full flex justify-between items-start text-left py-3 group"
+                    className="w-full flex justify-between items-start text-left py-5 group"
                   >
                     <span className="text-lg font-normal text-neutral-200 group-hover:text-white transition-colors pr-8">
                       {faq.question}
@@ -84,7 +84,7 @@ export default function FAQ() {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <p className="text-neutral-400 pt-1 pb-3 leading-relaxed whitespace-pre-line">
+                        <p className="text-neutral-400 pb-6 leading-relaxed whitespace-pre-line">
                           {faq.answer}
                         </p>
                       </motion.div>
