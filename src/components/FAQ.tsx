@@ -24,10 +24,6 @@ const faqs = [
     answer: "You can pay directly through my website or via a custom payment link. I accept credit cards, debit cards, ACH transfers, Zelle, Alipay, USD, RMB, and cryptocurrency payments. A formal invoice is provided for every payment."
   },
   {
-    question: "How long do different design projects usually take?",
-    answer: "A mobile or web application typically takes three to eight weeks. A complete website usually takes two to eight weeks. Single pages or smaller features may take only a few days. I adapt to your timeline when possible and work efficiently to deliver high-quality results."
-  },
-  {
     question: "Can I reserve a future slot if you're currently full?",
     answer: "Yes. You can secure a future start date by paying in advance."
   },
@@ -40,20 +36,12 @@ const faqs = [
     answer: "Yes. I build with Framer and Webflow for no-code development. For more complex or custom engineering needs, I work with trusted development partners to support your project."
   },
   {
-    question: "Why should I choose BrewPot instead of working with a large design agency?",
-    answer: "Unlike large agencies, BrewPot gives you direct access to a single senior designer who works closely with you at all times. There are no intermediaries, no waiting periods, and no complicated processes. Your needs are understood and executed quickly, giving you an experience similar to having an in-house designer."
-  },
-  {
     question: "Where are you based?",
     answer: "I am based in Southern California and work remotely with clients around the world."
   },
   {
     question: "When do you work?",
     answer: "My schedule is highly flexible to support teams across different time zones. I respond promptly and set aside dedicated face-to-face time to help you with any questions you may have."
-  },
-  {
-    question: "What will I actually receive?",
-    answer: "You will receive complete design deliverables, including Figma files, wireframes, clickable prototypes, and UI component libraries or design systems if needed. Everything is tailored to your product requirements, and all source files are included."
   }
 ];
 
