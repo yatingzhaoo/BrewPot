@@ -14,7 +14,7 @@ export default function Logos() {
   const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9];
 
   return (
-    <section className="pt-8 pb-16 bg-white overflow-hidden">
+    <section className="py-32 bg-white overflow-hidden">
       <div className="max-w-[1400px] mx-auto text-center relative">
         <p className="text-[18px] leading-[36px] font-medium text-black mb-8 tracking-normal font-sans">19 teams have chosen BrewPot:</p>
 

@@ -56,7 +56,7 @@ export default function Hero() {
         `,
       }}
     >
-      <div className="flex-1 flex flex-col items-center justify-center pt-24 pb-12 px-4 sm:px-6 text-center max-w-7xl mx-auto w-full relative gap-[16px]">
+      <div className="flex-1 flex flex-col items-center justify-center pt-32 pb-20 px-4 sm:px-6 text-center max-w-7xl mx-auto w-full relative gap-[16px]">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
