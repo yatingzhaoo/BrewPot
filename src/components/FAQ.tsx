@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     question: "How do we communicate during the project? Will I talk directly with the designer?",
-    answer: "Yes. You will work directly with me, the only designer behind BrewPot. I communicate through whichever tools you prefer, including Slack, WeChat, and Lark. I also hold regular face-to-face discussions via Zoom, Google Meet, Tencent Meeting, or Lark to review progress and answer any questions."
+    answer: "You work one-on-one with me, Yating Zhao. We rely heavily on face-to-face communication in 2–3 design workshops weekly. In these sessions, you can ask any questions, and I will present my full range of research findings, recommended strategies, and complete design solutions. \n\nBetween meetings, I conduct detailed research and respond promptly to all your messages and questions."
   },
   {
     question: "Is there a limit to what I can request?",
