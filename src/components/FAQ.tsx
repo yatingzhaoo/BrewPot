@@ -40,8 +40,8 @@ const faqs = [
     answer: "I’m based in California, USA, and work with clients worldwide."
   },
   {
-    question: "When do you work?",
-    answer: "My schedule is highly flexible to support teams across different time zones. I respond promptly and set aside dedicated face-to-face time to help you with any questions you may have."
+    question: "When are your working hours?",
+    answer: "My schedule is flexible. I primarily work Monday through Friday, and I respond to messages at any time."
   },
   {
     question: "How do I pay?",
