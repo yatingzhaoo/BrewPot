@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     question: "When are your working hours?",
-    answer: "My schedule is flexible. I primarily work Monday through Friday, and I respond to messages at any time."
+    answer: "My schedule is flexible. I primarily work during daytime on Monday to Friday in Pacific Time, but I will respond to messages and accommodate urgent needs at any time."
   },
   {
     question: "How do I pay?",
