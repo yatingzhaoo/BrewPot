@@ -41,7 +41,7 @@ export default function Pricing() {
                 { bold: "3-Day", rest: " Free Trial" }
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-[14px] text-gray-900 font-sans">
-                  <Check className="w-[18px] h-[18px] text-gray-200 mt-[1px] flex-shrink-0" strokeWidth={1.5} />
+                  <Check className="w-[18px] h-[18px] text-black mt-[1px] flex-shrink-0" strokeWidth={1.5} />
                   <span>
                     <span className="font-semibold text-black">{item.bold}</span>{item.rest}
                   </span>
@@ -78,7 +78,7 @@ export default function Pricing() {
                 { bold: "1-Day", rest: " Free Trial" }
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-[14px] text-gray-900 font-sans">
-                  <Check className="w-[18px] h-[18px] text-gray-200 mt-[1px] flex-shrink-0" strokeWidth={1.5} />
+                  <Check className="w-[18px] h-[18px] text-black mt-[1px] flex-shrink-0" strokeWidth={1.5} />
                   <span>
                     <span className="font-semibold text-black">{item.bold}</span>{item.rest}
                   </span>
