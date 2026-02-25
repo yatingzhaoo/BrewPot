@@ -71,7 +71,7 @@ export default function Features() {
               </div>
               <div className="pt-0.5">
                 <h3 className="text-[17px] font-medium text-gray-900 mb-1 tracking-tight font-sans">{feature.title}</h3>
-                <p className="text-gray-500 text-[14px] leading-snug font-sans">{feature.description}</p>
+                <p className="text-gray-500 text-[15px] leading-snug font-sans">{feature.description}</p>
               </div>
             </div>
           ))}

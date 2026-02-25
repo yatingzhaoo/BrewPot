@@ -14,12 +14,12 @@ export default function Pricing() {
           <div className="bg-white rounded-[8px] p-6 border border-[#E5E5E8] flex flex-col relative">
             <div className="flex justify-between items-start mb-0.5">
               <h3 className="text-[17px] font-sans font-medium text-black tracking-tight">Standard</h3>
-              <div className="bg-[#F05537] text-white text-[12px] font-semibold px-2 py-[3px] rounded-full tracking-wide">
+              <div className="bg-[#F05537] text-white text-[13px] font-semibold px-2.5 py-[3px] rounded-full tracking-wide">
                 Most popular
               </div>
             </div>
 
-            <p className="text-gray-500 text-[14px] mb-4 font-sans">Ongoing design support</p>
+            <p className="text-gray-500 text-[16px] mb-4 font-sans">Ongoing design support</p>
 
             <div className="flex items-baseline mb-4">
               <span className="text-[56px] font-heading font-normal text-[#202020] tracking-tight leading-none">$2,799</span>
@@ -40,7 +40,7 @@ export default function Pricing() {
                 { bold: "Same-day", rest: " Replies" },
                 { bold: "3-Day", rest: " Free Trial" }
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-[14px] text-gray-900 font-sans">
+                <li key={i} className="flex items-center gap-3 text-[16px] text-gray-900 font-sans">
                   <Check className="w-[18px] h-[18px] text-black mt-[1px] flex-shrink-0" strokeWidth={1.5} />
                   <span>
                     <span className="font-semibold text-black">{item.bold}</span>{item.rest}
@@ -56,7 +56,7 @@ export default function Pricing() {
               <h3 className="text-[17px] font-sans font-medium text-black tracking-tight">Pro</h3>
             </div>
 
-            <p className="text-gray-500 text-[14px] mb-4 font-sans">Deep product partnership</p>
+            <p className="text-gray-500 text-[16px] mb-4 font-sans">Deep product partnership</p>
 
             <div className="flex items-baseline mb-4">
               <span className="text-[56px] font-heading font-normal text-[#202020] tracking-tight leading-none">$3,999</span>
@@ -77,7 +77,7 @@ export default function Pricing() {
                 { bold: "Instant", rest: " Replies" },
                 { bold: "1-Day", rest: " Free Trial" }
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-[14px] text-gray-900 font-sans">
+                <li key={i} className="flex items-center gap-3 text-[16px] text-gray-900 font-sans">
                   <Check className="w-[18px] h-[18px] text-black mt-[1px] flex-shrink-0" strokeWidth={1.5} />
                   <span>
                     <span className="font-semibold text-black">{item.bold}</span>{item.rest}
