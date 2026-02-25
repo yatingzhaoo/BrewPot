@@ -20,10 +20,6 @@ const faqs = [
     answer: "My core focus is delivering high-quality, user-friendly app interface designs and solving product UX problems, even for complex products and scenarios such as banking, web3, logistics, and healthcare.\n\nI also help refine and improve websites so your customers and users can clearly understand your product or service and appreciate its value.\n\nIn addition, I provide light brand design support, including logos, brand guidelines, and social media assets."
   },
   {
-    question: "How do I pay?",
-    answer: "Payments are primarily in USD. Upon confirming our collaboration, I will send a formal invoice via Mercury. You can complete payment through the invoice portal, and a payment receipt will be issued immediately after your payment is processed. Alternative currencies and methods can be discussed case-by-case."
-  },
-  {
     question: "Can I reserve a slot if you are fully booked?",
     answer: "Yes. You can book a consultation to discuss your needs, and we can schedule a future slot based on my availability."
   },
@@ -42,6 +38,10 @@ const faqs = [
   {
     question: "When do you work?",
     answer: "My schedule is highly flexible to support teams across different time zones. I respond promptly and set aside dedicated face-to-face time to help you with any questions you may have."
+  },
+  {
+    question: "How do I pay?",
+    answer: "Payments are primarily in USD. Upon confirming our collaboration, I will send a formal invoice via Mercury. You can complete payment through the invoice portal, and a payment receipt will be issued immediately after your payment is processed. Alternative currencies and methods can be discussed case-by-case."
   }
 ];
 
