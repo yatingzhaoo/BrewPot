@@ -61,7 +61,7 @@ export default function FAQ() {
           </div>
 
           <div className="md:col-span-8">
-            <div className="space-y-4">
+            <div className="border-b border-white/10">
               {faqs.map((faq, index) => (
                 <div key={index} className="border-t border-white/10">
                   <button
