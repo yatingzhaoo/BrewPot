@@ -24,8 +24,8 @@ const faqs = [
     answer: "My core focus is delivering high-quality, user-friendly app interface designs and solving product UX problems, even for complex products and scenarios such as banking, web3, logistics, and healthcare.\n\nI also help refine and improve websites so your customers and users can clearly understand your product or service and appreciate its value.\n\nIn addition, I provide light brand design support, including logos, brand guidelines, and social media assets."
   },
   {
-    question: "Can I reserve a slot if you are fully booked?",
-    answer: "Yes. You can book a consultation to discuss your needs, and we can schedule a future slot based on my availability."
+    question: "Can I book if you are currently fully booked?",
+    answer: "Yes. If I’m fully booked, you can reserve my next available slot and lock your preferred start date. Once secured, your spot is reserved exclusively for you and will not be offered to others."
   },
   {
     question: "Can you sign an NDA?",
