@@ -8,6 +8,10 @@ const faqs = [
     answer: "BrewPot is a design studio focused on all design work that helps your product succeed — from high-level design strategy that solves your product challenges, to day-to-day product design support including UI, UX, websites, and branding."
   },
   {
+    question: "How many people are on the BrewPot team?",
+    answer: "BrewPot is a one-person studio run entirely by me, Yating Zhao. You work directly with the sole designer, strategist, and executor throughout our entire collaboration."
+  },
+  {
     question: "How do we communicate during the project? Will I talk directly with the designer?",
     answer: "You work one-on-one with me, Yating Zhao. We rely heavily on face-to-face communication in 2–3 design workshops weekly. In these sessions, you can ask any questions, and I will present my full range of research findings, recommended strategies, and complete design solutions. \n\nBetween meetings, I conduct detailed research and respond promptly to all your messages and questions."
   },
