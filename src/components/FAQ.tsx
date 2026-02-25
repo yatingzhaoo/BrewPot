@@ -5,7 +5,7 @@ import { Plus } from 'lucide-react';
 const faqs = [
   {
     question: "What is BrewPot?",
-    answer: "BrewPot is a design studio focused on all design work that helps your product succeed — from high-level design strategy that solves your product challenges, to day-to-day product design support including UI, UX, websites, and branding."
+    answer: "BrewPot is a design studio focused on software products. It provides all design work that helps your software succeed, from high-level design strategy that solves product challenges to day-to-day product design support including UI, UX, websites, and branding."
   },
   {
     question: "How many people are on the BrewPot team?",
