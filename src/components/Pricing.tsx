@@ -21,12 +21,12 @@ export default function Pricing() {
 
             <p className="text-neutral-500 text-[16px] mb-4 font-sans">Ongoing design support</p>
 
-            <div className="flex items-baseline mb-4">
+            <div className="flex items-baseline mb-6">
               <span className="text-[56px] font-heading font-normal text-[#202020] tracking-tight leading-none">$2,799</span>
               <span className="text-[#202020] ml-2 font-sans font-medium text-[20px]">/mo</span>
             </div>
 
-            <button className="w-full bg-black text-white h-[58px] rounded-[7px] font-medium text-[17px] mb-3 hover:opacity-90 transition-opacity">
+            <button className="w-full bg-black text-white h-[58px] rounded-[7px] font-medium text-[17px] mt-2 mb-3 hover:opacity-90 transition-opacity">
               Secure your next slot
             </button>
             <p className="text-center text-[16px] mb-6 font-sans">
@@ -58,12 +58,12 @@ export default function Pricing() {
 
             <p className="text-neutral-500 text-[16px] mb-4 font-sans">Deep product partnership</p>
 
-            <div className="flex items-baseline mb-4">
+            <div className="flex items-baseline mb-6">
               <span className="text-[56px] font-heading font-normal text-[#202020] tracking-tight leading-none">$3,999</span>
               <span className="text-[#202020] ml-2 font-sans font-medium text-[20px]">/mo</span>
             </div>
 
-            <button className="w-full bg-black text-white h-[58px] rounded-[7px] font-medium text-[17px] mb-3 hover:opacity-90 transition-opacity">
+            <button className="w-full bg-black text-white h-[58px] rounded-[7px] font-medium text-[17px] mt-2 mb-3 hover:opacity-90 transition-opacity">
               Secure your next slot
             </button>
             <p className="text-center text-[16px] mb-6 font-sans">
