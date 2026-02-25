@@ -5,7 +5,7 @@ import { Plus } from 'lucide-react';
 const faqs = [
   {
     question: "What is BrewPot?",
-    answer: "BrewPot is a one-person design studio founded in 2024 by me, Yating Zhao. My mission is to make it easy for every team to access professional UI/UX design support in a highly flexible and seamless way."
+    answer: "BrewPot is a design studio focused on all design work that helps your product succeed — from high-level design strategy that solves your product challenges, to day-to-day product design support including UI, UX, websites, and branding."
   },
   {
     question: "How do we communicate during the project? Will I talk directly with the designer?",
