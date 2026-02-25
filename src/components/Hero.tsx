@@ -132,7 +132,7 @@ export default function Hero() {
             {SHOWCASE_IMAGES.map(({ src, alt }, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-[310px] md:w-[360px] h-[240px] md:h-[281.5px] rounded-[10px] overflow-hidden shadow-[0_4px_20px_-10px_rgba(0,0,0,0.1)] bg-white border border-gray-100 cursor-pointer snap-center group"
+                className="flex-shrink-0 w-[270px] md:w-[360px] h-[210px] md:h-[281.5px] rounded-[10px] overflow-hidden shadow-[0_4px_20px_-10px_rgba(0,0,0,0.1)] bg-white border border-gray-100 cursor-pointer snap-center group"
                 onClick={() => setSelectedIndex(index)}
               >
                 <img
