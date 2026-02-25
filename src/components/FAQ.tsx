@@ -105,7 +105,7 @@ export default function FAQ() {
         </div>
 
         <div className="mt-20 text-center">
-          <p className="text-gray-400 text-[16px] font-sans">
+          <p className="text-gray-500 text-[16px] font-sans">
             Have more questions? Reach out at <a href="mailto:yatzhao@brewpot.co" className="text-white font-medium hover:underline">yatzhao@brewpot.co</a> for a reply within 12 hours.
           </p>
         </div>

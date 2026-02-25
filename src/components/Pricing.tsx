@@ -14,7 +14,7 @@ export default function Pricing() {
           <div className="bg-white rounded-[8px] p-6 border border-[#E5E5E8] flex flex-col relative">
             <div className="flex justify-between items-start mb-0.5">
               <h3 className="text-[17px] font-sans font-medium text-black tracking-tight">Standard</h3>
-              <div className="bg-[#F05537] text-white text-[12px] font-medium px-2 py-[3px] rounded-full tracking-wide">
+              <div className="bg-[#F05537] text-white text-[12px] font-semibold px-2 py-[3px] rounded-full tracking-wide">
                 Most popular
               </div>
             </div>

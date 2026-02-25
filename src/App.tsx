@@ -14,8 +14,8 @@ export default function App() {
       <main>
         <Hero />
         <Logos />
-        <Features />
         <Pricing />
+        <Features />
         <FAQ />
         <Booking />
       </main>
