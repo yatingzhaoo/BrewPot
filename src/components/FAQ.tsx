@@ -61,9 +61,9 @@ export default function FAQ() {
           </div>
 
           <div className="md:col-span-8">
-            <div className="border-b border-white/10">
+            <div>
               {faqs.map((faq, index) => (
-                <div key={index} className="border-t border-white/10">
+                <div key={index} className={index !== 0 ? "border-t border-white/10" : ""}>
                   <button
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                     className="w-full flex justify-between items-start text-left py-5 group"
