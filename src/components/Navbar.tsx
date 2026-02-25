@@ -26,7 +26,12 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center space-x-10">
             <a href="#pricing" className="text-[15px] font-medium text-black hover:opacity-70 transition-opacity font-sans">Pricing</a>
-            <a href="#contact" className="bg-black text-white px-5 h-[46px] flex items-center justify-center rounded-[7px] text-[16px] font-medium hover:opacity-90 transition-opacity font-sans gap-2">
+            <a
+              href="https://cal.com/yating-zhao/15min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-black text-white px-5 h-[46px] flex items-center justify-center rounded-[7px] text-[16px] font-medium hover:opacity-90 transition-opacity font-sans gap-2"
+            >
               Let's talk <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
             </a>
           </div>
@@ -43,7 +48,13 @@ export default function Navbar() {
         <div className="md:hidden bg-white border-b border-neutral-100 p-6 absolute top-full left-0 right-0 shadow-lg">
           <div className="flex flex-col space-y-5">
             <a href="#pricing" className="text-base font-medium text-neutral-600" onClick={() => setIsOpen(false)}>Pricing</a>
-            <a href="#contact" className="text-base font-medium text-black flex items-center gap-2" onClick={() => setIsOpen(false)}>
+            <a
+              href="https://cal.com/yating-zhao/15min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-base font-medium text-black flex items-center gap-2"
+              onClick={() => setIsOpen(false)}
+            >
               Let's talk <ArrowRight className="w-4 h-4" />
             </a>
           </div>

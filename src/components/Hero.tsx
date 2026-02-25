@@ -98,9 +98,14 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-4"
         >
-          <button className="bg-black text-white px-8 h-[58px] rounded-[7px] font-medium text-[17px] hover:opacity-90 transition-opacity">
+          <a
+            href="https://cal.com/yating-zhao/15min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-black text-white px-8 h-[58px] rounded-[7px] font-medium text-[17px] hover:opacity-90 transition-opacity flex items-center justify-center inline-flex"
+          >
             Book a 15-min call
-          </button>
+          </a>
         </motion.div>
       </div>
 
