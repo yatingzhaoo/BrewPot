@@ -2,23 +2,38 @@ import {
   Rocket,
   Sparkles,
   Target,
-  Component,
-  Minimize2,
-  LayoutDashboard,
   Zap,
-  TrendingUp
+  TrendingUp,
+  GitBranch,
+  Building2,
+  Stethoscope
 } from 'lucide-react';
 
 const features = [
   {
     icon: Rocket,
-    title: "Optimize Onboarding Flow",
-    description: "Make starting feel easy."
+    title: "Onboarding Optimization",
+    description: "Make new users understand your product quickly."
   },
   {
-    icon: Sparkles,
-    title: "Enhance Look and Feel",
-    description: "Make your UI more refined and harmonious."
+    icon: GitBranch,
+    title: "User Flow Redesign",
+    description: "Fix broken or confusing user journeys."
+  },
+  {
+    icon: Building2,
+    title: "B2B SaaS UX",
+    description: "Simplify complex enterprise tools."
+  },
+  {
+    icon: Stethoscope,
+    title: "UX Problem Troubleshooting",
+    description: "Fix urgent usability issues."
+  },
+  {
+    icon: TrendingUp,
+    title: "Growth Focused Design",
+    description: "Improve key metrics with better UX."
   },
   {
     icon: Target,
@@ -26,29 +41,14 @@ const features = [
     description: "Turn one-timers into daily users."
   },
   {
-    icon: Component,
-    title: "Unify Visual Consistency",
-    description: "Make everything look like it belongs together."
-  },
-  {
-    icon: Minimize2,
-    title: "Simplify Complex Features",
-    description: "Keep power but make it feel simple."
-  },
-  {
-    icon: LayoutDashboard,
-    title: "Dashboards Design",
-    description: "Turn data mess into clear insights fast."
-  },
-  {
     icon: Zap,
-    title: "Deliver Core Value Fast",
-    description: "Make the product's power obvious."
-  },
-  {
-    icon: TrendingUp,
     title: "Boost Paid Conversion",
     description: "Get more free users to upgrade."
+  },
+  {
+    icon: Sparkles,
+    title: "Enhance Look and Feel",
+    description: "Make your UI more refined and harmonious."
   }
 ];
 
