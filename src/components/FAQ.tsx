@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     question: "How many people are on the BrewPot team?",
-    answer: "BrewPot is a one-person studio run entirely by me, Yating Zhao. You work directly with the sole designer, strategist, and executor throughout our entire collaboration."
+    answer: "BrewPot is a one-person studio run entirely by me, Yating Zhao. I am an experienced product and UX/UI designer with a proven track record of shipping 30+ software products across many industries and platforms."
   },
   {
     question: "How do we communicate during the project? Will I talk directly with the designer?",
