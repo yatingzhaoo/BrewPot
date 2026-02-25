@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     question: "How many people are on the BrewPot team?",
-    answer: "BrewPot is a one-person studio run entirely by me, Yating Zhao. I am an experienced product and UX/UI designer with a proven track record of shipping 30+ software products across many industries and platforms."
+    answer: "BrewPot is a one‑person studio run solely by me, Yating Zhao. I have provided design work for 30+ software products across many industries, including Web3, logistics, payments, banking, healthcare, B2C, B2B, and internal tools. My work covers web, iOS, Android, and browser extensions."
   },
   {
     question: "How do we communicate during the project? Will I talk directly with the designer?",
