@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: "How do I pay?",
-    answer: "You can pay directly through my website or via a custom payment link. I accept credit cards, debit cards, ACH transfers, Zelle, Alipay, USD, RMB, and cryptocurrency payments. A formal invoice is provided for every payment."
+    answer: "Payments are primarily in USD. Upon confirming our collaboration, I will send a formal invoice via Mercury. You can complete payment through the invoice portal, and a payment receipt will be issued immediately after your payment is processed. Alternative currencies and methods can be discussed case-by-case."
   },
   {
     question: "Can I reserve a future slot if you're currently full?",
