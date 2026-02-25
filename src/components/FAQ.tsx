@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     question: "How do we communicate during the project? Will I talk directly with the designer?",
-    answer: "You will work one-on-one with me, Yating Zhao.\n\nWe will have 2–3 face-to-face design workshops each week. During these workshops, I will present complete design solutions, along with supporting research and the strategies behind the design, in response to your requests.\n\nOutside of workshops, I will communicate with you asynchronously and respond to all your messages and questions."
+    answer: "You will work one-on-one with me, Yating Zhao.\n\nWe will have 2–3 face-to-face design workshops each week. During these workshops, I will present complete design solutions, along with supporting research and the strategies behind the design, in response to your previous requests.\n\nOutside of workshops, I will communicate with you asynchronously and respond to all your messages and questions."
   },
   {
     question: "Is there a limit to what I can request?",
