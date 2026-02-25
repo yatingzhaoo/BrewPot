@@ -53,15 +53,15 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-32 bg-[#0A0A0A] text-white">
+    <section className="py-48 bg-[#0A0A0A] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-12 gap-12">
-          <div className="md:col-span-4">
+        <div className="grid md:grid-cols-12 gap-12 lg:gap-24">
+          <div className="md:col-span-5">
             <h2 className="font-heading font-normal text-[42px] md:text-[52px] text-white mb-2 tracking-tight leading-tight">Frequently Asked<br />Questions</h2>
           </div>
 
-          <div className="md:col-span-8">
-            <div>
+          <div className="md:col-span-7">
+            <div className="max-w-[680px]">
               {faqs.map((faq, index) => (
                 <div key={index} className={index !== 0 ? "border-t border-white/10" : ""}>
                   <button

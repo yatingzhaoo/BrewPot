@@ -2,7 +2,7 @@ import { Check } from 'lucide-react';
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-32 bg-[#fafafa]">
+    <section id="pricing" className="py-48 bg-[#fafafa]">
       <div className="max-w-[960px] mx-auto px-6 lg:px-0 flex flex-col gap-8">
         <div className="text-center">
           <h2 className="font-heading font-normal text-[42px] md:text-[52px] text-[#202020] mb-2 tracking-tight leading-tight">Truly Unlimited Design Requests</h2>
