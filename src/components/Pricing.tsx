@@ -13,10 +13,7 @@ export default function Pricing() {
           {/* Standard Plan */}
           <div className="bg-white rounded-[8px] p-6 border border-[#E5E5E8] flex flex-col relative">
             <div className="flex justify-between items-start mb-0.5">
-              <h3 className="text-[17px] font-sans font-medium text-black tracking-tight">Standard</h3>
-              <div className="bg-[#F05537] text-white text-[13px] font-semibold px-2.5 py-[3px] rounded-full tracking-wide">
-                Most popular
-              </div>
+              <h3 className="text-[20px] font-sans font-semibold text-black tracking-tight">Standard</h3>
             </div>
 
             <p className="text-neutral-500 text-[16px] mb-4 font-sans">Ongoing design support</p>
@@ -34,7 +31,7 @@ export default function Pricing() {
             >
               Secure your next slot
             </a>
-            <p className="text-center text-[16px] mb-6 font-sans">
+            <p className="text-center text-[16px] mb-8 font-sans">
               <span className="font-semibold text-black">11 bought</span> <span className="text-neutral-400 font-medium">in past year</span>
             </p>
 
@@ -58,7 +55,7 @@ export default function Pricing() {
           {/* Pro Plan */}
           <div className="bg-white rounded-[8px] p-6 border border-[#E5E5E8] flex flex-col relative">
             <div className="flex justify-between items-start mb-0.5">
-              <h3 className="text-[17px] font-sans font-medium text-black tracking-tight">Pro</h3>
+              <h3 className="text-[20px] font-sans font-semibold text-black tracking-tight">Pro</h3>
             </div>
 
             <p className="text-neutral-500 text-[16px] mb-4 font-sans">Deep product partnership</p>
@@ -76,7 +73,7 @@ export default function Pricing() {
             >
               Secure your next slot
             </a>
-            <p className="text-center text-[16px] mb-6 font-sans">
+            <p className="text-center text-[16px] mb-8 font-sans">
               <span className="font-semibold text-black">9 bought</span> <span className="text-neutral-400 font-medium">in past year</span>
             </p>
 
