@@ -131,7 +131,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex gap-[10px] w-full overflow-x-auto overflow-y-visible pb-10 pt-4 px-4 snap-x snap-mandatory hide-scrollbar relative z-0"
+            className="flex gap-[10px] w-full overflow-x-auto overflow-y-hidden pb-10 pt-4 px-4 snap-x snap-mandatory hide-scrollbar relative z-0"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {SHOWCASE_IMAGES.map(({ src, alt }, index) => (

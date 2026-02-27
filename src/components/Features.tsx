@@ -17,8 +17,8 @@ const features = [
   },
   {
     icon: GitBranch,
-    title: "User Flow Redesign",
-    description: "Fix broken or confusing user journeys."
+    title: "Define Innovative User Flow",
+    description: "Explore and define innovative interaction processes in the AI era."
   },
   {
     icon: Building2,
