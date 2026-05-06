@@ -64,7 +64,7 @@ export default function Hero() {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: 'radial-gradient(circle at 50% 42%, rgba(255, 149, 0, 0.2) 0%, rgba(255, 149, 0, 0) 35%)',
+          backgroundImage: 'radial-gradient(circle at 50% 42%, rgba(255, 149, 0, 0.15) 0%, rgba(255, 149, 0, 0) 35%)',
           animation: 'glow-float 10s ease-in-out infinite',
           pointerEvents: 'none',
         }}
