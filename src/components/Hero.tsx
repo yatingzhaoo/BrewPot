@@ -61,6 +61,14 @@ export default function Hero() {
         background: '#faf9f8',
       }}
     >
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: 'radial-gradient(circle at 50% 42%, rgba(255, 149, 0, 0.2) 0%, rgba(255, 149, 0, 0) 35%)',
+          animation: 'glow-float 10s ease-in-out infinite',
+          pointerEvents: 'none',
+        }}
+      />
       <div className="flex-1 flex flex-col items-center justify-center pt-32 pb-24 px-4 sm:px-6 text-center max-w-[1100px] mx-auto w-full relative gap-[16px]">
         {/* Badge */}
         <motion.div

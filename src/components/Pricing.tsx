@@ -3,7 +3,14 @@ import { Check } from 'lucide-react';
 export default function Pricing() {
   return (
     <section id="pricing" className="relative py-24 bg-transparent">
-      <div className="max-w-[1100px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col gap-8">
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: 'radial-gradient(circle at 50% 42%, rgba(255, 149, 0, 0.2) 0%, rgba(255, 149, 0, 0) 35%)',
+          pointerEvents: 'none',
+        }}
+      />
+      <div className="max-w-[1100px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col gap-8 relative z-10">
         <div className="text-center mb-6">
           <h2 className="font-heading font-medium text-[42px] md:text-[52px] text-[#202020] tracking-tight leading-tight">Pricing</h2>
         </div>

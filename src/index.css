@@ -8,6 +8,18 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
+@keyframes glow-float {
+  0% {
+    transform: translate(-100px, 60px);
+  }
+  50% {
+    transform: translate(100px, -60px);
+  }
+  100% {
+    transform: translate(-100px, 60px);
+  }
+}
+
 html {
   scroll-behavior: smooth;
   background-color: #faf9f8;
