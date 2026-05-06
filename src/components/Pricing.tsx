@@ -4,7 +4,7 @@ export default function Pricing() {
   return (
     <section id="pricing" className="py-24 bg-transparent">
       <div className="max-w-[1100px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col gap-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           <h2 className="font-heading font-medium text-[42px] md:text-[52px] text-[#202020] tracking-tight leading-tight">Pricing</h2>
         </div>
 
@@ -28,7 +28,7 @@ export default function Pricing() {
               rel="noopener noreferrer"
               className="w-full bg-black text-white h-[58px] rounded-[7px] font-medium text-[17px] mt-2 mb-3 hover:opacity-90 transition-opacity flex items-center justify-center"
             >
-              Secure your next slot
+              Subscribe
             </a>
             <p className="text-center text-[16px] mb-8 font-sans">
               <span className="font-semibold text-black">11 bought</span> <span className="text-neutral-400 font-medium">in past year</span>
@@ -70,7 +70,7 @@ export default function Pricing() {
               rel="noopener noreferrer"
               className="w-full bg-black text-white h-[58px] rounded-[7px] font-medium text-[17px] mt-2 mb-3 hover:opacity-90 transition-opacity flex items-center justify-center"
             >
-              Secure your next slot
+              Subscribe
             </a>
             <p className="text-center text-[16px] mb-8 font-sans">
               <span className="font-semibold text-black">9 bought</span> <span className="text-neutral-400 font-medium">in past year</span>
