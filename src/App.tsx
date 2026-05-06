@@ -25,7 +25,7 @@ export default function App() {
       <div
         className="absolute bottom-0 left-0 right-0 h-[500px] pointer-events-none"
         style={{
-          backgroundImage: 'radial-gradient(circle at 50% 100%, rgba(255, 149, 0, 0.2) 0%, rgba(255, 149, 0, 0) 40%)',
+          backgroundImage: 'radial-gradient(circle at 50% 100%, rgba(255, 149, 0, 0.12) 0%, rgba(255, 149, 0, 0) 40%)',
           zIndex: 10,
         }}
       />

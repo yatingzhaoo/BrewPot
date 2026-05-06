@@ -6,7 +6,7 @@ export default function Pricing() {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: 'radial-gradient(circle at 50% 42%, rgba(255, 149, 0, 0.2) 0%, rgba(255, 149, 0, 0) 35%)',
+          backgroundImage: 'radial-gradient(circle at 50% 42%, rgba(255, 149, 0, 0.12) 0%, rgba(255, 149, 0, 0) 35%)',
           pointerEvents: 'none',
         }}
       />
