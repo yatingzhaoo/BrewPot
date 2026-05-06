@@ -11,34 +11,22 @@ import logo9 from '../asset/客户logo/imgi_9_W6yiYTdcW0BT9FE0qobXvGVTCY.png';
 import { motion } from 'motion/react';
 
 export default function Logos() {
-  const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9];
+  const logos = [logo1, logo2, logo3, logo6, logo5, logo4, logo7, logo8, logo9];
 
   return (
-    <section className="pt-0 pb-16 bg-transparent overflow-hidden">
+    <section className="pt-12 pb-16 bg-transparent overflow-hidden">
       <div className="w-full relative px-6 md:px-12 lg:px-24">
         <p className="text-center text-[18px] text-neutral-500 font-sans mb-8">
-          Trusted by 19 teams
+          Trusted by:
         </p>
 
-        <div className="relative flex w-full overflow-hidden mask-image-linear-gradients">
-
-          <motion.div
-            className="flex flex-nowrap items-center gap-x-12 md:gap-x-16 pr-12 md:pr-16 grayscale opacity-100 contrast-[1.2] hover:opacity-80 transition-opacity duration-700 w-max"
-            animate={{ x: ["0%", "-33.33%"] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 35,
-                ease: "linear",
-              },
-            }}
-          >
-            {[...logos, ...logos, ...logos].map((logo, index) => {
+        <div className="relative flex w-full">
+          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-10 md:gap-x-16 max-w-4xl mx-auto grayscale opacity-100 contrast-[1.2] hover:opacity-80 transition-opacity duration-700">
+            {logos.map((logo, index) => {
               const isCooragent = (index % logos.length) === 0; // logo1
-              const isAlphaPilot = (index % logos.length) === 3; // logo4
+              const isAlphaPilot = (index % logos.length) === 5; // logo4
               const isHiTA = (index % logos.length) === 4; // logo5
-              const isNotta = (index % logos.length) === 5; // logo6
+              const isNotta = (index % logos.length) === 3; // logo6
               
               let heightClass = 'h-[22px]';
               if (isCooragent) heightClass = 'h-[33px]';
@@ -52,8 +40,7 @@ export default function Logos() {
                 </div>
               );
             })}
-          </motion.div>
-
+          </div>
         </div>
       </div>
     </section>

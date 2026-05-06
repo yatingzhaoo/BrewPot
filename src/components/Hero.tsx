@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useAnimationControls } from 'motion/react';
 import React, { useState, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import work1 from '../asset/work-1.png';
@@ -17,17 +17,27 @@ const SHOWCASE_IMAGES = [
 
 export default function Hero() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isHovering, setIsHovering] = useState(false);
+  const controls = useAnimationControls();
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const scrollAmount = 400;
-      const targetScroll = scrollRef.current.scrollLeft + (direction === 'left' ? -scrollAmount : scrollAmount);
-      scrollRef.current.scrollTo({
-        left: targetScroll,
-        behavior: 'smooth'
-      });
-    }
+  const handleGalleryHover = () => {
+    setIsHovering(true);
+    controls.stop();
+  };
+
+  const handleGalleryLeave = async () => {
+    setIsHovering(false);
+    await controls.start({
+      x: ["0%", "-50%"],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 40,
+          ease: "linear",
+        },
+      },
+    });
   };
 
   const handleNext = (e: React.MouseEvent) => {
@@ -48,15 +58,10 @@ export default function Hero() {
     <section
       className="relative min-h-screen flex flex-col overflow-hidden"
       style={{
-        background: `
-          radial-gradient(circle at 10% 20%, rgba(134, 239, 172, 0.15), transparent 40%),
-          radial-gradient(circle at 90% 10%, rgba(253, 186, 116, 0.15), transparent 40%),
-          radial-gradient(circle at 50% 50%, rgba(196, 181, 253, 0.1), transparent 50%),
-          #ffffff
-        `,
+        background: '#faf9f8',
       }}
     >
-      <div className="flex-1 flex flex-col items-center justify-center pt-32 pb-24 px-4 sm:px-6 text-center max-w-7xl mx-auto w-full relative gap-[16px]">
+      <div className="flex-1 flex flex-col items-center justify-center pt-24 pb-24 px-4 sm:px-6 text-center max-w-[1100px] mx-auto w-full relative gap-[16px]">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -85,10 +90,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-[18px] text-black font-sans font-medium max-w-[640px] mx-auto leading-[32px] tracking-normal"
+          className="text-[20px] text-black font-sans font-medium max-w-[720px] mx-auto leading-[32px] tracking-normal"
         >
-          Get an experienced product designer instantly, with unlimited design
-          support for a fixed monthly price. No hiring, no waiting.
+          Get ongoing product design support for a fixed price. No hiring, no waiting.
         </motion.p>
 
         {/* CTA */}
@@ -109,44 +113,50 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="relative w-full max-w-[1400px] mx-auto px-6 mb-12 group/gallery">
-        {/* Navigation Arrows for Thumbnail Row */}
-        <button
-          onClick={() => scroll('left')}
-          className="absolute left-8 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/90 hover:bg-white backdrop-blur-md rounded-full shadow-lg border border-neutral-100 text-black transition-all hover:scale-110 hidden md:block"
+      <div className="relative w-full max-w-[1100px] mx-auto px-6 mb-12 group/gallery" onMouseEnter={handleGalleryHover} onMouseLeave={handleGalleryLeave}>
+        <div
+          className="relative overflow-visible px-4"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+          }}
         >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-
-        <button
-          onClick={() => scroll('right')}
-          className="absolute right-8 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/90 hover:bg-white backdrop-blur-md rounded-full shadow-lg border border-neutral-100 text-black transition-all hover:scale-110 hidden md:block"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
-
-        <div className="relative overflow-visible">
           <motion.div
-            ref={scrollRef}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex gap-[10px] w-full overflow-x-auto overflow-y-hidden pb-10 pt-4 px-4 snap-x snap-mandatory hide-scrollbar relative z-0"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            className="pb-10 pt-4 overflow-hidden relative z-0"
           >
-            {SHOWCASE_IMAGES.map(({ src, alt }, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-[270px] md:w-[360px] h-[210px] md:h-[281.5px] rounded-[10px] overflow-hidden shadow-[0_4px_20px_-10px_rgba(0,0,0,0.1)] bg-white border border-neutral-100 cursor-pointer snap-center group"
-                onClick={() => setSelectedIndex(index)}
-              >
-                <img
-                  src={src}
-                  alt={alt}
-                  className="w-full h-full object-cover object-top transition-transform duration-1000 ease-out"
-                />
-              </div>
-            ))}
+            <motion.div
+              className="flex gap-[10px] w-max pr-[10px]"
+              animate={controls}
+              initial={{ x: "0%" }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 40,
+                  ease: "linear",
+                },
+              }}
+            >
+              {[...SHOWCASE_IMAGES, ...SHOWCASE_IMAGES].map(({ src, alt }, index) => {
+                const actualIndex = index % SHOWCASE_IMAGES.length;
+                return (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 w-[270px] md:w-[360px] h-[210px] md:h-[281.5px] rounded-[10px] overflow-hidden bg-white border border-neutral-100 cursor-pointer group transition-transform duration-300"
+                    onClick={() => setSelectedIndex(actualIndex)}
+                  >
+                    <img
+                      src={src}
+                      alt={alt}
+                      className="w-full h-full object-cover object-top transition-transform duration-1000 ease-out"
+                    />
+                  </div>
+                );
+              })}
+            </motion.div>
           </motion.div>
         </div>
       </div>

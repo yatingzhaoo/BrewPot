@@ -10,10 +10,12 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #faf9f8;
 }
 
 body {
   @apply antialiased text-[#202020];
+  background-color: #faf9f8;
 }
 
 @layer utilities {

@@ -2,16 +2,15 @@ import { Check } from 'lucide-react';
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 bg-[#fafafa]">
-      <div className="max-w-[960px] mx-auto px-6 lg:px-0 flex flex-col gap-8">
-        <div className="text-center">
-          <h2 className="font-heading font-normal text-[42px] md:text-[52px] text-[#202020] mb-2 tracking-tight leading-tight">Truly Unlimited Design Requests</h2>
-          <p className="text-[18px] text-neutral-500 max-w-2xl mx-auto font-sans">Accept truly unlimited design requests and efficiently deliver multiple tasks with speed.</p>
+    <section id="pricing" className="py-24 bg-transparent">
+      <div className="max-w-[1100px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col gap-8">
+        <div className="text-center mb-12">
+          <h2 className="font-heading font-medium text-[42px] md:text-[52px] text-[#202020] tracking-tight leading-tight">Pricing</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-6">
           {/* Standard Plan */}
-          <div className="bg-white rounded-[8px] p-6 border border-[#E5E5E8] flex flex-col relative">
+          <div className="bg-white rounded-[8px] px-6 py-8 border border-[#E5E5E8] flex flex-col relative">
             <div className="flex justify-between items-start mb-0.5">
               <h3 className="text-[20px] font-sans font-semibold text-black tracking-tight">Standard</h3>
             </div>
@@ -53,7 +52,7 @@ export default function Pricing() {
           </div>
 
           {/* Pro Plan */}
-          <div className="bg-white rounded-[8px] p-6 border border-[#E5E5E8] flex flex-col relative">
+          <div className="bg-white rounded-[8px] px-6 py-8 border border-[#E5E5E8] flex flex-col relative">
             <div className="flex justify-between items-start mb-0.5">
               <h3 className="text-[20px] font-sans font-semibold text-black tracking-tight">Pro</h3>
             </div>

@@ -1,78 +1,47 @@
-import {
-  Rocket,
-  Sparkles,
-  Target,
-  Zap,
-  TrendingUp,
-  GitBranch,
-  Building2,
-  Stethoscope
-} from 'lucide-react';
-
 const features = [
   {
-    icon: Rocket,
     title: "Onboarding Optimization",
-    description: "Make new users understand your product quickly."
+    description: "Streamlining the first-experience to drive higher user adoption."
   },
   {
-    icon: GitBranch,
-    title: "Define Innovative User Flow",
-    description: "Explore and define innovative interaction processes in the AI era."
+    title: "Multi-User Role UI",
+    description: "Architecting complex permission interfaces for enterprise systems."
   },
   {
-    icon: Building2,
-    title: "B2B SaaS UX",
-    description: "Simplify complex enterprise tools."
+    title: "B2B Workflow Design",
+    description: "Taming complex B2B logic into high-efficiency product workflows."
   },
   {
-    icon: Stethoscope,
-    title: "UX Problem Troubleshooting",
-    description: "Fix urgent usability issues."
+    title: "App Localization",
+    description: "Adhering to North American behavioral patterns for local impact."
   },
   {
-    icon: TrendingUp,
-    title: "Growth Focused Design",
-    description: "Improve key metrics with better UX."
+    title: "Find User Insights",
+    description: "Deep-diving into user behavior to find true product-market fit."
   },
   {
-    icon: Target,
-    title: "Improve Retention Rates",
-    description: "Turn one-timers into daily users."
-  },
-  {
-    icon: Zap,
-    title: "Boost Paid Conversion",
-    description: "Get more free users to upgrade."
-  },
-  {
-    icon: Sparkles,
-    title: "Enhance Look and Feel",
-    description: "Make your UI more refined and harmonious."
+    title: "Agentic UX Design",
+    description: "The future of UI—creating interfaces that anticipate user needs."
   }
 ];
 
 export default function Features() {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="py-24 bg-transparent">
+      <div className="max-w-[1100px] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-12">
-          <h2 className="font-heading font-normal text-[42px] md:text-[52px] text-[#202020] mb-2 tracking-tight leading-tight">What's Included?</h2>
+          <h2 className="font-heading font-medium text-[42px] md:text-[52px] text-[#202020] mb-2 tracking-tight leading-tight">What's Included?</h2>
           <p className="text-[18px] text-neutral-500 max-w-2xl mx-auto font-sans">We value all work that helps your product succeed.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-[28px] gap-y-[36px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[28px] gap-y-[36px]">
           {features.map((feature, index) => (
-            <div key={index} className="flex gap-4 group">
-              <div className="flex-shrink-0">
-                <div className="w-11 h-11 rounded-[8px] bg-neutral-100 flex items-center justify-center">
-                  <feature.icon className="w-5 h-5 text-[#202020]" strokeWidth={2} />
-                </div>
+            <div key={index} className="flex flex-col gap-2 group">
+              <div className="flex gap-2 items-center">
+                <div className="w-2 h-2 bg-black rounded-sm flex-shrink-0" />
+                <h3 className="text-[20px] font-semibold text-neutral-900 tracking-tight font-sans">{feature.title}</h3>
               </div>
-              <div className="pt-0.5">
-                <h3 className="text-[17px] font-medium text-neutral-900 mb-1 tracking-tight font-sans">{feature.title}</h3>
-                <p className="text-neutral-500 text-[15px] leading-snug font-sans">{feature.description}</p>
-              </div>
+              <p className="text-neutral-500 text-[16px] leading-snug font-sans">{feature.description}</p>
             </div>
           ))}
         </div>

@@ -15,13 +15,12 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/70 backdrop-blur-md' : 'bg-transparent'
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#faf9f8]/80 backdrop-blur-md' : 'bg-transparent'
       }`}>
-      <div className="max-w-7xl mx-auto px-6 md:px-[40px]">
+      <div className="max-w-[1100px] mx-auto px-6 md:px-[40px]">
         <div className="flex justify-between items-center h-[64px]">
-          <div className="flex items-center gap-2">
-            <img src={logo} alt="BrewPot Logo" className="w-[21px] h-[27px]" />
-            <span className="font-logo font-medium text-[24px] tracking-[-1.4px] leading-[1.2] text-black">BrewPot</span>
+          <div className="flex items-center">
+            <img src={logo} alt="BrewPot Logo" className="h-[32px] w-auto" />
           </div>
 
           <div className="hidden md:flex items-center space-x-10">
