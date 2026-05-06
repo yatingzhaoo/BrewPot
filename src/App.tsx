@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="bg-[#faf9f8] font-sans text-gray-900 selection:bg-orange-100 selection:text-orange-900">
+    <div className="relative bg-[#faf9f8] font-sans text-gray-900 selection:bg-orange-100 selection:text-orange-900">
       <Navbar />
       <main>
         <Hero />
@@ -20,6 +20,15 @@ export default function App() {
         <Booking />
       </main>
       <Footer />
+
+      {/* Bottom page decoration */}
+      <div
+        className="fixed bottom-0 left-0 right-0 h-[500px] pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle at 50% 100%, rgba(255, 149, 0, 0.2) 0%, rgba(255, 149, 0, 0) 40%)',
+          zIndex: -1,
+        }}
+      />
     </div>
   );
 }

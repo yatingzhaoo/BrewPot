@@ -1,7 +1,7 @@
 
 export default function Footer() {
   return (
-    <footer className="bg-transparent border-t border-neutral-100 py-12">
+    <footer className="relative bg-transparent border-t border-neutral-100 py-12">
       <div className="max-w-[1100px] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
           {/* Left Side: Socials */}

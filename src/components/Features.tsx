@@ -27,7 +27,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-24 bg-transparent">
+    <section className="py-24 pb-32 bg-transparent">
       <div className="max-w-[1100px] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-12">
           <h2 className="font-heading font-medium text-[42px] md:text-[52px] text-[#202020] mb-2 tracking-tight leading-tight">What's Included?</h2>

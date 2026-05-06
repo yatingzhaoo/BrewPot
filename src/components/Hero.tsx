@@ -61,7 +61,19 @@ export default function Hero() {
         background: '#faf9f8',
       }}
     >
-      <div className="flex-1 flex flex-col items-center justify-center pt-24 pb-24 px-4 sm:px-6 text-center max-w-[1100px] mx-auto w-full relative gap-[16px]">
+      <div className="flex-1 flex flex-col items-center justify-center pt-32 pb-24 px-4 sm:px-6 text-center max-w-[1100px] mx-auto w-full relative gap-[16px]">
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white border border-[#E5E5E8] text-[15px] leading-[21px] text-black font-sans font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] animate-pulse" />
+            Next available slot: 2026/5/11
+          </div>
+        </motion.div>
+
         {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
