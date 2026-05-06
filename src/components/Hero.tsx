@@ -65,7 +65,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white border border-[#E5E5E8] text-[15px] leading-[21px] text-black font-sans font-medium">
             <span className="w-1.5 h-1.5 rounded-full bg-[#D93025] animate-pulse" />
-            Currently full. Next available: 2026/3/2
+            Currently full. Next available: 2026/5/11
           </div>
         </motion.div>
 
@@ -75,9 +75,9 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="font-heading font-medium text-[#202020] leading-[1.2] max-w-4xl mx-auto tracking-normal"
-          style={{ fontSize: 'clamp(56px, 8.5vw, 92px)' }}
+          style={{ fontSize: 'clamp(72px, 10vw, 112px)' }}
         >
-          Monthly Designer<br />Subscription
+          Product. Design.<br />Strategy
         </motion.h1>
 
         {/* Subtitle */}

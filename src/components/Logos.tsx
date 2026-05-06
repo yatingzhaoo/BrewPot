@@ -14,17 +14,16 @@ export default function Logos() {
   const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9];
 
   return (
-    <section className="pt-12 pb-24 bg-white overflow-hidden">
-      <div className="max-w-[1400px] mx-auto text-center relative">
-        <p className="text-[18px] leading-[36px] font-medium text-black mb-8 tracking-normal font-sans">19 teams have chosen BrewPot:</p>
+    <section className="pt-0 pb-16 bg-transparent overflow-hidden">
+      <div className="w-full relative px-6 md:px-12 lg:px-24">
+        <p className="text-center text-[18px] text-neutral-500 font-sans mb-8">
+          Trusted by 19 teams
+        </p>
 
         <div className="relative flex w-full overflow-hidden mask-image-linear-gradients">
-          {/* Add a fade mask to the left and right edges for a refined look */}
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
           <motion.div
-            className="flex flex-nowrap items-center gap-x-12 md:gap-x-16 pr-12 md:pr-16 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-opacity transition-filter duration-700 w-max"
+            className="flex flex-nowrap items-center gap-x-12 md:gap-x-16 pr-12 md:pr-16 grayscale opacity-100 contrast-[1.2] hover:opacity-80 transition-opacity duration-700 w-max"
             animate={{ x: ["0%", "-33.33%"] }}
             transition={{
               x: {
@@ -35,11 +34,24 @@ export default function Logos() {
               },
             }}
           >
-            {[...logos, ...logos, ...logos].map((logo, index) => (
-              <div key={index} className="h-8 w-max flex items-center justify-center flex-shrink-0">
-                <img src={logo} alt="Partner Logo" className="h-full w-auto object-contain" />
-              </div>
-            ))}
+            {[...logos, ...logos, ...logos].map((logo, index) => {
+              const isCooragent = (index % logos.length) === 0; // logo1
+              const isAlphaPilot = (index % logos.length) === 3; // logo4
+              const isHiTA = (index % logos.length) === 4; // logo5
+              const isNotta = (index % logos.length) === 5; // logo6
+              
+              let heightClass = 'h-[22px]';
+              if (isCooragent) heightClass = 'h-[33px]';
+              if (isHiTA) heightClass = 'h-[26px]';
+              if (isNotta) heightClass = 'h-[18px]';
+              if (isAlphaPilot) heightClass = 'h-[45px]';
+
+              return (
+                <div key={index} className={`${heightClass} w-max flex items-center justify-center flex-shrink-0`}>
+                  <img src={logo} alt="Partner Logo" className="h-full w-auto object-contain" />
+                </div>
+              );
+            })}
           </motion.div>
 
         </div>
