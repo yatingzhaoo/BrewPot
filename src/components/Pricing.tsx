@@ -25,7 +25,7 @@ export default function Pricing() {
             <p className="text-neutral-500 text-[16px] mb-4 font-sans">Ongoing design support</p>
 
             <div className="flex items-baseline mb-6">
-              <span className="text-[56px] font-heading font-medium text-[#202020] tracking-tight leading-none">$2,799</span>
+              <span className="font-heading font-medium text-[26px] md:text-[32px] text-[#202020] tracking-tight leading-tight">$2,799</span>
               <span className="text-[#202020] ml-2 font-sans font-medium text-[20px]">/mo</span>
             </div>
 
@@ -35,7 +35,7 @@ export default function Pricing() {
               rel="noopener noreferrer"
               className="w-full bg-black text-white h-[58px] rounded-[7px] font-medium text-[17px] mt-2 mb-8 hover:opacity-90 transition-opacity flex items-center justify-center"
             >
-              Subscribe
+              Get started
             </a>
 
             <ul className="space-y-4">
@@ -43,10 +43,10 @@ export default function Pricing() {
                 { bold: "Up to 10", rest: " Hours/Week" },
                 { bold: "1x/Week", rest: " Sync" },
                 { bold: "Timely", rest: " Replies" },
-                { bold: "3-Day", rest: " Free Trial" }
+                { bold: "2-Day", rest: " Free Trial" }
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-[16px] text-neutral-900 font-sans">
-                  <Check className="w-[18px] h-[18px] text-black mt-[1px] flex-shrink-0" strokeWidth={1.5} />
+                  <Check className="w-[18px] h-[18px] text-black mt-[1px] flex-shrink-0 stroke-[2.75]" strokeWidth={2.75} strokeLinecap="butt" strokeLinejoin="miter" />
                   <span>
                     <span className="font-semibold text-black">{item.bold}</span>{item.rest}
                   </span>
@@ -64,7 +64,7 @@ export default function Pricing() {
             <p className="text-neutral-500 text-[16px] mb-4 font-sans">Deep product partnership</p>
 
             <div className="flex items-baseline mb-6">
-              <span className="text-[56px] font-heading font-medium text-[#202020] tracking-tight leading-none">$4,999</span>
+              <span className="font-heading font-medium text-[26px] md:text-[32px] text-[#202020] tracking-tight leading-tight">$4,999</span>
               <span className="text-[#202020] ml-2 font-sans font-medium text-[20px]">/mo</span>
             </div>
 
@@ -74,7 +74,7 @@ export default function Pricing() {
               rel="noopener noreferrer"
               className="w-full bg-black text-white h-[58px] rounded-[7px] font-medium text-[17px] mt-2 mb-8 hover:opacity-90 transition-opacity flex items-center justify-center"
             >
-              Subscribe
+              Get started
             </a>
 
             <ul className="space-y-4">
@@ -85,7 +85,7 @@ export default function Pricing() {
                 { bold: "1-Day", rest: " Free Trial" }
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-[16px] text-neutral-900 font-sans">
-                  <Check className="w-[18px] h-[18px] text-black mt-[1px] flex-shrink-0" strokeWidth={1.5} />
+                  <Check className="w-[18px] h-[18px] text-black mt-[1px] flex-shrink-0 stroke-[2.75]" strokeWidth={2.75} strokeLinecap="butt" strokeLinejoin="miter" />
                   <span>
                     <span className="font-semibold text-black">{item.bold}</span>{item.rest}
                   </span>

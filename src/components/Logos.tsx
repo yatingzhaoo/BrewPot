@@ -7,17 +7,18 @@ import logo6 from '../asset/客户logo/imgi_6_o4UWPHLGPNwYlcELZ4oZzdXn9I.png';
 import logo7 from '../asset/客户logo/imgi_7_MlMNTVlGyQd08dXZRRurmqPjo.png';
 import logo8 from '../asset/客户logo/imgi_8_7bCZJUraCFC0DQkcEEHToiQTFk.png';
 import logo9 from '../asset/客户logo/imgi_9_W6yiYTdcW0BT9FE0qobXvGVTCY.png';
+import logo10 from '../asset/客户logo/Totalis-logo.svg';
 
 import { motion } from 'motion/react';
 
 export default function Logos() {
-  const logos = [logo1, logo2, logo3, logo6, logo5, logo4, logo7, logo8, logo9];
+  const logos = [logo1, logo10, logo6, logo3, logo5, logo4, logo7, logo8, logo9, logo2];
 
   return (
     <section className="pt-12 pb-16 bg-transparent overflow-hidden">
       <div className="w-full relative px-6 md:px-12 lg:px-24">
-        <p className="text-center text-[18px] text-neutral-500 font-sans mb-8">
-          Trusted by:
+        <p className="text-center font-heading font-medium text-[26px] md:text-[32px] text-[#202020] tracking-tight leading-tight mb-11">
+          Trusted by over 20 teams in the past two years:
         </p>
 
         <div className="relative flex w-full">
@@ -26,13 +27,15 @@ export default function Logos() {
               const isCooragent = (index % logos.length) === 0; // logo1
               const isAlphaPilot = (index % logos.length) === 5; // logo4
               const isHiTA = (index % logos.length) === 4; // logo5
-              const isNotta = (index % logos.length) === 3; // logo6
+              const isNotta = (index % logos.length) === 2; // logo6
+              const isTotalis = (index % logos.length) === 1; // logo10
               
-              let heightClass = 'h-[22px]';
-              if (isCooragent) heightClass = 'h-[33px]';
-              if (isHiTA) heightClass = 'h-[26px]';
-              if (isNotta) heightClass = 'h-[18px]';
-              if (isAlphaPilot) heightClass = 'h-[45px]';
+              let heightClass = 'h-[26.4px]';
+              if (isCooragent) heightClass = 'h-[39.6px]';
+              if (isHiTA) heightClass = 'h-[31.2px]';
+              if (isNotta) heightClass = 'h-[21.6px]';
+              if (isAlphaPilot) heightClass = 'h-[54px]';
+              if (isTotalis) heightClass = 'h-[39.6px]';
 
               return (
                 <div key={index} className={`${heightClass} w-max flex items-center justify-center flex-shrink-0`}>
@@ -47,4 +50,3 @@ export default function Logos() {
 
   );
 }
-

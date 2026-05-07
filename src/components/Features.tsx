@@ -31,14 +31,14 @@ export default function Features() {
       <div className="max-w-[1100px] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-12">
           <h2 className="font-heading font-medium text-[42px] md:text-[52px] text-[#202020] mb-2 tracking-tight leading-tight">What's Included?</h2>
-          <p className="text-[18px] text-neutral-500 max-w-2xl mx-auto font-sans">We value all work that helps your product succeed.</p>
+          <p className="text-[18px] text-neutral-500 max-w-2xl mx-auto font-sans">Anything that prevents your product from reaching its full potential.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[28px] gap-y-[36px]">
           {features.map((feature, index) => (
             <div key={index} className="flex flex-col gap-2 group">
               <div className="flex gap-2 items-center">
-                <div className="w-2 h-2 bg-black rounded-sm flex-shrink-0" />
+                <div className="w-2 h-2 bg-black flex-shrink-0" />
                 <h3 className="text-[20px] font-semibold text-neutral-900 tracking-tight font-sans">{feature.title}</h3>
               </div>
               <p className="text-neutral-500 text-[16px] leading-snug font-sans">{feature.description}</p>
