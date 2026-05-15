@@ -77,7 +77,6 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
         >
           <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white border border-[#E5E5E8] text-[15px] leading-[21px] text-black font-sans font-medium">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] animate-pulse" />
             Next available slot: 2026/5/21
           </div>
         </motion.div>
