@@ -3,7 +3,12 @@ import { X } from 'lucide-react';
 import brewpotLogo from '../asset/公司Logo.svg';
 import cooragentLogo from '../asset/客户logo/Cooragent.webp';
 import totalisLogo from '../asset/客户logo/Totalis-logo.svg';
+import logo2 from '../asset/客户logo/imgi_10_1lS9erwBAh18LCQTIq0Btluq5iI.png';
+import logo3 from '../asset/客户logo/imgi_11_Dm2KjflLO1QDNohPYtWXgUnzeQ.png';
 import logoNotta from '../asset/客户logo/imgi_6_o4UWPHLGPNwYlcELZ4oZzdXn9I.png';
+import logo7 from '../asset/客户logo/imgi_7_MlMNTVlGyQd08dXZRRurmqPjo.png';
+import logo8 from '../asset/客户logo/imgi_8_7bCZJUraCFC0DQkcEEHToiQTFk.png';
+import logo9 from '../asset/客户logo/imgi_9_W6yiYTdcW0BT9FE0qobXvGVTCY.png';
 import logoHita from '../asset/客户logo/imgi_13_Nn8dpshxMgsuQ7It6iWPlfrtQo.png';
 import logoAlphaPilot from '../asset/客户logo/imgi_12_vv67UFHe2kVOc1oLqMvjQfJ08I.png';
 import imgVectrroNew from '../asset/personal-projects/vectrro-new-cover.png';
@@ -67,8 +72,13 @@ const clientLogos = [
   { src: cooragentLogo, label: 'Cooragent', className: 'h-[34px]' },
   { src: totalisLogo, label: 'Totalis', className: 'h-[34px]' },
   { src: logoNotta, label: 'Notta', className: 'h-[20px]' },
+  { src: logo3, label: 'Client logo', className: 'h-[24px]' },
   { src: logoHita, label: 'HiTA', className: 'h-[28px]' },
   { src: logoAlphaPilot, label: 'AlphaPilot', className: 'h-[44px]' },
+  { src: logo7, label: 'Client logo', className: 'h-[24px]' },
+  { src: logo8, label: 'Client logo', className: 'h-[24px]' },
+  { src: logo9, label: 'Client logo', className: 'h-[24px]' },
+  { src: logo2, label: 'Client logo', className: 'h-[24px]' },
 ];
 
 function ChatButton() {
@@ -241,10 +251,10 @@ function SelectedClients() {
       <h2 className="font-['Geist',sans-serif] font-semibold text-[17px] text-black">
         Selected Clients
       </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-[28px] gap-y-[20px] items-center w-full py-[2px] grayscale">
-        {clientLogos.map((logo) => (
-          <div key={logo.label} className="h-[48px] flex items-center justify-start">
-            <img src={logo.src} alt={logo.label} className={`${logo.className} max-w-[126px] w-auto object-contain opacity-70`} />
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-x-[24px] gap-y-[18px] items-center w-full py-[2px] grayscale">
+        {clientLogos.map((logo, index) => (
+          <div key={`${logo.label}-${index}`} className="h-[44px] flex items-center justify-start">
+            <img src={logo.src} alt={logo.label} className={`${logo.className} max-w-[104px] w-auto object-contain opacity-70`} />
           </div>
         ))}
       </div>
