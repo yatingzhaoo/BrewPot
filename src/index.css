@@ -6,6 +6,8 @@
   --font-heading: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-logo: "Saira", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
 }
 
 @keyframes glow-float {
@@ -21,6 +23,7 @@
 }
 
 html {
+  font-size: 16px;
   scroll-behavior: smooth;
   background-color: #ffffff;
 }
@@ -29,6 +32,40 @@ body {
   @apply antialiased text-black;
   background-color: #ffffff;
   font-family: var(--font-sans);
+}
+
+@layer base {
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4,
+  label,
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
 }
 
 @layer utilities {

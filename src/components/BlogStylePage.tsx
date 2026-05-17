@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
 import brewpotLogo from '../asset/公司Logo.svg';
-import work1 from '../asset/work-1.png';
-import frame110 from '../asset/Frame 483110.png';
-import frame112 from '../asset/Frame 483112.png';
-import frame116 from '../asset/Frame 483116.png';
-import vectrroQuote from '../asset/Frame 483111.png';
 import cooragentLogo from '../asset/客户logo/Cooragent.webp';
 import totalisLogo from '../asset/客户logo/Totalis-logo.svg';
 import logoNotta from '../asset/客户logo/imgi_6_o4UWPHLGPNwYlcELZ4oZzdXn9I.png';
 import logoHita from '../asset/客户logo/imgi_13_Nn8dpshxMgsuQ7It6iWPlfrtQo.png';
 import logoAlphaPilot from '../asset/客户logo/imgi_12_vv67UFHe2kVOc1oLqMvjQfJ08I.png';
+import imgVectrroNew from '../asset/personal-projects/vectrro-new-cover.png';
+import imgVectrroCandidate1 from '../asset/personal-projects/Vectrro/New.png';
+import imgVectrroCandidate2 from '../asset/personal-projects/Vectrro/New-1.png';
+import imgNottaNew from '../asset/personal-projects/notta-new-cover.png';
+import imgHiTA from '../asset/personal-projects/HiTA/Frame 1437254438 3.png';
+import imgHiTA2 from '../asset/personal-projects/hita-new.png';
+import imgHiTA3 from '../asset/personal-projects/HiTA/Chat Details.png';
+import imgCooragent from '../asset/personal-projects/Cooragent/Landing Page.png';
+import imgCooragent2 from '../asset/personal-projects/Cooragent/Agent Market.png';
+import imgCooragent3 from '../asset/personal-projects/Cooragent/Messages.png';
+import logoVectrro from '../asset/personal-projects/logo-cooragent.png';
+import logoProjectNotta from '../asset/personal-projects/logo-notta.png';
+import logoProjectHiTA from '../asset/personal-projects/logo-hita.png';
+import logoProjectCooragent from '../asset/personal-projects/logo-vectrro.png';
 
 interface ProjectConfig {
   title: string;
@@ -18,36 +27,39 @@ interface ProjectConfig {
   fundingStage?: string;
   images: string[];
   logo?: string;
-  noBorder?: boolean;
+  noBorderIndices?: number[];
+  containerBg?: string;
 }
 
 const projectConfigs: ProjectConfig[] = [
   {
-    title: 'Cooragent',
-    subtitle: 'AI agent marketplace and workflow interface.',
-    fundingStage: 'Seed',
-    images: [frame116, frame112],
-    logo: cooragentLogo,
-  },
-  {
     title: 'Vectrro',
-    subtitle: 'Product website, visual system, and interface polish.',
+    subtitle: 'Trucking operation.',
     fundingStage: 'Pre-seed',
-    images: [vectrroQuote, frame110],
-    logo: totalisLogo,
+    images: [imgVectrroNew, imgVectrroCandidate1, imgVectrroCandidate2],
+    noBorderIndices: [0],
+    logo: logoVectrro,
   },
   {
-    title: 'BrewPot',
-    subtitle: 'A service website for focused product design support.',
-    images: [work1],
-    logo: brewpotLogo,
-    noBorder: true,
+    title: 'Notta',
+    subtitle: 'Meeting Notetaker.',
+    fundingStage: 'Series B',
+    images: [imgNottaNew],
+    logo: logoProjectNotta,
   },
   {
-    title: 'Launch Surfaces',
-    subtitle: 'Landing pages and product moments made ready for market.',
-    images: [frame112, frame116],
-    logo: logoAlphaPilot,
+    title: 'HiTA',
+    subtitle: 'Higher Education AI',
+    fundingStage: 'Seed',
+    images: [imgHiTA, imgHiTA2, imgHiTA3],
+    logo: logoProjectHiTA,
+  },
+  {
+    title: 'Cooragent',
+    subtitle: 'AI Agents',
+    fundingStage: 'Seed',
+    images: [imgCooragent, imgCooragent2, imgCooragent3],
+    logo: logoProjectCooragent,
   },
 ];
 
@@ -132,11 +144,14 @@ function ProjectCard({
       className="group content-stretch flex flex-col gap-[8px] items-start justify-center min-h-px min-w-px relative w-full cursor-pointer"
       onClick={() => onImageClick(config.images[currentImageIndex])}
     >
-      <div className="relative flex items-center justify-center shrink-0 w-full rounded-[16px] overflow-hidden group/carousel aspect-[1.25] bg-[#F4F4F5]">
+      <div
+        className="relative flex items-center justify-center shrink-0 w-full rounded-[16px] overflow-hidden group/carousel aspect-[1.25]"
+        style={{ backgroundColor: config.containerBg || '#F4F4F5' }}
+      >
         <div className={`relative flex items-center justify-center ${index === 1 ? 'w-[68%] h-[68%]' : 'w-[85%] h-[85%]'}`}>
           <img
             alt={config.title}
-            className={`max-w-full max-h-full object-contain pointer-events-none ${config.noBorder ? 'rounded-none' : 'shadow-[0_0_24px_rgba(0,0,0,0.08)] rounded-[8px] border border-black/[0.015]'}`}
+            className={`max-w-full max-h-full object-contain pointer-events-none ${config.noBorderIndices?.includes(currentImageIndex) ? 'rounded-none' : 'shadow-[0_0_24px_rgba(0,0,0,0.08)] rounded-[8px] border border-black/[0.015]'}`}
             src={config.images[currentImageIndex]}
             loading="lazy"
           />
