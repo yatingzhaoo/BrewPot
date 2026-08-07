@@ -1,0 +1,5 @@
+article[data-analytics-section="case_study_detail"] .case-study-media-bg {
+  width: 100%;
+  max-width: 640px;
+  margin-inline: auto;
+}
