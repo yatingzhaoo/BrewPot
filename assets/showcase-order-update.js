@@ -29,6 +29,26 @@
       track.appendChild(fragment);
     }
 
+    const track = tiles[0].parentElement;
+    const firstTile = track?.querySelector("button.showcase-tile");
+    if (track && firstTile instanceof HTMLElement) {
+      const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 12;
+      const leadPosition = (firstTile.offsetWidth + gap) * 12;
+      const previousScrollBehavior = track.style.scrollBehavior;
+
+      track.style.overflowAnchor = "none";
+      track.style.scrollBehavior = "auto";
+      track.scrollLeft = leadPosition;
+
+      requestAnimationFrame(() => {
+        track.scrollLeft = leadPosition;
+        requestAnimationFrame(() => {
+          track.scrollLeft = leadPosition;
+          track.style.scrollBehavior = previousScrollBehavior;
+        });
+      });
+    }
+
     return true;
   };
 
