@@ -60,7 +60,6 @@
     #pricing .pricing-card {
       position: relative;
       display: flex;
-      min-height: 520px;
       flex-direction: column;
       overflow: hidden;
       box-sizing: border-box;
@@ -158,7 +157,7 @@
       display: flex;
       width: 100%;
       height: 58px;
-      margin-top: auto;
+      margin-top: 0;
       align-items: center;
       justify-content: center;
       border-radius: 6px;
@@ -172,7 +171,7 @@
     }
     @media (max-width: 767px) {
       #pricing .pricing-plans { grid-template-columns: 1fr; }
-      #pricing .pricing-card { min-height: 500px; padding: 24px; }
+      #pricing .pricing-card { padding: 24px; }
       #pricing .pricing-price strong { font-size: 48px; }
     }
   `;
