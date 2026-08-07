@@ -33,12 +33,35 @@
   <script data-token="PROJECT_TOKEN" src="https://cdn.seline.com/seline.js" async></script>
 
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <script type="module" crossorigin src="/assets/index-BBr9wyF-.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-oY6vyqYV.css">
-  <link rel="stylesheet" href="/assets/case-study-width-fix.css?v=2">
-  <script src="/assets/pricing-update.js?v=2" defer></script>
-  <script src="/assets/hero-title-update.js?v=1" defer></script>
-  <script src="/assets/showcase-order-update.js?v=5" defer></script>
+  <script>
+    (() => {
+      const detailCaseIds = new Set(['notta', 'hita', 'cooragent', 'vectrro']);
+      const isCaseStudyDetail = () => {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('view') === 'case-studies' && detailCaseIds.has(params.get('case'));
+      };
+      const detailMode = isCaseStudyDetail();
+      const pushState = window.history.pushState.bind(window.history);
+      const replaceState = window.history.replaceState.bind(window.history);
+
+      const reloadAcrossModes = (method, args) => {
+        method(...args);
+        if (isCaseStudyDetail() !== detailMode) window.location.reload();
+      };
+
+      window.history.pushState = (...args) => reloadAcrossModes(pushState, args);
+      window.history.replaceState = (...args) => reloadAcrossModes(replaceState, args);
+      window.addEventListener('popstate', () => {
+        if (isCaseStudyDetail() !== detailMode) window.location.reload();
+      });
+
+      if (detailMode) {
+        document.write('<script type="module" crossorigin src="/assets/index-D2gl_Afe.js"><\/script><link rel="stylesheet" crossorigin href="/assets/index-BiFAvp5w.css">');
+      } else {
+        document.write('<script type="module" crossorigin src="/assets/index-BBr9wyF-.js"><\/script><link rel="stylesheet" crossorigin href="/assets/index-oY6vyqYV.css"><link rel="stylesheet" href="/assets/case-study-width-fix.css?v=2"><script src="/assets/pricing-update.js?v=2" defer><\/script><script src="/assets/hero-title-update.js?v=1" defer><\/script><script src="/assets/showcase-order-update.js?v=5" defer><\/script>');
+      }
+    })();
+  </script>
 </head>
 
 <body>
