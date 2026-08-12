@@ -3,15 +3,15 @@ import { resolve } from 'node:path';
 
 const root = process.cwd();
 const dist = resolve(root, 'dist');
-const staticDir = resolve(dist, 'static');
+const clientDir = resolve(dist, 'client');
 const serverDir = resolve(dist, 'server');
 
-await rm(staticDir, { recursive: true, force: true });
-await mkdir(staticDir, { recursive: true });
+await rm(clientDir, { recursive: true, force: true });
+await mkdir(clientDir, { recursive: true });
 
 for (const entry of await (await import('node:fs/promises')).readdir(dist)) {
-  if (entry === 'static' || entry === 'server' || entry === '.openai') continue;
-  await cp(resolve(dist, entry), resolve(staticDir, entry), { recursive: true });
+  if (entry === 'client' || entry === 'server' || entry === '.openai') continue;
+  await cp(resolve(dist, entry), resolve(clientDir, entry), { recursive: true });
 }
 
 await mkdir(serverDir, { recursive: true });
@@ -33,7 +33,7 @@ await writeFile(
 await mkdir(resolve(dist, '.openai'), { recursive: true });
 await cp(resolve(root, '.openai', 'hosting.json'), resolve(dist, '.openai', 'hosting.json'));
 
-const indexHtml = await readFile(resolve(staticDir, 'index.html'), 'utf8');
+const indexHtml = await readFile(resolve(clientDir, 'index.html'), 'utf8');
 if (!indexHtml.includes('<div id="root"></div>')) {
   throw new Error('Sites build validation failed: app root not found.');
 }
