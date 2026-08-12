@@ -74,7 +74,7 @@ body {
 
 .online-gallery-grid {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 12px;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
@@ -90,6 +90,7 @@ body {
 .online-gallery-card {
   box-sizing: border-box;
   flex: 0 0 calc((100% - 36px) / 4);
+  aspect-ratio: 5 / 3;
   margin: 0;
   overflow: hidden;
   background: white;

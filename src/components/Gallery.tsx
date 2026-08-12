@@ -6,14 +6,14 @@ import cooragentAgentMarket from '../asset/personal-site-showcase/cooragent-agen
 import vectrroCover from '../asset/personal-site-showcase/vectrro-cover.png';
 import vectrroInterface from '../asset/personal-site-showcase/vectrro-interface-alt.png';
 
-type GalleryItem = { src: string; alt: string; ratio: string; treatment?: 'ui-elements' };
+type GalleryItem = { src: string; alt: string; treatment?: 'ui-elements' };
 
 const galleryItems: GalleryItem[] = [
-  { src: cooragentLanding, alt: 'Cooragent landing page', ratio: '3178 / 1920' },
-  { src: vectrroWorkflow, alt: 'Vectrro trucking operations website design', ratio: '3670 / 2174' },
-  { src: cooragentAgentMarket, alt: 'Cooragent agent market interface', ratio: '3178 / 1920' },
-  { src: vectrroCover, alt: 'Vectrro trucking operations website', ratio: '16 / 10', treatment: 'ui-elements' },
-  { src: vectrroInterface, alt: 'Vectrro product interface', ratio: '3670 / 2174' },
+  { src: cooragentLanding, alt: 'Cooragent landing page' },
+  { src: vectrroWorkflow, alt: 'Vectrro trucking operations website design' },
+  { src: cooragentAgentMarket, alt: 'Cooragent agent market interface' },
+  { src: vectrroCover, alt: 'Vectrro trucking operations website', treatment: 'ui-elements' },
+  { src: vectrroInterface, alt: 'Vectrro product interface' },
 ];
 
 export default function Gallery() {
@@ -55,7 +55,6 @@ export default function Gallery() {
             <figure
               key={item.alt}
               className={`online-gallery-card${item.treatment === 'ui-elements' ? ' is-ui-elements' : ''}`}
-              style={{ aspectRatio: item.ratio }}
             >
               <img src={item.src} alt={item.alt} loading="eager" />
             </figure>

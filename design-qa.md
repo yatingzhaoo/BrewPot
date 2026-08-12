@@ -332,3 +332,13 @@ final result: passed
 - Validation: `npm run lint` passed; `npm run build` passed.
 - Focused capture: `brewpot-gallery-transparent-ui-treatment.jpg`.
 - Final result: passed.
+## Gallery equal-height correction — 2026-08-12
+
+- Replaced per-image card aspect ratios with one shared `5 / 3` frame so every visible Gallery card has exactly the same height.
+- Browser measurement at desktop: all five cards are `316 × 189.59px`.
+- All images retain `object-fit: contain`; no artwork is cropped, stretched, or squeezed.
+- The fourth transparent UI-elements asset keeps its dedicated sage surface and inset padding.
+- Circular carousel controls and scrolling behavior remain unchanged.
+- Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
+- Focused capture: `brewpot-gallery-equal-height.jpg`.
+- Final result: passed.
