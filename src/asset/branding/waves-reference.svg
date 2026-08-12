@@ -1,0 +1,35 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1907 825"
+  fill="none"
+  role="img"
+  aria-label="BrewPot brand waves"
+>
+  <path
+    d="M-36 680C66 690 110 641 176 598C304 515 413 484 515 515C654 558 748 592 870 534C978 482 1035 441 1124 459C1251 485 1331 439 1435 386C1515 345 1581 339 1660 341C1766 344 1840 310 1940 274"
+    stroke="#000000"
+    stroke-width="24"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M878 575C1003 529 1060 516 1131 535C1247 566 1310 568 1402 528C1481 493 1531 459 1618 457C1733 454 1808 468 1936 424"
+    stroke="#7F958E"
+    stroke-width="22"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M-34 621C65 620 106 589 161 554C291 471 393 437 496 463C634 498 727 550 849 502C958 459 1018 411 1104 431C1231 461 1313 421 1424 363C1510 318 1572 311 1651 312C1760 314 1837 278 1940 239"
+    stroke="#F05637"
+    stroke-width="18"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <g fill="#FFFFFF" stroke="#F05637" stroke-width="8">
+    <circle cx="153" cy="559" r="24" />
+    <circle cx="600" cy="485" r="25" />
+    <circle cx="813" cy="510" r="15" />
+    <circle cx="1624" cy="314" r="25" />
+  </g>
+</svg>

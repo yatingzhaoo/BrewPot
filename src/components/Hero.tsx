@@ -1,226 +1,158 @@
-import { motion, AnimatePresence, useAnimationControls } from 'motion/react';
-import React, { useState, useRef } from 'react';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-import work1 from '../asset/work-1.png';
-import frame110 from '../asset/Frame 483110.png';
-import frame112 from '../asset/Frame 483112.png';
-import frame116 from '../asset/Frame 483116.png';
-import vectroQuote from '../asset/Frame 483111.png';
+import { motion } from 'motion/react';
+import {
+  ArrowRight,
+  Bell,
+  Bookmark,
+  CalendarDays,
+  Folder,
+  Heart,
+  Home,
+  ListFilter,
+  Menu,
+  MessageCircle,
+  Search,
+  Settings,
+  Star,
+  UserRound,
+} from 'lucide-react';
+import laptop from '../asset/branding/laptop-reference.png';
+import mouse from '../asset/branding/mouse-reference.png';
 
-const SHOWCASE_IMAGES = [
-  { src: frame116, alt: 'Work Showcase 1' },
-  { src: frame112, alt: 'Work Showcase 2' },
-  { src: work1, alt: 'Work Showcase 3' },
-  { src: frame110, alt: 'Work Showcase 4' },
-  { src: vectroQuote, alt: 'Work Showcase 5' },
-];
+const calendarDays = Array.from({ length: 31 }, (_, index) => index + 1);
 
-export default function Hero() {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [isHovering, setIsHovering] = useState(false);
-  const controls = useAnimationControls();
+const cardMotion = {
+  initial: { opacity: 0, y: 28 },
+  animate: { opacity: 1, y: 0 },
+};
 
-  const handleGalleryHover = () => {
-    setIsHovering(true);
-    controls.stop();
-  };
-
-  const handleGalleryLeave = async () => {
-    setIsHovering(false);
-    await controls.start({
-      x: ["0%", "-50%"],
-      transition: {
-        x: {
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: 40,
-          ease: "linear",
-        },
-      },
-    });
-  };
-
-  const handleNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (selectedIndex !== null) {
-      setSelectedIndex((selectedIndex + 1) % SHOWCASE_IMAGES.length);
-    }
-  };
-
-  const handlePrev = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (selectedIndex !== null) {
-      setSelectedIndex((selectedIndex - 1 + SHOWCASE_IMAGES.length) % SHOWCASE_IMAGES.length);
-    }
-  };
-
+function CalendarCard() {
   return (
-    <section
-      className="relative min-h-screen flex flex-col overflow-hidden"
-      style={{
-        background: '#faf9f8',
-      }}
-    >
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: 'radial-gradient(circle at 50% 42%, rgba(255, 149, 0, 0.15) 0%, rgba(255, 149, 0, 0) 35%)',
-          animation: 'glow-float 10s ease-in-out infinite',
-          pointerEvents: 'none',
-        }}
-      />
-      <div className="flex-1 flex flex-col items-center justify-center pt-32 pb-24 px-4 sm:px-6 text-center max-w-[1100px] mx-auto w-full relative gap-[16px]">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white border border-[#E5E5E8] text-[15px] leading-[21px] text-black font-sans font-medium">
-            Next available slot: 2026/5/21
-          </div>
-        </motion.div>
-
-        {/* Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-heading font-medium text-[#202020] leading-[1.2] max-w-4xl mx-auto tracking-normal"
-          style={{ fontSize: 'clamp(72px, 10vw, 112px)' }}
-        >
-          Product. Design.<br />Strategy
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-[20px] text-black font-sans font-medium max-w-[720px] mx-auto leading-[32px] tracking-normal"
-        >
-          Get ongoing product design support for a fixed price. No hiring, no waiting.
-        </motion.p>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-4"
-        >
-          <a
-            href="https://cal.com/yating-zhao/15min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-black text-white px-8 h-[58px] rounded-[7px] font-medium text-[17px] hover:opacity-90 transition-opacity flex items-center justify-center inline-flex"
-          >
-            Book a 15-min call
-          </a>
-        </motion.div>
+    <article className="brand-card result-card calendar-card" aria-label="August 2026 calendar design">
+      <div className="calendar-heading">
+        <strong>August</strong>
+        <span>2026</span>
       </div>
+      <div className="calendar-grid calendar-weekdays" aria-hidden="true">
+        {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, index) => <span key={`${day}-${index}`}>{day}</span>)}
+      </div>
+      <div className="calendar-grid">
+        {Array.from({ length: 5 }).map((_, index) => <span key={`empty-${index}`} />)}
+        {calendarDays.map((day) => <span key={day} className={day === 10 ? 'selected-day' : ''}>{day}</span>)}
+      </div>
+    </article>
+  );
+}
 
-      <div className="relative w-full max-w-[1100px] mx-auto px-6 mb-12 group/gallery" onMouseEnter={handleGalleryHover} onMouseLeave={handleGalleryLeave}>
-        <div
-          className="relative overflow-visible px-4"
-          style={{
-            maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-          }}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="pb-10 pt-4 overflow-hidden relative z-0"
-          >
-            <motion.div
-              className="flex gap-[10px] w-max pr-[10px]"
-              animate={controls}
-              initial={{ x: "0%" }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 40,
-                  ease: "linear",
-                },
-              }}
-            >
-              {[...SHOWCASE_IMAGES, ...SHOWCASE_IMAGES].map(({ src, alt }, index) => {
-                const actualIndex = index % SHOWCASE_IMAGES.length;
-                return (
-                  <div
-                    key={index}
-                    className="flex-shrink-0 w-[270px] md:w-[360px] h-[210px] md:h-[281.5px] rounded-[10px] overflow-hidden bg-white border border-neutral-100 cursor-pointer group transition-transform duration-300"
-                    onClick={() => setSelectedIndex(actualIndex)}
-                  >
-                    <img
-                      src={src}
-                      alt={alt}
-                      className="w-full h-full object-cover object-top transition-transform duration-1000 ease-out"
-                    />
-                  </div>
-                );
-              })}
-            </motion.div>
-          </motion.div>
+function IconCard() {
+  const icons = [Home, Heart, Bell, Star, Settings, UserRound, Search, MessageCircle, Bookmark, CalendarDays, Folder, ListFilter];
+  return (
+    <article className="brand-card result-card icon-card" aria-label="Icon system design">
+      <h2>Icons</h2>
+      <div className="icon-grid">
+        {icons.map((Icon, index) => (
+          <span key={index} className="icon-cell">
+            <Icon size={21} strokeWidth={2.2} color={index === 1 ? '#F05637' : 'currentColor'} />
+          </span>
+        ))}
+      </div>
+    </article>
+  );
+}
+
+function TypeCard() {
+  return (
+    <article className="brand-card result-card type-card" aria-label="Typography design">
+      <h2>Typography</h2>
+      <div className="type-sample">Aa</div>
+      <div className="type-line">Ideas rise.<br />Momentum builds.</div>
+      <p>Inter Regular</p>
+    </article>
+  );
+}
+
+function ColorCard() {
+  const colors = [
+    ['Coral', '#F05637'],
+    ['Black', '#000000'],
+    ['Sage', '#7F958E'],
+    ['Sand', '#EEF1F1'],
+    ['Cream', '#FFFFFF'],
+  ];
+  return (
+    <article className="brand-card result-card color-card" aria-label="Color palette design">
+      <h2>Colors</h2>
+      <div className="color-list">
+        {colors.map(([name, value]) => (
+          <div className="color-row" key={name}>
+            <span className="color-swatch" style={{ backgroundColor: value }} />
+            <span><strong>{name}</strong><small>{value}</small></span>
+          </div>
+        ))}
+      </div>
+    </article>
+  );
+}
+
+function ComponentCard() {
+  return (
+    <article className="brand-card result-card component-card" aria-label="Component library design">
+      <h2>Components</h2>
+      <div className="component-grid">
+        <button className="mini-primary" type="button">Primary</button>
+        <button className="mini-accent" type="button">Primary / Accent</button>
+        <button className="mini-secondary" type="button">Secondary</button>
+        <label className="mini-input"><span>Input field</span></label>
+      </div>
+      <div className="component-footer">
+        <button className="mini-toggle" type="button" aria-label="Toggle active"><span /></button>
+        <div className="component-icons">
+          <button className="mini-icon" type="button" aria-label="Search"><Search size={19} /></button>
+          <button className="mini-icon" type="button" aria-label="Favorite"><Heart size={19} /></button>
+          <button className="mini-icon" type="button" aria-label="Notifications"><Bell size={19} /></button>
+          <button className="mini-icon" type="button" aria-label="More options"><Menu size={19} /></button>
         </div>
       </div>
+    </article>
+  );
+}
 
-      {/* Fullscreen Image Overlay */}
-      <AnimatePresence>
-        {selectedIndex !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-12 cursor-zoom-out"
-            onClick={() => setSelectedIndex(null)}
-          >
-            {/* Close Button */}
-            <button
-              className="absolute top-6 right-6 p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all hover:scale-110 z-50"
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedIndex(null);
-              }}
-            >
-              <X className="w-6 h-6" />
-            </button>
+export default function Hero() {
+  return (
+    <section className="branding-hero">
+      <img className="desk-object laptop-object" src={laptop} alt="Silver laptop" />
+      <img className="desk-object mouse-object" src={mouse} alt="White Apple Magic Mouse" />
 
-            {/* Left/Right Navigation */}
-            <button
-              className="absolute left-6 top-1/2 -translate-y-1/2 p-4 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all hover:scale-110 z-50"
-              onClick={handlePrev}
-            >
-              <ChevronLeft className="w-8 h-8" strokeWidth={2.5} />
-            </button>
+      <div className="hero-copy">
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
+          <span className="availability-badge">Next availability: August 10, 2026</span>
+        </motion.div>
+        <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.08 }}>
+          Product design support,
+          <span>on demand.</span>
+        </motion.h1>
+        <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.16 }}>
+          Expert product UI and UX design support for one flat monthly rate.
+        </motion.p>
+        <motion.a
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.22 }}
+          href="https://cal.com/yating-zhao/15min"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hero-cta"
+        >
+          Book a 15-min call
+        </motion.a>
+      </div>
 
-            <button
-              className="absolute right-6 top-1/2 -translate-y-1/2 p-4 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all hover:scale-110 z-50"
-              onClick={handleNext}
-            >
-              <ChevronRight className="w-8 h-8" strokeWidth={2.5} />
-            </button>
-
-            {/* Selected Image */}
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={selectedIndex}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                src={SHOWCASE_IMAGES[selectedIndex].src}
-                alt={SHOWCASE_IMAGES[selectedIndex].alt}
-                className="max-w-full max-h-full object-contain rounded-[10px] shadow-2xl cursor-default"
-                onClick={(e) => e.stopPropagation()}
-              />
-            </AnimatePresence>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className="result-showcase" aria-label="Selected product design deliverables">
+        <motion.div className="result-card-wrap calendar-wrap" {...cardMotion} transition={{ duration: 0.55, delay: 0.26 }}><CalendarCard /></motion.div>
+        <motion.div className="result-card-wrap icon-wrap" {...cardMotion} transition={{ duration: 0.55, delay: 0.32 }}><IconCard /></motion.div>
+        <motion.div className="result-card-wrap type-wrap" {...cardMotion} transition={{ duration: 0.55, delay: 0.38 }}><TypeCard /></motion.div>
+        <motion.div className="result-card-wrap color-wrap" {...cardMotion} transition={{ duration: 0.55, delay: 0.44 }}><ColorCard /></motion.div>
+        <motion.div className="result-card-wrap component-wrap" {...cardMotion} transition={{ duration: 0.55, delay: 0.5 }}><ComponentCard /></motion.div>
+      </div>
     </section>
   );
 }
