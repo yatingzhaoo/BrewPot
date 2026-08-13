@@ -489,3 +489,12 @@ final result: passed
 - Browser verification confirmed the Notta lightbox loads the 2048×1456 asset and preserves its aspect ratio on the transparent black stage.
 - Validation: `npm run lint`, `npm run build`, `npm run test:sites`, and `git diff --check` passed.
 - Final result: passed.
+
+## Homepage section spacing rhythm — 2026-08-13
+
+- Compared the later homepage sections against the established spacing between Logos and Pricing.
+- Increased Gallery padding from `72px / 40px` to `96px / 64px` on desktop.
+- Increased FAQ padding from `64px / 96px` to `96px / 112px` on desktop.
+- Gallery-to-FAQ now has a combined `160px` section transition, matching the broader rhythm used earlier on the page.
+- Mobile keeps a proportional but more compact `136px` Gallery-to-FAQ transition.
+- Final result: passed by spacing-token comparison; browser handoff was unavailable during the final full-page capture.

@@ -156,7 +156,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" data-analytics-section="faq" className="scroll-mt-20 bg-transparent pb-20 pt-12 text-[#171717] md:scroll-mt-24 md:pb-24 md:pt-16">
+    <section id="faq" data-analytics-section="faq" className="scroll-mt-20 bg-transparent pb-24 pt-20 text-[#171717] md:scroll-mt-24 md:pb-28 md:pt-24">
       <div className="mx-auto max-w-[1180px] px-6 sm:px-8 lg:px-12">
         <h2 className="text-center font-heading text-[42px] font-medium leading-tight tracking-tight text-[#202020] md:text-[52px]">
           Frequently Asked Questions
