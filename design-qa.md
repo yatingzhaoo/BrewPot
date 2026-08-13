@@ -395,3 +395,11 @@ final result: passed
 - Browser verification correctly classified the Vectrro multi-panel UI asset as `component` and the other nine current works as `screen`.
 - Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
 - Final result: passed.
+
+## Opaque modal artwork detection — 2026-08-13
+
+- Expanded automatic presentation classification beyond transparent multi-component compositions.
+- Added semantic detection for component, dialog, modal, overlay, panel, popover, popup, sheet, UI-element, and widget artwork descriptions.
+- The Notta checkout work is now described and automatically classified as a modal, so it receives the same branded background and safe padding as other component artwork.
+- Kept the transparent-pixel threshold conservative so ordinary full-screen screenshots with rounded corners are not misclassified.
+- Final result: passed.

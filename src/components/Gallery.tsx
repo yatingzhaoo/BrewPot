@@ -29,11 +29,17 @@ const galleryItems: GalleryItem[] = [
   { project: 'HiTA', src: hitaWebsite, alt: 'HiTA assignment grading interface', aspectRatio: '3206 / 1942' },
   { project: 'HiTA', src: hitaCover, alt: 'HiTA product and website cover', aspectRatio: '1780 / 1071' },
   { project: 'HiTA', src: hitaChat, alt: 'HiTA chat details interface', aspectRatio: '6412 / 4096' },
-  { project: 'Notta', src: nottaCover, alt: 'Notta meeting notetaker product work', aspectRatio: '1024 / 728' },
+  { project: 'Notta', src: nottaCover, alt: 'Notta Pro checkout modal', aspectRatio: '1024 / 728' },
 ];
 
-function isComponentArtwork(image: HTMLImageElement) {
+const componentArtworkTerms = /\b(component|dialog|modal|overlay|panel|popover|popup|sheet|ui elements?|widget)\b/i;
+
+function isComponentArtwork(image: HTMLImageElement, description: string) {
   if (!image.naturalWidth || !image.naturalHeight) return false;
+
+  // Semantic descriptions catch opaque dialogs and panels that do not have a
+  // meaningful transparent canvas, such as a checkout modal screenshot.
+  if (componentArtworkTerms.test(description)) return true;
 
   try {
     const canvas = document.createElement('canvas');
@@ -52,6 +58,8 @@ function isComponentArtwork(image: HTMLImageElement) {
       if (pixels[alphaIndex] < 245) transparentPixels += 1;
     }
 
+    // A meaningful transparent canvas identifies multi-component
+    // compositions without misclassifying ordinary rounded screenshots.
     return transparentPixels / (pixels.length / 4) > 0.015;
   } catch {
     return false;
@@ -70,7 +78,7 @@ function GalleryArtwork({
       src={item.src}
       alt={item.alt}
       loading="eager"
-      onLoad={(event) => onPresentationDetected?.(isComponentArtwork(event.currentTarget))}
+      onLoad={(event) => onPresentationDetected?.(isComponentArtwork(event.currentTarget, item.alt))}
     />
   );
 }
