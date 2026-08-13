@@ -342,3 +342,19 @@ final result: passed
 - Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
 - Focused capture: `brewpot-gallery-equal-height.jpg`.
 - Final result: passed.
+## Complete Gallery and full-screen overlay — 2026-08-12
+
+- Source reference: the current production Gallery at `https://brewpot.co/`, including its lightbox interaction and unique artwork sequence.
+- Restored all 12 unique production works in the same order: Vectrro, Cooragent, HiTA, and Notta assets, including both HiTA before/after comparisons.
+- Every Gallery card is now a semantic button that opens a full-viewport overlay.
+- Overlay behavior verified:
+  - Opens at `1 / 12` with the document scroll locked.
+  - Previous/next buttons cycle through all 12 works.
+  - Left/right keyboard arrows change work; Escape closes the overlay.
+  - Closing restores document scrolling.
+  - Before/after works render both labeled source images in the overlay.
+- The lightbox is rendered through a document-level portal, so it covers the fixed navigation and the entire `1414 × 748px` viewport.
+- All 16 raster images used by the 12 works loaded successfully.
+- Visual comparison: `gallery-overlay-reference-comparison.jpg` places the production reference and local implementation side-by-side. The implementation preserves the dark full-screen treatment, centered contained artwork, circular navigation, and close control while using the new BrewPot control styling.
+- Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
+- Final result: passed.
