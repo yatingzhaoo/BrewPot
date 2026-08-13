@@ -365,3 +365,11 @@ final result: passed
 - Browser verification confirmed the counter element count is zero while the lightbox remains open and functional after advancing to the next work.
 - Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
 - Final result: passed.
+## Hero Gallery artwork correction — 2026-08-13
+
+- Clarified source scope: the homepage Gallery should use the unique artwork shown in the current production Hero carousel, not every production Gallery treatment.
+- Removed both HiTA Before / After comparison cards from the homepage.
+- Kept the 10 unique Hero-carousel works in production order across Vectrro, Cooragent, HiTA, and Notta.
+- Browser verification confirmed 10 cards, zero comparison components, all images loaded, and the click-to-open full-screen Overlay remains functional.
+- Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
+- Final result: passed.

@@ -157,44 +157,6 @@ body {
   height: 100%;
 }
 
-.online-gallery-card.is-comparison {
-  background: #f3f1ed;
-}
-
-.gallery-comparison {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
-  width: 100%;
-  height: 100%;
-  padding: 12px;
-}
-
-.gallery-comparison-panel {
-  display: flex;
-  min-width: 0;
-  min-height: 0;
-  flex-direction: column;
-  align-items: center;
-  gap: 7px;
-}
-
-.gallery-comparison-panel span {
-  color: #202020;
-  font-size: 10px;
-  font-weight: 650;
-  line-height: 1;
-}
-
-.gallery-comparison-panel img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  object-fit: contain;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.08));
-}
-
 .gallery-lightbox {
   position: fixed;
   inset: 0;
@@ -229,23 +191,6 @@ body {
 .gallery-lightbox-stage.is-ui-elements {
   padding: 40px;
   background: #e5ebe8;
-}
-
-.gallery-lightbox-stage.is-comparison {
-  background: #f3f1ed;
-}
-
-.gallery-comparison.is-overlay {
-  gap: 24px;
-  padding: 8px;
-}
-
-.gallery-comparison.is-overlay .gallery-comparison-panel {
-  gap: 14px;
-}
-
-.gallery-comparison.is-overlay .gallery-comparison-panel span {
-  font-size: 14px;
 }
 
 .gallery-lightbox-close,
@@ -369,10 +314,6 @@ body {
   .gallery-lightbox-arrow.is-left { left: 20px; }
   .gallery-lightbox-arrow.is-right { right: 20px; }
 
-  .gallery-comparison.is-overlay {
-    gap: 10px;
-    padding: 0;
-  }
 }
 
 .site-footer {

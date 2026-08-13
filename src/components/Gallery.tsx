@@ -9,19 +9,14 @@ import vectrroInterface from '../asset/personal-site-showcase/vectrro-interface-
 import cooragentMessages from '../asset/personal-site-showcase/cooragent-messages.png';
 import hitaWebsite from '../asset/personal-site-showcase/hita-website.png';
 import hitaCover from '../asset/personal-site-showcase/hita-cover.png';
-import hitaNavigationBefore from '../asset/personal-site-showcase/hita-navigation-before.png';
-import hitaNavigationAfter from '../asset/personal-site-showcase/hita-navigation-after.png';
-import hitaGradingBefore from '../asset/personal-site-showcase/hita-grading-before.png';
-import hitaGradingAfter from '../asset/personal-site-showcase/hita-grading-after.png';
 import hitaChat from '../asset/personal-site-showcase/hita-chat.png';
 import nottaCover from '../asset/personal-site-showcase/notta-cover.png';
 
 type GalleryItem = {
   project: string;
   alt: string;
-  src?: string;
+  src: string;
   treatment?: 'ui-elements';
-  comparison?: { before: string; after: string; layout: 'portrait' | 'landscape' };
 };
 
 const galleryItems: GalleryItem[] = [
@@ -33,38 +28,11 @@ const galleryItems: GalleryItem[] = [
   { project: 'Cooragent', src: cooragentMessages, alt: 'Cooragent messages interface' },
   { project: 'HiTA', src: hitaWebsite, alt: 'HiTA assignment grading interface' },
   { project: 'HiTA', src: hitaCover, alt: 'HiTA product and website cover' },
-  {
-    project: 'HiTA',
-    alt: 'HiTA navigation before and after comparison',
-    comparison: { before: hitaNavigationBefore, after: hitaNavigationAfter, layout: 'portrait' },
-  },
-  {
-    project: 'HiTA',
-    alt: 'HiTA grading before and after comparison',
-    comparison: { before: hitaGradingBefore, after: hitaGradingAfter, layout: 'landscape' },
-  },
   { project: 'HiTA', src: hitaChat, alt: 'HiTA chat details interface' },
   { project: 'Notta', src: nottaCover, alt: 'Notta meeting notetaker product work' },
 ];
 
-function GalleryArtwork({ item, overlay = false }: { item: GalleryItem; overlay?: boolean }) {
-  if (item.comparison) {
-    return (
-      <div className={`gallery-comparison${overlay ? ' is-overlay' : ''}`}>
-        {(['before', 'after'] as const).map((state) => (
-          <div className="gallery-comparison-panel" key={state}>
-            <span>{state === 'before' ? 'Before' : 'After'}</span>
-            <img
-              src={item.comparison?.[state]}
-              alt={`${item.project} ${state}`}
-              className={item.comparison?.layout === 'portrait' ? 'is-portrait' : ''}
-            />
-          </div>
-        ))}
-      </div>
-    );
-  }
-
+function GalleryArtwork({ item }: { item: GalleryItem }) {
   return <img src={item.src} alt={item.alt} loading="eager" />;
 }
 
@@ -135,7 +103,7 @@ export default function Gallery() {
             <button
               type="button"
               key={item.alt}
-              className={`online-gallery-card${item.treatment === 'ui-elements' ? ' is-ui-elements' : ''}${item.comparison ? ' is-comparison' : ''}`}
+              className={`online-gallery-card${item.treatment === 'ui-elements' ? ' is-ui-elements' : ''}`}
               aria-label={`Open ${item.project} showcase image`}
               onClick={() => setActiveIndex(index)}
             >
@@ -180,8 +148,8 @@ export default function Gallery() {
           >
             <ArrowLeft2 size={28} color="currentColor" variant="Linear" />
           </button>
-          <div className={`gallery-lightbox-stage${activeItem.treatment === 'ui-elements' ? ' is-ui-elements' : ''}${activeItem.comparison ? ' is-comparison' : ''}`}>
-            <GalleryArtwork item={activeItem} overlay />
+          <div className={`gallery-lightbox-stage${activeItem.treatment === 'ui-elements' ? ' is-ui-elements' : ''}`}>
+            <GalleryArtwork item={activeItem} />
           </div>
           <button
             type="button"
