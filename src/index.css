@@ -74,7 +74,7 @@ body {
 
 .online-gallery-grid {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   gap: 12px;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
@@ -89,8 +89,8 @@ body {
 
 .online-gallery-card {
   box-sizing: border-box;
-  flex: 0 0 calc((100% - 36px) / 4);
-  aspect-ratio: 5 / 3;
+  flex: 0 0 auto;
+  height: 220px;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -240,7 +240,7 @@ body {
   }
 
   .online-gallery-card {
-    flex-basis: calc((100% - 12px) / 2);
+    height: 190px;
   }
 }
 
@@ -270,7 +270,7 @@ body {
   }
 
   .online-gallery-card {
-    flex-basis: 88%;
+    height: 168px;
   }
 
   .online-gallery-arrow {

@@ -16,20 +16,21 @@ type GalleryItem = {
   project: string;
   alt: string;
   src: string;
+  aspectRatio: string;
   treatment?: 'ui-elements';
 };
 
 const galleryItems: GalleryItem[] = [
-  { project: 'Vectrro', src: vectrroWorkflow, alt: 'Vectrro trucking operations website design' },
-  { project: 'Cooragent', src: cooragentLanding, alt: 'Cooragent landing page' },
-  { project: 'Cooragent', src: cooragentAgentMarket, alt: 'Cooragent agent market interface' },
-  { project: 'Vectrro', src: vectrroCover, alt: 'Vectrro quote reply UI elements', treatment: 'ui-elements' },
-  { project: 'Vectrro', src: vectrroInterface, alt: 'Vectrro product interface' },
-  { project: 'Cooragent', src: cooragentMessages, alt: 'Cooragent messages interface' },
-  { project: 'HiTA', src: hitaWebsite, alt: 'HiTA assignment grading interface' },
-  { project: 'HiTA', src: hitaCover, alt: 'HiTA product and website cover' },
-  { project: 'HiTA', src: hitaChat, alt: 'HiTA chat details interface' },
-  { project: 'Notta', src: nottaCover, alt: 'Notta meeting notetaker product work' },
+  { project: 'Vectrro', src: vectrroWorkflow, alt: 'Vectrro trucking operations website design', aspectRatio: '3670 / 2174' },
+  { project: 'Cooragent', src: cooragentLanding, alt: 'Cooragent landing page', aspectRatio: '3178 / 1920' },
+  { project: 'Cooragent', src: cooragentAgentMarket, alt: 'Cooragent agent market interface', aspectRatio: '3178 / 1920' },
+  { project: 'Vectrro', src: vectrroCover, alt: 'Vectrro quote reply UI elements', aspectRatio: '1024 / 564', treatment: 'ui-elements' },
+  { project: 'Vectrro', src: vectrroInterface, alt: 'Vectrro product interface', aspectRatio: '3670 / 2174' },
+  { project: 'Cooragent', src: cooragentMessages, alt: 'Cooragent messages interface', aspectRatio: '3178 / 1924' },
+  { project: 'HiTA', src: hitaWebsite, alt: 'HiTA assignment grading interface', aspectRatio: '3206 / 1942' },
+  { project: 'HiTA', src: hitaCover, alt: 'HiTA product and website cover', aspectRatio: '1780 / 1071' },
+  { project: 'HiTA', src: hitaChat, alt: 'HiTA chat details interface', aspectRatio: '6412 / 4096' },
+  { project: 'Notta', src: nottaCover, alt: 'Notta meeting notetaker product work', aspectRatio: '1024 / 728' },
 ];
 
 function GalleryArtwork({ item }: { item: GalleryItem }) {
@@ -44,9 +45,7 @@ export default function Gallery() {
     const track = trackRef.current;
     if (!track) return;
 
-    const card = track.querySelector<HTMLElement>('.online-gallery-card');
-    const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 0;
-    track.scrollBy({ left: direction * ((card?.offsetWidth ?? track.clientWidth) + gap), behavior: 'smooth' });
+    track.scrollBy({ left: direction * track.clientWidth * 0.78, behavior: 'smooth' });
   };
 
   const moveOverlay = useCallback((direction: -1 | 1) => {
@@ -104,6 +103,7 @@ export default function Gallery() {
               type="button"
               key={item.alt}
               className={`online-gallery-card${item.treatment === 'ui-elements' ? ' is-ui-elements' : ''}`}
+              style={{ aspectRatio: item.aspectRatio }}
               aria-label={`Open ${item.project} showcase image`}
               onClick={() => setActiveIndex(index)}
             >

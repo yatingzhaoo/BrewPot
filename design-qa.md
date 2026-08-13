@@ -373,3 +373,15 @@ final result: passed
 - Browser verification confirmed 10 cards, zero comparison components, all images loaded, and the click-to-open full-screen Overlay remains functional.
 - Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
 - Final result: passed.
+
+## Equal-height, natural-width Gallery — 2026-08-13
+
+- Kept all 10 approved Hero-carousel works and their existing full-screen overlay behavior.
+- Set every desktop Gallery card to the same `220px` height while deriving each width from the source artwork's natural aspect ratio.
+- Browser measurement confirmed all 10 cards are exactly `220px` high; widths vary from `309px` to `399px`.
+- Standard artwork remains uncropped and undistorted. The transparent UI-elements artwork retains its sage surface and inset padding.
+- Updated the circular arrow controls to scroll by a proportion of the visible track, which works consistently across variable-width cards.
+- Added responsive equal heights of `190px` on tablet and `168px` on mobile.
+- Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
+- Focused capture: `brewpot-gallery-equal-height-variable-width.jpg`.
+- Final result: passed.
