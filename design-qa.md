@@ -433,3 +433,15 @@ final result: passed
 - Removed the optical Y transforms because they changed pixels without changing the image's layout box.
 - Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
 - Final result: passed.
+
+## Component centering root-cause fix — 2026-08-13
+
+- Browser measurement exposed the root cause: the inner component media stage was `154px` high, but intrinsic Grid minimum sizing allowed Vectrro to render at about `186px` and Notta at about `176px`, overflowing only toward the bottom.
+- Removed intrinsic minimum-size pressure with `min-width: 0` and `min-height: 0` on both the media stage and image.
+- Component images now occupy the exact media-stage box and use `object-fit: contain; object-position: center` inside it.
+- Desktop carousel verification: both component images are `154px` high inside `220px` cards, with exactly `33px` above and `33px` below.
+- Desktop overlay verification: both images are `574px` high inside `702px` stages, with exactly `64px` above and `64px` below.
+- Mobile carousel verification: both images have exactly `33px` above and below; mobile overlay has exactly `28px` above and below.
+- Screenshots were visually inspected in every state; no component overflow or bottom-heavy spacing remains.
+- Page loaded with meaningful content, no framework error overlay, and no page errors. The only console warning was Hotjar intentionally declining the automated browser user agent.
+- Final result: passed.
