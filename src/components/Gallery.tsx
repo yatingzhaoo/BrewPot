@@ -191,7 +191,6 @@ export default function Gallery() {
           >
             <ArrowRight2 size={28} color="currentColor" variant="Linear" />
           </button>
-          <div className="gallery-lightbox-count">{activeIndex + 1} / {galleryItems.length}</div>
         </div>,
         document.body,
       )}

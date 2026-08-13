@@ -358,3 +358,10 @@ final result: passed
 - Visual comparison: `gallery-overlay-reference-comparison.jpg` places the production reference and local implementation side-by-side. The implementation preserves the dark full-screen treatment, centered contained artwork, circular navigation, and close control while using the new BrewPot control styling.
 - Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
 - Final result: passed.
+## Overlay counter removal — 2026-08-12
+
+- Removed the bottom `1 / 12` progress counter from the full-screen Gallery overlay.
+- Previous/next buttons, keyboard arrows, Escape close, background close, and all 12 works remain unchanged.
+- Browser verification confirmed the counter element count is zero while the lightbox remains open and functional after advancing to the next work.
+- Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
+- Final result: passed.

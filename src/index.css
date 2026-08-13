@@ -289,17 +289,6 @@ body {
 .gallery-lightbox-arrow.is-left { left: 24px; }
 .gallery-lightbox-arrow.is-right { right: 24px; }
 
-.gallery-lightbox-count {
-  position: absolute;
-  bottom: 18px;
-  left: 50%;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 12px;
-  font-weight: 550;
-  letter-spacing: 0.08em;
-  transform: translateX(-50%);
-}
-
 @media (max-width: 900px) {
   .online-gallery-grid {
     gap: 12px;
