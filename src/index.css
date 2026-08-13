@@ -210,9 +210,9 @@ body {
 
 .gallery-lightbox-stage.is-component-artwork {
   padding: 0;
-  background: var(--component-artwork-background, #e8e8e7);
-  border-radius: 12px;
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .gallery-lightbox-stage.is-component-artwork > .gallery-artwork-media {
@@ -330,7 +330,7 @@ body {
 
   .gallery-lightbox-stage.is-component-artwork {
     padding: 0;
-    border-radius: 10px;
+    border-radius: 0;
   }
 
   .gallery-lightbox-stage.is-component-artwork > .gallery-artwork-media {

@@ -468,3 +468,13 @@ final result: passed
 - Mobile standard screenshot verification confirmed the stage remains transparent with no secondary background.
 - No framework error overlay or page errors were detected.
 - Final result: passed.
+
+## Component lightbox backing removal — 2026-08-13
+
+- Removed the adaptive gray support surface from component and modal artwork in the full-screen lightbox.
+- All lightbox artwork now sits directly on the black overlay with a transparent stage, no stage radius, and no stage shadow.
+- Component images retain their constrained media area, original aspect ratio, centered positioning, and equal `64px` desktop top/bottom safety space.
+- Carousel thumbnails keep their adaptive gray support surfaces for legibility within the white page.
+- Browser screenshots verified both the four-panel Vectrro UI composition and the Notta checkout modal directly against the black overlay.
+- No framework error overlay was detected.
+- Final result: passed.
