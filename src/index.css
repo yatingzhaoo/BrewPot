@@ -480,9 +480,7 @@ body {
 .availability-badge { display: inline-flex; padding: 6px clamp(17px, 1.48vw, 22px); border: 1px solid #dedede; border-radius: 999px; background: rgba(255,255,255,.82); font-size: clamp(13px, 1.02vw, 15px); font-weight: 500; line-height: 1.2; }
 .hero-copy h1 { margin: 27px auto 17px; max-width: 1180px; color: #000; font-family: "Inter", sans-serif; font-size: clamp(50px, 4.5vw, 67px); font-weight: 700; line-height: 1.01; letter-spacing: -.052em; }
 .hero-copy h1 span { display: block; color: #ff3f24; }
-.hero-copy p { margin: 0 auto; max-width: 690px; font-size: clamp(15px, 1.18vw, 17px); font-weight: 500; line-height: 1.55; color: #242424; }
-.hero-copy p > span:first-child { display: block; }
-.hero-subtitle-points { display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 5px; color: #676767; font-size: .92em; font-weight: 500; }
+.hero-copy p { margin: 0 auto; max-width: 900px; font-size: clamp(15px, 1.18vw, 17px); font-weight: 500; line-height: 1.55; color: #242424; }
 .hero-cta { min-height: clamp(42px, 3.25vw, 49px); margin-top: 22px; padding: 0 clamp(26px, 2.05vw, 31px); border-radius: 6px; font-size: clamp(14px, 1.1vw, 17px); font-weight: 500; }
 
 .desk-object { position: absolute; z-index: 5; pointer-events: none; user-select: none; }
