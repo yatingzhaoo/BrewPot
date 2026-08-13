@@ -445,3 +445,15 @@ final result: passed
 - Screenshots were visually inspected in every state; no component overflow or bottom-heavy spacing remains.
 - Page loaded with meaningful content, no framework error overlay, and no page errors. The only console warning was Hotjar intentionally declining the automated browser user agent.
 - Final result: passed.
+
+## Gallery rail alignment and shadow clearance — 2026-08-13
+
+- Browser measurement confirmed all 10 cards already shared the same `top`, `bottom`, and `220px` desktop height; the perceived misalignment came from clipped shadows rather than card geometry.
+- Root cause: the horizontal scroller computed both `overflow-x` and `overflow-y` as `auto`, while its height exactly matched the cards, leaving zero vertical room for the card shadows.
+- Added an internal shadow clearance zone of `12px` above and `28px` below every card, offset with track margins so the clearance belongs to the rail rather than the artwork.
+- Fixed the Gallery frame to the responsive card height (`220px` desktop, `190px` tablet, `168px` mobile) so the new shadow clearance does not alter the section's intended layout rhythm.
+- Re-centered the circular desktop arrows on the card axis after introducing the asymmetric shadow clearance.
+- Desktop browser verification: all cards aligned; card and arrow center delta is exactly `0px`; the track has `12px` top and `28px` bottom shadow clearance.
+- Hover-state screenshots confirm the elevated shadow spreads naturally without clipping.
+- Mobile verification: all cards aligned at `168px`, with the same shadow clearance and no error overlay.
+- Final result: passed.
