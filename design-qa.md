@@ -498,3 +498,11 @@ final result: passed
 - Gallery-to-FAQ now has a combined `160px` section transition, matching the broader rhythm used earlier on the page.
 - Mobile keeps a proportional but more compact `136px` Gallery-to-FAQ transition.
 - Final result: passed by spacing-token comparison; browser handoff was unavailable during the final full-page capture.
+
+## Hero subtitle value points — 2026-08-13
+
+- Added “No hiring” and “No waiting” beneath the existing Hero subtitle as a restrained secondary line.
+- Reused the existing subtitle typography and neutral palette at a slightly smaller scale, without introducing a badge or competing visual treatment.
+- Desktop browser verification at 1414×804 confirmed the new line remains centered and the Hero preserves `96px` of breathing room before the showcase cards.
+- The primary headline, availability badge, CTA, artwork, and responsive structure remain unchanged.
+- Final result: passed.

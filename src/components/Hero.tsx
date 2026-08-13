@@ -131,7 +131,11 @@ export default function Hero() {
           <span>on demand.</span>
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.16 }}>
-          Expert product UI and UX design support for one flat monthly rate.
+          <span>Expert product UI and UX design support for one flat monthly rate.</span>
+          <span className="hero-subtitle-points">
+            <span>No hiring</span>
+            <span>No waiting</span>
+          </span>
         </motion.p>
         <motion.a
           initial={{ opacity: 0, y: 14 }}
