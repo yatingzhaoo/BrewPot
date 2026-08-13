@@ -385,3 +385,13 @@ final result: passed
 - Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
 - Focused capture: `brewpot-gallery-equal-height-variable-width.jpg`.
 - Final result: passed.
+
+## Automatic component-artwork treatment — 2026-08-13
+
+- Replaced the manually assigned UI-elements treatment with runtime artwork classification.
+- Each loaded image is sampled at low resolution and classified as component artwork when meaningful transparent canvas area is detected.
+- Component artwork automatically receives a branded sage background and extra safe padding in both the carousel and full-screen overlay.
+- Full-screen/product screenshots retain the edge-to-edge contained presentation.
+- Browser verification correctly classified the Vectrro multi-panel UI asset as `component` and the other nine current works as `screen`.
+- Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
+- Final result: passed.

@@ -17,14 +17,13 @@ type GalleryItem = {
   alt: string;
   src: string;
   aspectRatio: string;
-  treatment?: 'ui-elements';
 };
 
 const galleryItems: GalleryItem[] = [
   { project: 'Vectrro', src: vectrroWorkflow, alt: 'Vectrro trucking operations website design', aspectRatio: '3670 / 2174' },
   { project: 'Cooragent', src: cooragentLanding, alt: 'Cooragent landing page', aspectRatio: '3178 / 1920' },
   { project: 'Cooragent', src: cooragentAgentMarket, alt: 'Cooragent agent market interface', aspectRatio: '3178 / 1920' },
-  { project: 'Vectrro', src: vectrroCover, alt: 'Vectrro quote reply UI elements', aspectRatio: '1024 / 564', treatment: 'ui-elements' },
+  { project: 'Vectrro', src: vectrroCover, alt: 'Vectrro quote reply UI elements', aspectRatio: '1024 / 564' },
   { project: 'Vectrro', src: vectrroInterface, alt: 'Vectrro product interface', aspectRatio: '3670 / 2174' },
   { project: 'Cooragent', src: cooragentMessages, alt: 'Cooragent messages interface', aspectRatio: '3178 / 1924' },
   { project: 'HiTA', src: hitaWebsite, alt: 'HiTA assignment grading interface', aspectRatio: '3206 / 1942' },
@@ -33,13 +32,65 @@ const galleryItems: GalleryItem[] = [
   { project: 'Notta', src: nottaCover, alt: 'Notta meeting notetaker product work', aspectRatio: '1024 / 728' },
 ];
 
-function GalleryArtwork({ item }: { item: GalleryItem }) {
-  return <img src={item.src} alt={item.alt} loading="eager" />;
+function isComponentArtwork(image: HTMLImageElement) {
+  if (!image.naturalWidth || !image.naturalHeight) return false;
+
+  try {
+    const canvas = document.createElement('canvas');
+    const sampleWidth = 120;
+    const sampleHeight = Math.max(48, Math.round(sampleWidth * image.naturalHeight / image.naturalWidth));
+    canvas.width = sampleWidth;
+    canvas.height = sampleHeight;
+
+    const context = canvas.getContext('2d', { willReadFrequently: true });
+    if (!context) return false;
+    context.drawImage(image, 0, 0, sampleWidth, sampleHeight);
+
+    const pixels = context.getImageData(0, 0, sampleWidth, sampleHeight).data;
+    let transparentPixels = 0;
+    for (let alphaIndex = 3; alphaIndex < pixels.length; alphaIndex += 4) {
+      if (pixels[alphaIndex] < 245) transparentPixels += 1;
+    }
+
+    return transparentPixels / (pixels.length / 4) > 0.015;
+  } catch {
+    return false;
+  }
+}
+
+function GalleryArtwork({
+  item,
+  onPresentationDetected,
+}: {
+  item: GalleryItem;
+  onPresentationDetected?: (isComponent: boolean) => void;
+}) {
+  return (
+    <img
+      src={item.src}
+      alt={item.alt}
+      loading="eager"
+      onLoad={(event) => onPresentationDetected?.(isComponentArtwork(event.currentTarget))}
+    />
+  );
 }
 
 export default function Gallery() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [componentArtworkIndexes, setComponentArtworkIndexes] = useState<Set<number>>(() => new Set());
+
+  const classifyArtwork = useCallback((index: number, isComponent: boolean) => {
+    setComponentArtworkIndexes((current) => {
+      const alreadyClassified = current.has(index);
+      if (alreadyClassified === isComponent) return current;
+
+      const next = new Set(current);
+      if (isComponent) next.add(index);
+      else next.delete(index);
+      return next;
+    });
+  }, []);
 
   const moveGallery = (direction: -1 | 1) => {
     const track = trackRef.current;
@@ -102,12 +153,13 @@ export default function Gallery() {
             <button
               type="button"
               key={item.alt}
-              className={`online-gallery-card${item.treatment === 'ui-elements' ? ' is-ui-elements' : ''}`}
+              className={`online-gallery-card${componentArtworkIndexes.has(index) ? ' is-component-artwork' : ''}`}
+              data-artwork-presentation={componentArtworkIndexes.has(index) ? 'component' : 'screen'}
               style={{ aspectRatio: item.aspectRatio }}
               aria-label={`Open ${item.project} showcase image`}
               onClick={() => setActiveIndex(index)}
             >
-              <GalleryArtwork item={item} />
+              <GalleryArtwork item={item} onPresentationDetected={(isComponent) => classifyArtwork(index, isComponent)} />
             </button>
           ))}
         </div>
@@ -148,7 +200,7 @@ export default function Gallery() {
           >
             <ArrowLeft2 size={28} color="currentColor" variant="Linear" />
           </button>
-          <div className={`gallery-lightbox-stage${activeItem.treatment === 'ui-elements' ? ' is-ui-elements' : ''}`}>
+          <div className={`gallery-lightbox-stage${componentArtworkIndexes.has(activeIndex) ? ' is-component-artwork' : ''}`}>
             <GalleryArtwork item={activeItem} />
           </div>
           <button
