@@ -413,3 +413,12 @@ final result: passed
 - The same derived gray is reused for the corresponding carousel card and full-screen overlay.
 - Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
 - Final result: passed.
+
+## Component optical centering — 2026-08-13
+
+- Corrected the perceived downward visual weight caused by internal screenshot composition and bottom shadows.
+- Component artwork now receives a `-5px` optical Y adjustment in carousel cards and `-8px` in the larger desktop overlay.
+- Mobile overlay uses a reduced `-5px` adjustment.
+- Existing two-axis grid centering, adaptive gray surfaces, and generous safe padding remain unchanged.
+- Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
+- Final result: passed.
