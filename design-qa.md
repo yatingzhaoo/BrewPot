@@ -422,3 +422,14 @@ final result: passed
 - Existing two-axis grid centering, adaptive gray surfaces, and generous safe padding remain unchanged.
 - Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
 - Final result: passed.
+
+## Gallery classification and structural centering correction — 2026-08-13
+
+- Measured source alpha bounds directly: the Cooragent product screen is fully opaque, while the Vectrro UI-elements composition has about 9.2% transparent canvas.
+- Added product-screen semantic precedence for agent-market, chat, interface, landing-page, product, website, and workflow artwork so product screenshots cannot inherit a component background.
+- Replaced direct image centering plus visual translation with a dedicated inner media stage.
+- Carousel component media stage is exactly `calc(100% - 64px)` high, producing a mathematically equal `32px` top and bottom safe area.
+- Desktop overlay media stage subtracts `128px`, producing equal `64px` top and bottom safe area; mobile subtracts `56px` for equal `28px` areas.
+- Removed the optical Y transforms because they changed pixels without changing the image's layout box.
+- Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
+- Final result: passed.

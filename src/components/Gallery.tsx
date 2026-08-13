@@ -33,6 +33,7 @@ const galleryItems: GalleryItem[] = [
 ];
 
 const componentArtworkTerms = /\b(component|dialog|modal|overlay|panel|popover|popup|sheet|ui elements?|widget)\b/i;
+const productScreenTerms = /\b(agent market|chat|interface|landing page|product|website|workflow)\b/i;
 
 type ArtworkPresentation = {
   isComponent: boolean;
@@ -93,8 +94,11 @@ function analyzeArtwork(image: HTMLImageElement, description: string): ArtworkPr
     const backgroundColor = `rgb(${clampChannel(grayBase + (averageRed - average) * tintStrength)} ${clampChannel(grayBase + (averageGreen - average) * tintStrength)} ${clampChannel(grayBase + (averageBlue - average) * tintStrength)})`;
     const transparentRatio = transparentPixels / (pixels.length / 4);
 
+    const isSemanticallyComponent = componentArtworkTerms.test(description);
+    const isProductScreen = productScreenTerms.test(description) && !isSemanticallyComponent;
+
     return {
-      isComponent: componentArtworkTerms.test(description) || transparentRatio > 0.015,
+      isComponent: !isProductScreen && (isSemanticallyComponent || transparentRatio > 0.015),
       backgroundColor,
     };
   } catch {
@@ -113,12 +117,14 @@ function GalleryArtwork({
   onPresentationDetected?: (presentation: ArtworkPresentation) => void;
 }) {
   return (
-    <img
-      src={item.src}
-      alt={item.alt}
-      loading="eager"
-      onLoad={(event) => onPresentationDetected?.(analyzeArtwork(event.currentTarget, item.alt))}
-    />
+    <span className="gallery-artwork-media">
+      <img
+        src={item.src}
+        alt={item.alt}
+        loading="eager"
+        onLoad={(event) => onPresentationDetected?.(analyzeArtwork(event.currentTarget, item.alt))}
+      />
+    </span>
   );
 }
 

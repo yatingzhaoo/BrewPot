@@ -137,7 +137,15 @@ body {
 .online-gallery-arrow.is-left { left: 18px; }
 .online-gallery-arrow.is-right { right: 18px; }
 
-.online-gallery-card > img {
+.gallery-artwork-media {
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.online-gallery-card > .gallery-artwork-media img {
   display: block;
   width: 100%;
   height: 100%;
@@ -148,18 +156,20 @@ body {
 .online-gallery-card.is-component-artwork {
   display: grid;
   place-items: center;
-  padding: 28px 30px;
+  padding: 0;
   background: var(--component-artwork-background, #e8e8e7);
 }
 
-.online-gallery-card.is-component-artwork > img {
+.online-gallery-card.is-component-artwork > .gallery-artwork-media {
+  width: calc(100% - 60px);
+  height: calc(100% - 64px);
+}
+
+.online-gallery-card.is-component-artwork > .gallery-artwork-media img {
   width: auto;
   height: auto;
   max-width: 100%;
   max-height: 100%;
-  align-self: center;
-  justify-self: center;
-  transform: translateY(-5px);
 }
 
 .gallery-lightbox {
@@ -186,7 +196,7 @@ body {
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
 }
 
-.gallery-lightbox-stage > img {
+.gallery-lightbox-stage > .gallery-artwork-media img {
   display: block;
   width: 100%;
   height: 100%;
@@ -194,18 +204,20 @@ body {
 }
 
 .gallery-lightbox-stage.is-component-artwork {
-  padding: 64px;
+  padding: 0;
   background: var(--component-artwork-background, #e8e8e7);
 }
 
-.gallery-lightbox-stage.is-component-artwork > img {
+.gallery-lightbox-stage.is-component-artwork > .gallery-artwork-media {
+  width: calc(100% - 128px);
+  height: calc(100% - 128px);
+}
+
+.gallery-lightbox-stage.is-component-artwork > .gallery-artwork-media img {
   width: auto;
   height: auto;
   max-width: 100%;
   max-height: 100%;
-  align-self: center;
-  justify-self: center;
-  transform: translateY(-8px);
 }
 
 .gallery-lightbox-close,
@@ -304,11 +316,12 @@ body {
   }
 
   .gallery-lightbox-stage.is-component-artwork {
-    padding: 28px;
+    padding: 0;
   }
 
-  .gallery-lightbox-stage.is-component-artwork > img {
-    transform: translateY(-5px);
+  .gallery-lightbox-stage.is-component-artwork > .gallery-artwork-media {
+    width: calc(100% - 56px);
+    height: calc(100% - 56px);
   }
 
   .gallery-lightbox-close {
