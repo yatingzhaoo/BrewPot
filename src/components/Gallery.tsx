@@ -10,7 +10,7 @@ import cooragentMessages from '../asset/personal-site-showcase/cooragent-message
 import hitaWebsite from '../asset/personal-site-showcase/hita-website.png';
 import hitaCover from '../asset/personal-site-showcase/hita-cover.png';
 import hitaChat from '../asset/personal-site-showcase/hita-chat.png';
-import nottaCover from '../asset/personal-site-showcase/notta-cover.png';
+import nottaCover from '../asset/personal-site-showcase/notta-cover-2x.png';
 
 type GalleryItem = {
   project: string;
@@ -130,6 +130,7 @@ function GalleryArtwork({
 
 export default function Gallery() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const lastOverlayNavigationRef = useRef(0);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [componentArtworkBackgrounds, setComponentArtworkBackgrounds] = useState<Map<number, string>>(() => new Map());
 
@@ -154,6 +155,10 @@ export default function Gallery() {
   };
 
   const moveOverlay = useCallback((direction: -1 | 1) => {
+    const now = performance.now();
+    if (now - lastOverlayNavigationRef.current < 360) return;
+    lastOverlayNavigationRef.current = now;
+
     setActiveIndex((current) => {
       if (current === null) return current;
       return (current + direction + galleryItems.length) % galleryItems.length;
@@ -167,6 +172,7 @@ export default function Gallery() {
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setActiveIndex(null);
+      if (event.repeat) return;
       if (event.key === 'ArrowLeft') moveOverlay(-1);
       if (event.key === 'ArrowRight') moveOverlay(1);
     };
@@ -214,7 +220,10 @@ export default function Gallery() {
                 '--component-artwork-background': componentArtworkBackgrounds.get(index),
               } as CSSProperties}
               aria-label={`Open ${item.project} showcase image`}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => {
+                lastOverlayNavigationRef.current = 0;
+                setActiveIndex(index);
+              }}
             >
               <GalleryArtwork item={item} onPresentationDetected={(presentation) => classifyArtwork(index, presentation)} />
             </button>

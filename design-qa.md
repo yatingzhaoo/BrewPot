@@ -478,3 +478,14 @@ final result: passed
 - Browser screenshots verified both the four-panel Vectrro UI composition and the Notta checkout modal directly against the black overlay.
 - No framework error overlay was detected.
 - Final result: passed.
+
+## Lightbox navigation stability and Notta clarity — 2026-08-13
+
+- Added a `360ms` navigation guard so a rapid duplicate pointer input is coalesced into one lightbox step.
+- Ignored repeated keyboard events so holding an arrow key cannot unintentionally skip through multiple works.
+- Browser verification: a rapid double-click advanced from Vectrro only to the next Cooragent image; a subsequent click after the guard interval advanced exactly one more image.
+- Replaced the 1024×728 Notta source used by the Gallery with a 2048×1456 high-density display asset, preserving the complete composition and aspect ratio.
+- Applied restrained resampling sharpening to reduce high-DPI scaling softness without changing UI content.
+- Browser verification confirmed the Notta lightbox loads the 2048×1456 asset and preserves its aspect ratio on the transparent black stage.
+- Validation: `npm run lint`, `npm run build`, `npm run test:sites`, and `git diff --check` passed.
+- Final result: passed.
