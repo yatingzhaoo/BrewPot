@@ -457,3 +457,14 @@ final result: passed
 - Hover-state screenshots confirm the elevated shadow spreads naturally without clipping.
 - Mobile verification: all cards aligned at `168px`, with the same shadow clearance and no error overlay.
 - Final result: passed.
+
+## Full-screen artwork stage cleanup — 2026-08-13
+
+- Identified the extra visible layer behind full-screen artwork: every lightbox item inherited a fixed `#f5f5f4` stage with padding, radius, and a large shadow.
+- Standard full-screen/product screenshots now use a completely transparent stage with zero padding, zero radius, and no stage shadow, so only the source image is visible over the dark overlay.
+- Component and modal artwork intentionally retains its adaptive gray support surface, safe spacing, radius, and shadow.
+- Desktop browser verification confirmed standard stage values of transparent background, no shadow, `0px` radius, and `0px` padding.
+- Component verification confirmed its gray support surface remains and its vertical safe areas are still exactly `64px` above and below.
+- Mobile standard screenshot verification confirmed the stage remains transparent with no secondary background.
+- No framework error overlay or page errors were detected.
+- Final result: passed.
