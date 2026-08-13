@@ -403,3 +403,13 @@ final result: passed
 - The Notta checkout work is now described and automatically classified as a modal, so it receives the same branded background and safe padding as other component artwork.
 - Kept the transparent-pixel threshold conservative so ordinary full-screen screenshots with rounded corners are not misclassified.
 - Final result: passed.
+
+## Component centering and adaptive gray backgrounds — 2026-08-13
+
+- Component and modal artwork now uses intrinsic sizing constrained by `max-width` and `max-height`, with explicit two-axis grid centering.
+- Increased carousel safe space to `28px` vertically and `30px` horizontally; full-screen overlay safe space is now `64px`.
+- Removed the shared sage background.
+- Artwork analysis now samples visible pixels, measures average luminance and color temperature, then generates a low-saturation neutral gray per image.
+- The same derived gray is reused for the corresponding carousel card and full-screen overlay.
+- Validation: `npm run lint`, `npm run build`, and `npm run test:sites` passed.
+- Final result: passed.

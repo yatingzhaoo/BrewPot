@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
 import { createPortal } from 'react-dom';
 import { ArrowLeft2, ArrowRight2, CloseCircle } from 'iconsax-react';
 import vectrroWorkflow from '../asset/personal-site-showcase/vectrro-workflow.png';
@@ -34,12 +34,19 @@ const galleryItems: GalleryItem[] = [
 
 const componentArtworkTerms = /\b(component|dialog|modal|overlay|panel|popover|popup|sheet|ui elements?|widget)\b/i;
 
-function isComponentArtwork(image: HTMLImageElement, description: string) {
-  if (!image.naturalWidth || !image.naturalHeight) return false;
+type ArtworkPresentation = {
+  isComponent: boolean;
+  backgroundColor: string;
+};
 
-  // Semantic descriptions catch opaque dialogs and panels that do not have a
-  // meaningful transparent canvas, such as a checkout modal screenshot.
-  if (componentArtworkTerms.test(description)) return true;
+function clampChannel(value: number) {
+  return Math.max(214, Math.min(238, Math.round(value)));
+}
+
+function analyzeArtwork(image: HTMLImageElement, description: string): ArtworkPresentation {
+  if (!image.naturalWidth || !image.naturalHeight) {
+    return { isComponent: false, backgroundColor: '#e8e8e7' };
+  }
 
   try {
     const canvas = document.createElement('canvas');
@@ -49,20 +56,52 @@ function isComponentArtwork(image: HTMLImageElement, description: string) {
     canvas.height = sampleHeight;
 
     const context = canvas.getContext('2d', { willReadFrequently: true });
-    if (!context) return false;
+    if (!context) {
+      return {
+        isComponent: componentArtworkTerms.test(description),
+        backgroundColor: '#e8e8e7',
+      };
+    }
     context.drawImage(image, 0, 0, sampleWidth, sampleHeight);
 
     const pixels = context.getImageData(0, 0, sampleWidth, sampleHeight).data;
     let transparentPixels = 0;
-    for (let alphaIndex = 3; alphaIndex < pixels.length; alphaIndex += 4) {
-      if (pixels[alphaIndex] < 245) transparentPixels += 1;
+    let red = 0;
+    let green = 0;
+    let blue = 0;
+    let colorWeight = 0;
+
+    for (let pixelIndex = 0; pixelIndex < pixels.length; pixelIndex += 4) {
+      const alpha = pixels[pixelIndex + 3];
+      if (alpha < 245) transparentPixels += 1;
+      if (alpha < 32) continue;
+
+      const weight = alpha / 255;
+      red += pixels[pixelIndex] * weight;
+      green += pixels[pixelIndex + 1] * weight;
+      blue += pixels[pixelIndex + 2] * weight;
+      colorWeight += weight;
     }
 
-    // A meaningful transparent canvas identifies multi-component
-    // compositions without misclassifying ordinary rounded screenshots.
-    return transparentPixels / (pixels.length / 4) > 0.015;
+    const averageRed = red / Math.max(colorWeight, 1);
+    const averageGreen = green / Math.max(colorWeight, 1);
+    const averageBlue = blue / Math.max(colorWeight, 1);
+    const average = (averageRed + averageGreen + averageBlue) / 3;
+    const luminance = averageRed * 0.2126 + averageGreen * 0.7152 + averageBlue * 0.0722;
+    const grayBase = Math.max(222, Math.min(234, 218 + luminance * 0.065));
+    const tintStrength = 0.08;
+    const backgroundColor = `rgb(${clampChannel(grayBase + (averageRed - average) * tintStrength)} ${clampChannel(grayBase + (averageGreen - average) * tintStrength)} ${clampChannel(grayBase + (averageBlue - average) * tintStrength)})`;
+    const transparentRatio = transparentPixels / (pixels.length / 4);
+
+    return {
+      isComponent: componentArtworkTerms.test(description) || transparentRatio > 0.015,
+      backgroundColor,
+    };
   } catch {
-    return false;
+    return {
+      isComponent: componentArtworkTerms.test(description),
+      backgroundColor: '#e8e8e7',
+    };
   }
 }
 
@@ -71,14 +110,14 @@ function GalleryArtwork({
   onPresentationDetected,
 }: {
   item: GalleryItem;
-  onPresentationDetected?: (isComponent: boolean) => void;
+  onPresentationDetected?: (presentation: ArtworkPresentation) => void;
 }) {
   return (
     <img
       src={item.src}
       alt={item.alt}
       loading="eager"
-      onLoad={(event) => onPresentationDetected?.(isComponentArtwork(event.currentTarget, item.alt))}
+      onLoad={(event) => onPresentationDetected?.(analyzeArtwork(event.currentTarget, item.alt))}
     />
   );
 }
@@ -86,15 +125,16 @@ function GalleryArtwork({
 export default function Gallery() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [componentArtworkIndexes, setComponentArtworkIndexes] = useState<Set<number>>(() => new Set());
+  const [componentArtworkBackgrounds, setComponentArtworkBackgrounds] = useState<Map<number, string>>(() => new Map());
 
-  const classifyArtwork = useCallback((index: number, isComponent: boolean) => {
-    setComponentArtworkIndexes((current) => {
-      const alreadyClassified = current.has(index);
-      if (alreadyClassified === isComponent) return current;
+  const classifyArtwork = useCallback((index: number, presentation: ArtworkPresentation) => {
+    setComponentArtworkBackgrounds((current) => {
+      const currentBackground = current.get(index);
+      if (presentation.isComponent && currentBackground === presentation.backgroundColor) return current;
+      if (!presentation.isComponent && currentBackground === undefined) return current;
 
-      const next = new Set(current);
-      if (isComponent) next.add(index);
+      const next = new Map(current);
+      if (presentation.isComponent) next.set(index, presentation.backgroundColor);
       else next.delete(index);
       return next;
     });
@@ -161,13 +201,16 @@ export default function Gallery() {
             <button
               type="button"
               key={item.alt}
-              className={`online-gallery-card${componentArtworkIndexes.has(index) ? ' is-component-artwork' : ''}`}
-              data-artwork-presentation={componentArtworkIndexes.has(index) ? 'component' : 'screen'}
-              style={{ aspectRatio: item.aspectRatio }}
+              className={`online-gallery-card${componentArtworkBackgrounds.has(index) ? ' is-component-artwork' : ''}`}
+              data-artwork-presentation={componentArtworkBackgrounds.has(index) ? 'component' : 'screen'}
+              style={{
+                aspectRatio: item.aspectRatio,
+                '--component-artwork-background': componentArtworkBackgrounds.get(index),
+              } as CSSProperties}
               aria-label={`Open ${item.project} showcase image`}
               onClick={() => setActiveIndex(index)}
             >
-              <GalleryArtwork item={item} onPresentationDetected={(isComponent) => classifyArtwork(index, isComponent)} />
+              <GalleryArtwork item={item} onPresentationDetected={(presentation) => classifyArtwork(index, presentation)} />
             </button>
           ))}
         </div>
@@ -208,7 +251,10 @@ export default function Gallery() {
           >
             <ArrowLeft2 size={28} color="currentColor" variant="Linear" />
           </button>
-          <div className={`gallery-lightbox-stage${componentArtworkIndexes.has(activeIndex) ? ' is-component-artwork' : ''}`}>
+          <div
+            className={`gallery-lightbox-stage${componentArtworkBackgrounds.has(activeIndex) ? ' is-component-artwork' : ''}`}
+            style={{ '--component-artwork-background': componentArtworkBackgrounds.get(activeIndex) } as CSSProperties}
+          >
             <GalleryArtwork item={activeItem} />
           </div>
           <button
