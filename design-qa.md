@@ -595,3 +595,16 @@ final result: passed
 No actionable P0, P1, or P2 issues remain.
 
 final result: passed
+
+---
+
+## Mobile Colors card vertical balance — 2026-08-14
+
+- User finding: after moving the four swatches into one horizontal row, the Colors card retained too much empty space below the row.
+- Intended fix: keep the card dimensions stable, increase the responsive swatch size from 16–18px to 16–19px, and vertically center the palette within all space remaining below the `Colors` heading.
+- Implementation: the mobile Colors card is now a column flex container; its palette receives the remaining height and uses centered grid content. Horizontal order and four-column distribution are unchanged.
+- Static checks: `npm run lint`, `npm run build`, and `npm run test:sites` pass. The calculated layout keeps the four swatches inside the existing 87px content width at the 390px breakpoint and continues to scale down at narrower widths.
+- Browser evidence: blocked. The configured Chrome preview connection repeatedly reset or timed out while creating or claiming the local tab, and the in-app browser was unavailable. No new screenshot was produced; the previous screenshot is not used as evidence for this revision.
+- Remaining verification: visually confirm that the swatch row has balanced space above and below at 390px and that no card overflow appears at 360px.
+
+final result: blocked
