@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { track } from '../analytics';
-import Booking from './Booking';
 import {
   CASE_STUDIES,
   type CaseStudy,
@@ -161,43 +160,14 @@ export default function CaseStudiesRedesign() {
     return (
       <>
         <article data-analytics-section="case_study_detail" className="min-h-screen bg-[#fdfcfb] pb-24 pt-24 md:pb-32 md:pt-28">
-          <div className="mx-auto grid w-full max-w-[1180px] grid-cols-1 px-6 md:grid-cols-[180px_minmax(0,720px)_1fr] md:gap-x-10 md:px-10">
-            <aside className="hidden md:block">
-              <button
-                type="button"
-                onClick={returnToCaseStudies}
-                className="group sticky top-28 inline-flex min-h-10 items-center gap-2 rounded-[10px] border border-black/[0.08] bg-white px-3.5 text-[13px] font-medium text-[#54514d] transition-colors hover:border-black/[0.16] hover:text-[#202020] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              >
-                <ArrowLeft className="h-4 w-4 text-[#f05637] transition-transform group-hover:-translate-x-0.5" />
-                Back to projects
-              </button>
-            </aside>
-
-            <div className="min-w-0 md:col-start-2">
-              <button
-                type="button"
-                onClick={returnToCaseStudies}
-                className="group mb-5 inline-flex min-h-10 items-center gap-2 rounded-[10px] border border-black/[0.08] bg-white px-3.5 text-[13px] font-medium text-[#54514d] md:hidden"
-              >
-                <ArrowLeft className="h-4 w-4 text-[#f05637]" />
-                Back to projects
-              </button>
-
-              <div className="case-study-media-bg relative flex w-full items-center justify-center overflow-hidden rounded-[14px] p-5 sm:p-8">
-                <img
-                  src={detail.hero}
-                  alt={`${activeCaseStudy.title} Hero`}
-                  className={`h-auto w-full object-contain ${detail.heroBorderless ? 'rounded-none' : 'rounded-[9px] border border-black/[0.05] shadow-[0_12px_34px_rgba(32,32,32,0.08)]'}`}
-                />
-              </div>
-
-              <div className="mt-8 flex w-full flex-col gap-5 text-[16px] leading-[28px] text-[#302e2b] sm:text-[17px] sm:leading-[30px]">
+          <div className="mx-auto w-full max-w-[720px] px-6 md:px-0">
+              <div className="flex w-full flex-col gap-5 text-[16px] leading-[28px] text-[#302e2b] sm:text-[17px] sm:leading-[30px]">
                 {detail.overview.split('\n\n').map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
 
-              <div className="mt-16 flex flex-col gap-16 md:mt-20 md:gap-20">
+              <div className="mt-14 flex flex-col gap-14 md:mt-16 md:gap-16">
                 {detail.sections.map((section, index) => (
                   <section key={`${activeCaseStudy.id}-${index}`} className="flex flex-col">
                     {section.heading && (
@@ -240,16 +210,14 @@ export default function CaseStudiesRedesign() {
                 <button
                   type="button"
                   onClick={returnToCaseStudies}
-                  className="group inline-flex min-h-11 w-fit items-center gap-2 rounded-[10px] border border-black/[0.09] bg-white px-4 text-[14px] font-semibold text-[#202020] transition-colors hover:border-black/[0.18] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="group mx-auto mt-2 inline-flex min-h-11 w-fit items-center gap-2 rounded-[10px] bg-[#202020] px-5 text-[14px] font-medium text-white shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-colors hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  <ArrowLeft className="h-4 w-4 text-[#f05637] transition-transform group-hover:-translate-x-0.5" />
-                  Back to projects
+                  <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
+                  Back to case studies
                 </button>
               </div>
-            </div>
           </div>
         </article>
-        <Booking compact />
       </>
     );
   }

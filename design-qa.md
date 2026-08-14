@@ -781,14 +781,15 @@ final result: passed
 **Required fidelity surfaces**
 
 - Fonts and typography: production copy and heading order are exact; the implementation intentionally applies the new brand heading face, 17/30 body rhythm, and warmer charcoal ink.
-- Spacing and layout rhythm: the production 640px reading flow becomes a 720px brand article column inside the existing 1180px page grid. Comparison wells use the new 14px radius and balanced 24–32px padding.
-- Colors and visual tokens: warm white canvas, warm-gray comparison surfaces, charcoal text, coral return accent, low-opacity borders, and restrained shadows match the current homepage.
-- Image quality and asset fidelity: all seven production HiTA comparison assets are reused at their original resolution. Portrait, criteria crop, grading-workspace crop, and stacked website layouts were visually checked after lazy loading.
+- Spacing and layout rhythm: the production 640px reading flow becomes a centered 720px brand article column. Comparison wells use the new 14px radius and balanced 24–32px padding.
+- Colors and visual tokens: warm white canvas, warm-gray comparison surfaces, charcoal text, low-opacity borders, a black return action, and restrained shadows match the current homepage.
+- Image quality and asset fidelity: all eight production HiTA comparison assets are reused at their original resolution. Portrait, criteria crop, grading-workspace crop, and stacked website layouts were visually checked after lazy loading.
 - Copy and content: live DOM inspection confirms five headings, the full overview, all production paragraphs, and four Before/After groups are present in the same sequence.
 
 **Primary interactions and runtime checks**
 
-- Direct HiTA route loads correctly and preserves the sticky return control.
+- Direct HiTA route loads correctly. The production-mismatched hero media, sticky desktop return control, mobile top return control, and booking CTA are absent.
+- The only article action is the production-matching centered black `Back to case studies` button, followed directly by the existing site footer.
 - Lazy-loaded comparison images report complete with their original natural pixel widths after entering the viewport.
 - Production build and Sites compatibility tests pass; no visible runtime error overlay appears.
 
@@ -796,6 +797,7 @@ final result: passed
 
 - Pass 1 used the wrong source and was rejected by the user.
 - Pass 2 uses `brewpot.co` and the user screenshot as the source of truth. The side-by-side evidence confirms matching content, while the visible differences are the requested new-brand typography, spacing, radius, palette, and return control.
+- Pass 3 removed every visible element not present in production and matched the production ending structure. Evidence: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-study-hita-clean-top.png`, `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-study-hita-clean-bottom.png`, and `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-study-ending-qa-comparison.png`.
 
 **Follow-up polish**
 
