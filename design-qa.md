@@ -34,6 +34,52 @@ final result: passed
 
 ---
 
+## Mobile CTA and Footer refinement — 2026-08-14
+
+**Source visual truth**
+
+- User direction: mobile calls-to-action should hug their labels across the site; the mobile Footer should be centered; social-media icons should not have visible enclosing circles.
+- Existing homepage brand system: 48px black primary buttons with 6px corners, 16px/500 labels, and restrained coral hover feedback.
+
+**Implementation evidence**
+
+- Browser-rendered Footer evidence: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/footer-centered-no-circles.png`.
+- Screenshot pixels: 1280 × 720 at a 1280 × 720 CSS viewport and device scale factor 1; no density normalization required.
+- State: homepage Footer, default social-link state.
+
+**Findings and fixes**
+
+- Earlier [P2]: mobile Hero and Pricing CTAs used inconsistent widths; Hero expanded to a capped block while Pricing filled its card.
+- Fix: mobile Hero and Case Study CTAs now use intrinsic width; mobile Pricing CTAs use `w-fit`, centered with stable horizontal padding. Desktop Pricing remains full width inside its plan card.
+- Earlier [P2]: the mobile Footer inherited a left-aligned column, which looked unbalanced on a narrow viewport.
+- Fix: the mobile Footer column, copy, and social row are centered while the desktop Footer layout remains unchanged.
+- Earlier [P2]: social links displayed a bordered circular container that was not requested and added visual weight.
+- Fix: removed the visible border, background, and radius while preserving the 36 × 36px interaction target. Hover now changes only the glyph to brand coral.
+
+**Required fidelity surfaces**
+
+- Fonts and typography: existing Footer and CTA type styles are unchanged.
+- Spacing and layout rhythm: button height, padding, and radius remain on the homepage token; only mobile width behavior changed. Footer centering is limited to the existing mobile breakpoint.
+- Colors and visual tokens: black CTA styling and coral icon hover remain unchanged; no new color was introduced.
+- Image quality and asset fidelity: existing X and LinkedIn vector icons are retained; only their container decoration changed.
+- Copy and content: no labels, destinations, navigation items, or legal copy changed.
+
+**Interaction and runtime checks**
+
+- Browser-computed social-link size remains 36 × 36px with transparent background, zero border, and zero radius.
+- Functional controls such as navigation, carousel arrows, and accordion buttons are intentionally excluded from the CTA width rule.
+- `npm run build`, `npm run test:sites`, and `git diff --check` pass.
+
+**Residual test gap**
+
+- The available in-app preview surface did not expose a mobile viewport resize operation during this pass. Mobile centering and intrinsic widths were therefore verified from the scoped responsive rules rather than a new mobile screenshot. The browser-rendered desktop capture confirms the social-icon treatment and that desktop layout is unaffected.
+
+No actionable P0, P1, or P2 findings remain.
+
+final result: passed
+
+---
+
 ## Case Study article body refresh — 2026-08-14
 
 **Source visual truth**

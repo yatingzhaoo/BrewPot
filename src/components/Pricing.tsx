@@ -133,7 +133,7 @@ export default function Pricing() {
                 href={plan.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative z-10 mt-auto flex h-[48px] w-full items-center justify-center rounded-[6px] bg-black font-sans text-[16px] font-medium text-white transition-opacity duration-200 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="relative z-10 mt-auto flex h-[48px] w-fit self-center items-center justify-center rounded-[6px] bg-black px-7 font-sans text-[16px] font-medium text-white transition-opacity duration-200 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black md:w-full md:self-stretch md:px-0"
                 onClick={() =>
                   track('checkout_started', {
                     source: 'pricing',
