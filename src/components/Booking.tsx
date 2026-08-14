@@ -28,7 +28,7 @@ export default function Booking({ compact = false }: BookingProps) {
               href="https://cal.com/yating-zhao/15min"
               target="_blank"
               rel="noopener noreferrer"
-              className={`bg-black text-white rounded-[6px] font-medium hover:opacity-90 transition-opacity flex items-center justify-center inline-flex ${compact ? 'px-5 h-[48px] text-[16px]' : 'px-8 h-[58px] text-[17px]'}`}
+              className={`bg-black text-white rounded-[6px] font-medium hover:opacity-90 transition-opacity flex items-center justify-center inline-flex focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black ${compact ? 'px-5 h-[48px] text-[16px]' : 'px-8 h-[58px] text-[17px]'}`}
               onClick={() => track('booking_link_clicked', {
                 source: compact ? 'case_study_detail' : 'contact_section',
                 destination: 'https://cal.com/yating-zhao/15min',

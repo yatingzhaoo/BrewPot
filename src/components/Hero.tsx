@@ -97,19 +97,19 @@ function ComponentCard() {
   return (
     <article className="brand-card result-card component-card" aria-label="Component library design">
       <h2>Components</h2>
-      <div className="component-grid">
-        <button className="mini-primary" type="button" aria-label="Primary button"><span>Primary</span></button>
-        <button className="mini-accent" type="button" aria-label="Primary accent button"><span>Primary / Accent</span></button>
-        <button className="mini-secondary" type="button" aria-label="Secondary button"><span>Secondary</span></button>
-        <label className="mini-input"><span>Input field</span></label>
+      <div className="component-grid" aria-hidden="true">
+        <span className="mini-primary"><span>Primary</span></span>
+        <span className="mini-accent"><span>Primary / Accent</span></span>
+        <span className="mini-secondary"><span>Secondary</span></span>
+        <span className="mini-input"><span>Input field</span></span>
       </div>
-      <div className="component-footer">
-        <button className="mini-toggle" type="button" aria-label="Toggle active"><span /></button>
+      <div className="component-footer" aria-hidden="true">
+        <span className="mini-toggle"><span /></span>
         <div className="component-icons">
-          <button className="mini-icon" type="button" aria-label="Search"><Search size={19} /></button>
-          <button className="mini-icon" type="button" aria-label="Favorite"><Heart size={19} /></button>
-          <button className="mini-icon" type="button" aria-label="Notifications"><Bell size={19} /></button>
-          <button className="mini-icon" type="button" aria-label="More options"><Menu size={19} /></button>
+          <span className="mini-icon"><Search size={19} /></span>
+          <span className="mini-icon"><Heart size={19} /></span>
+          <span className="mini-icon"><Bell size={19} /></span>
+          <span className="mini-icon"><Menu size={19} /></span>
         </div>
       </div>
     </article>

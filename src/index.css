@@ -459,12 +459,14 @@ body {
   color: white;
   background: black;
   text-decoration: none;
-  font-weight: 600;
-  transition: transform 180ms ease, background-color 180ms ease;
+  font-weight: 500;
+  transition: opacity 180ms ease;
 }
 
-.nav-cta { min-height: 42px; margin-left: auto; padding: 0 18px; border-radius: 7px; font-size: 15px; }
-.nav-cta:hover, .hero-cta:hover { background: #262626; transform: translateY(-1px); }
+.nav-cta { min-height: 44px; margin-left: auto; padding: 0 18px; border-radius: 6px; font-size: 15px; }
+.nav-cta:hover, .hero-cta:hover { opacity: .9; }
+.nav-cta:focus-visible,
+.hero-cta:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
 .nav-menu-button { display: none; border: 0; background: transparent; padding: 7px; justify-self: end; }
 .brand-mobile-menu { display: none; }
 
@@ -480,7 +482,7 @@ body {
 .hero-copy h1 { margin: 27px auto 17px; max-width: 1180px; color: #000; font-family: "Inter", sans-serif; font-size: clamp(50px, 4.5vw, 67px); font-weight: 700; line-height: 1.01; letter-spacing: -.052em; }
 .hero-copy h1 span { display: block; color: #ff3f24; }
 .hero-copy p { margin: 0 auto; max-width: 900px; font-size: clamp(15px, 1.18vw, 17px); font-weight: 500; line-height: 1.55; color: #242424; }
-.hero-cta { min-height: clamp(42px, 3.25vw, 49px); margin-top: 22px; padding: 0 clamp(26px, 2.05vw, 31px); border-radius: 6px; font-size: clamp(14px, 1.1vw, 17px); font-weight: 500; }
+.hero-cta { height: 48px; margin-top: 22px; padding: 0 28px; border-radius: 6px; font-size: 16px; font-weight: 500; }
 
 .desk-object { position: absolute; z-index: 5; pointer-events: none; user-select: none; }
 .laptop-object {
@@ -549,8 +551,7 @@ body {
 
 .component-card { width: 439px; height: 234px; padding: 23px 20px; }
 .component-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; margin-top: 16px; }
-.component-grid button { font: inherit; }
-.mini-primary, .mini-accent, .mini-secondary { height: 35px; border-radius: 7px; font-size: 12px; font-weight: 500; }
+.mini-primary, .mini-accent, .mini-secondary { display: flex; align-items: center; justify-content: center; height: 35px; border-radius: 7px; font-family: inherit; font-size: 12px; font-weight: 500; }
 .mini-primary { color: white; background: black; border: 1px solid black; }
 .mini-accent { color: white; background: var(--brand-coral); border: 1px solid var(--brand-coral); }
 .mini-secondary { color: black; background: white; border: 1px solid #777; }
@@ -585,6 +586,7 @@ body {
   .desk-object { display: none; }
   .hero-copy h1 { margin-top: 24px; font-size: clamp(48px, 14vw, 68px); }
   .hero-copy p { max-width: 540px; font-size: 16px; }
+  .hero-cta { width: min(100%, 280px); }
   .result-showcase {
     left: auto;
     display: grid;
@@ -698,12 +700,12 @@ body {
     font-weight: 500;
     line-height: 1;
   }
-  .component-card .component-grid button {
-    font-size: 7px;
-    font-weight: 500;
-    line-height: 1;
-  }
-  .component-grid button > span { display: inline; white-space: nowrap; }
+  .component-grid .mini-primary,
+  .component-grid .mini-accent,
+  .component-grid .mini-secondary { font-size: 7px; font-weight: 500; line-height: 1; }
+  .component-grid .mini-primary > span,
+  .component-grid .mini-accent > span,
+  .component-grid .mini-secondary > span { display: inline; white-space: nowrap; }
   .component-grid .mini-input { display: none; }
   .component-footer { margin-top: 7px; }
   .component-icons { display: none; }
