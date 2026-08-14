@@ -799,6 +799,7 @@ final result: passed
 - Pass 2 uses `brewpot.co` and the user screenshot as the source of truth. The side-by-side evidence confirms matching content, while the visible differences are the requested new-brand typography, spacing, radius, palette, and return control.
 - Pass 3 removed every visible element not present in production and matched the production ending structure. Evidence: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-study-hita-clean-top.png`, `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-study-hita-clean-bottom.png`, and `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-study-ending-qa-comparison.png`.
 - Pass 4 applies the homepage primary-button token exactly: 48px height, 28px horizontal padding, 6px radius, black background, 16px/500 text, no shadow, and 90% hover opacity. Browser evidence: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-study-home-button.png`.
+- Pass 5 removes the extra arrow and replaces the duplicated utilities with the homepage's actual shared `hero-cta` class. Browser-computed values now match the homepage button for height, radius, font, padding, gap, background, shadow, and responsive rule; only intrinsic width differs because the label is different. Evidence: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-study-shared-hero-button.png`.
 
 **Follow-up polish**
 
