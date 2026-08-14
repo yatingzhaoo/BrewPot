@@ -34,6 +34,59 @@ final result: passed
 
 ---
 
+## Case Study article body refresh — 2026-08-14
+
+**Source visual truth**
+
+- Current online Vectrro Case Study capture: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-study-online-vectrro-reference.png`
+- Source pixels: 1280 × 4435. The first 1280 × 720 region was normalized for the direct top-of-article comparison.
+
+**Implementation evidence**
+
+- Browser-rendered top viewport: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-study-vectrro-top.png`
+- Focused reading/heading viewport: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-study-vectrro-mid.png`
+- Side-by-side comparison: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-study-body-qa-comparison.png`
+- Viewport: 1280 × 720 CSS px; implementation pixels: 1280 × 720; device density normalized 1:1 for comparison.
+- State: `/?view=case-studies&case=vectrro`, top of article and first content heading.
+
+**Findings**
+
+- No actionable P0/P1/P2 differences remain.
+- The implementation intentionally retains the BrewPot navigation and increases the source article's optical scale while preserving its single-column order, copy, and imagery.
+- The 720px reading column stays centered within the site's existing 1180px content width. A sticky, low-emphasis return control occupies the left rail without reducing the article width.
+
+**Required fidelity surfaces**
+
+- Fonts and typography: source copy hierarchy and paragraph sequence are preserved; the new brand heading face, 17/30 desktop body rhythm, warmer ink color, and tighter display tracking match the current BrewPot system.
+- Spacing and layout rhythm: source narrow reading flow is retained; 14px media radii, 9px image radii, restrained 8% shadow, 16–20px section spacing, and the existing 1180px outer grid align with the homepage system.
+- Colors and visual tokens: warm white page, warm neutral media wells, charcoal type, low-opacity borders, and coral navigation accent use the current Wave & Steam palette.
+- Image quality and asset fidelity: the original full-resolution live-site Vectrro assets are reused with `object-contain`; no cropping, stretching, generated replacement, or low-resolution substitute was introduced.
+- Copy and content: live article copy and section order are preserved. HiTA-only before/after and grading sections that do not exist in the current live source were removed.
+
+**Primary interactions tested**
+
+- The desktop `Back to projects` control returns to `/?view=case-studies` and restores the list state.
+- Reloading the Case Study route renders the correct Vectrro article without a visible runtime error overlay.
+- Production build and Sites compatibility tests pass.
+
+**Focused comparison evidence**
+
+- The mid-article capture verifies paragraph measure, heading wrapping, sticky return control, header behavior, and vertical reading rhythm at readable scale; a separate crop was therefore not required.
+
+**Comparison history**
+
+- Initial issue: the prior detail page used full-width media and extra HiTA comparison content, diverging from the current online Case Study body.
+- Fix: rebuilt the detail body as a 720px article column, restored the live copy/media sequence, removed non-live HiTA comparison sections, and applied BrewPot brand tokens to the surrounding presentation.
+- Post-fix evidence: the combined comparison and focused viewport show matching content order and a deliberate, internally consistent brand adaptation.
+
+**Follow-up polish**
+
+- None required for this scope.
+
+final result: passed
+
+---
+
 ## Case Studies logo-card redesign — 2026-08-14
 
 - Source visual truth: `/tmp/codex-remote-attachments/019fe30a-bb6a-7d00-a7e3-87d50b77d2f4/915FA04C-22D1-42E8-8510-33D20649B0FC/1-Photo-1.jpg`, 1280 × 959 pixels.

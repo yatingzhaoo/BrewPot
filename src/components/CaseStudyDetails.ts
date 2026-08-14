@@ -8,10 +8,6 @@ import nottaCover from '../asset/case-studies/detail/notta-cover.png';
 import hitaCover from '../asset/case-studies/detail/hita-cover.png';
 import hitaFramework from '../asset/case-studies/detail/hita-framework.png';
 import hitaChat from '../asset/case-studies/detail/hita-chat.png';
-import hitaNavigationBefore from '../asset/case-studies/detail/hita-navigation-before.png';
-import hitaNavigationAfter from '../asset/case-studies/detail/hita-navigation-after.png';
-import hitaGradingBefore from '../asset/case-studies/detail/hita-grading-before.png';
-import hitaGradingAfter from '../asset/case-studies/detail/hita-grading-after.png';
 
 export type CaseStudyComparison = {
   before: string;
@@ -97,30 +93,12 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
     sections: [
       {
         heading: 'Let the Structure Guide Students on How to Use It',
-        comparison: {
-          before: hitaNavigationBefore,
-          after: hitaNavigationAfter,
-          beforeAlt: 'HiTA navigation before redesign',
-          afterAlt: 'HiTA navigation after redesign',
-          layout: 'portrait',
-        },
         paragraphs: [
           `The product structure of HiTA is highly complex. The platform contains a vast number of assistants tailored to different courses and fields, with each assistant housing functional modules such as chat history, knowledge documents, and resource management. This nested hierarchy makes it easy for users to lose their way and leads to a cluttered menu. Such complexity not only increases the learning curve but also creates structural resistance when the team attempts to add new features.`,
           `HiTA’s user base includes students, teachers, administrative staff, and system administrators. Some of these roles overlap; for instance, graduate students act as both students and teaching assistants, while some teachers also serve as administrators. This multi-role structure places higher demands on information architecture design.`,
           `I attempted to find a balance where users always know their location during deep browsing without making the information structure feel heavy. My approach drew inspiration from Canva’s design philosophy: while users see a diverse range of projects from the outside, once they enter a specific project, the interface focuses entirely on the current content, creating a clear and dedicated workspace. By introducing this concept to HiTA, each assistant now forms a relatively independent space. Once a user enters an assistant, the interface revolves around it, maintaining a sense of direction through clear branding and breadcrumbs. Consequently, the menu is simplified, reducing hierarchical clutter.`,
           `This structure is particularly vital for students. They will only have the incentive to continue using the platform if they can quickly understand its capabilities. Increased engagement from students, in turn, motivates teachers to update and maintain their resources. Based on this reasoning, I enhanced the “Assistant Market” display on the homepage, making the names, types, and functions of assistants more intuitive. By equipping it with search and filter mechanisms, students can quickly locate assistants relevant to them and fully grasp the capabilities and purposes of HiTA.`,
         ],
-      },
-      {
-        heading: 'Make Grading Criteria Easier to Scan and Manage',
-        comparison: {
-          before: hitaGradingBefore,
-          after: hitaGradingAfter,
-          beforeAlt: 'HiTA grading criteria before redesign',
-          afterAlt: 'HiTA grading criteria after redesign',
-          layout: 'landscape',
-        },
-        paragraphs: [],
       },
       {
         heading: 'Rebuilding Consensus Through a Framework',

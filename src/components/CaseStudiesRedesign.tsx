@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
-import { X } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { track } from '../analytics';
 import Booking from './Booking';
 import {
@@ -8,71 +7,7 @@ import {
   type CaseStudy,
   projectProperties,
 } from './CaseStudies';
-import {
-  CASE_STUDY_DETAILS,
-  type CaseStudyComparison,
-} from './CaseStudyDetails';
-
-function ComparisonFrame({
-  comparison,
-  expanded = false,
-}: {
-  comparison: CaseStudyComparison;
-  expanded?: boolean;
-}) {
-  const isPortrait = comparison.layout === 'portrait';
-  const imageClass = isPortrait
-    ? expanded
-      ? 'h-[82vh] max-h-[800px] w-auto max-w-full object-contain'
-      : 'h-[360px] sm:h-[460px] w-auto max-w-full object-contain'
-    : 'h-full w-full object-cover';
-  const gridClass = isPortrait
-    ? expanded
-      ? 'grid-cols-2 justify-center gap-4 sm:grid-cols-[260px_260px] sm:gap-8'
-      : 'grid-cols-2 justify-center gap-4 sm:grid-cols-[170px_170px] sm:gap-6'
-    : 'grid-cols-2 gap-3 sm:gap-5';
-
-  return (
-    <div
-      className={`grid ${gridClass} items-start rounded-[12px] bg-[#F3F1ED] ${
-        expanded
-          ? isPortrait
-            ? 'w-full max-w-[760px] p-4 sm:p-6'
-            : 'w-full max-w-[1480px] p-4 sm:p-6'
-          : 'w-full p-4 sm:p-6'
-      }`}
-    >
-      {([
-        ['Before', comparison.before, comparison.beforeAlt],
-        ['After', comparison.after, comparison.afterAlt],
-      ] as const).map(([label, src, alt]) => (
-        <div key={label} className="flex min-w-0 flex-col items-center gap-3">
-          <span className="self-center text-[14px] font-semibold leading-5 text-[#202020] sm:text-[16px]">
-            {label}
-          </span>
-          <div
-            className={`flex min-w-0 items-start justify-center ${
-              isPortrait
-                ? 'w-full'
-                : 'aspect-[1.217/1] w-full overflow-hidden rounded-[8px] border border-black/[0.07] bg-white shadow-[0_12px_32px_rgba(32,32,32,0.14)]'
-            }`}
-          >
-            <img
-              src={src}
-              alt={alt}
-              loading={expanded ? 'eager' : 'lazy'}
-              className={`${imageClass} max-w-full ${
-                isPortrait
-                  ? 'rounded-[8px] border border-black/[0.07] bg-white shadow-[0_12px_32px_rgba(32,32,32,0.14)]'
-                  : ''
-              }`}
-            />
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
+import { CASE_STUDY_DETAILS } from './CaseStudyDetails';
 
 function caseFromUrl() {
   const caseId = new URLSearchParams(window.location.search).get('case');
@@ -81,7 +16,6 @@ function caseFromUrl() {
 
 export default function CaseStudiesRedesign() {
   const [activeCaseStudy, setActiveCaseStudy] = useState<CaseStudy | null>(caseFromUrl);
-  const [selectedComparison, setSelectedComparison] = useState<CaseStudyComparison | null>(null);
   const activeCaseStudyRef = useRef<CaseStudy | null>(activeCaseStudy);
   const openedAt = useRef<number | null>(activeCaseStudy ? Date.now() : null);
 
@@ -109,12 +43,12 @@ export default function CaseStudiesRedesign() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const closeCaseStudy = () => {
+  const closeCaseStudy = (source = 'browser_back') => {
     const caseStudy = activeCaseStudyRef.current;
     if (caseStudy) {
       track('case_study_closed', {
         ...projectProperties(caseStudy),
-        source: 'browser_back',
+        source,
         active_open_time_ms: openedAt.current === null ? null : Date.now() - openedAt.current,
         content_source: 'yatingzhao.com',
         page_area: 'case_studies.detail',
@@ -126,6 +60,11 @@ export default function CaseStudiesRedesign() {
     openedAt.current = null;
     setActiveCaseStudy(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const returnToCaseStudies = () => {
+    window.history.pushState({}, '', '/?view=case-studies');
+    closeCaseStudy('back_to_projects');
   };
 
   useEffect(() => {
@@ -158,120 +97,94 @@ export default function CaseStudiesRedesign() {
     return () => window.clearTimeout(engagementTimer);
   }, [activeCaseStudy]);
 
-  useEffect(() => {
-    if (!selectedComparison) return;
-
-    const previousOverflow = document.body.style.overflow;
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setSelectedComparison(null);
-    };
-
-    document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [selectedComparison]);
-
   if (activeCaseStudy) {
     const detail = CASE_STUDY_DETAILS[activeCaseStudy.id];
 
     return (
       <>
-        <article data-analytics-section="case_study_detail" className="min-h-screen pt-24">
-          <div className="mx-auto flex w-full max-w-[1180px] flex-col gap-6 px-6 md:px-10">
-          <div className="case-study-media-bg relative flex items-center justify-center w-full rounded-[12px] overflow-hidden p-6 md:p-10">
-            <img
-              src={detail.hero}
-              alt={`${activeCaseStudy.title} Hero`}
-              className={`w-full h-auto object-contain ${detail.heroBorderless ? 'rounded-none' : 'rounded-[8px] border border-black/[0.05] shadow-[0_0_24px_rgba(0,0,0,0.08)]'}`}
-            />
-          </div>
-
-          <div className="mx-auto flex w-full max-w-[640px] flex-col gap-5 text-[16px] leading-[28px] text-black">
-            {detail.overview.split('\n\n').map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-
-          {detail.sections.map((section, index) => (
-            <section key={`${activeCaseStudy.id}-${index}`} className="flex flex-col gap-10">
-              <div className="flex flex-col gap-4">
-                {section.heading && (
-                  <h2 className="mx-auto w-full max-w-[640px] text-[18px] font-semibold text-black tracking-tight">{section.heading}</h2>
-                )}
-
-                {section.image && (
-                  <div className={section.transparentImage
-                    ? 'relative flex items-center justify-center w-full overflow-hidden'
-                    : 'case-study-media-bg relative flex items-center justify-center w-full rounded-[12px] overflow-hidden p-6 md:p-10'}>
-                    <img
-                      src={section.image}
-                      alt={section.heading ?? activeCaseStudy.title}
-                      loading="lazy"
-                      className={section.transparentImage
-                        ? 'w-full h-auto object-contain'
-                        : 'w-full h-auto object-contain rounded-[8px] border border-black/[0.05] shadow-[0_0_24px_rgba(0,0,0,0.08)]'}
-                    />
-                  </div>
-                )}
-
-                {section.comparison && (
-                  <button
-                    type="button"
-                    className="block w-full cursor-zoom-in text-left"
-                    aria-label={`Open ${section.heading ?? activeCaseStudy.title} comparison`}
-                    onClick={() => setSelectedComparison(section.comparison ?? null)}
-                  >
-                    <ComparisonFrame comparison={section.comparison} />
-                  </button>
-                )}
-
-                <div className="mx-auto flex w-full max-w-[640px] flex-col gap-5">
-                  {section.paragraphs.map((paragraph) => (
-                    <p key={paragraph} className="text-[16px] leading-[28px] text-black">{paragraph}</p>
-                  ))}
-                </div>
-              </div>
-            </section>
-          ))}
-
-          </div>
-        </article>
-        <AnimatePresence>
-          {selectedComparison && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[110] flex items-center justify-center overflow-auto bg-black/90 p-4 sm:p-10"
-              role="dialog"
-              aria-modal="true"
-              aria-label="Case study before and after comparison"
-              onClick={() => setSelectedComparison(null)}
-            >
+        <article data-analytics-section="case_study_detail" className="min-h-screen bg-[#fdfcfb] pb-24 pt-24 md:pb-32 md:pt-28">
+          <div className="mx-auto grid w-full max-w-[1180px] grid-cols-1 px-6 md:grid-cols-[180px_minmax(0,720px)_1fr] md:gap-x-10 md:px-10">
+            <aside className="hidden md:block">
               <button
                 type="button"
-                className="fixed right-5 top-5 z-10 grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-                aria-label="Close case study comparison"
-                onClick={() => setSelectedComparison(null)}
+                onClick={returnToCaseStudies}
+                className="group sticky top-28 inline-flex min-h-10 items-center gap-2 rounded-[10px] border border-black/[0.08] bg-white px-3.5 text-[13px] font-medium text-[#54514d] transition-colors hover:border-black/[0.16] hover:text-[#202020] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
-                <X className="h-6 w-6" />
+                <ArrowLeft className="h-4 w-4 text-[#f05637] transition-transform group-hover:-translate-x-0.5" />
+                Back to projects
               </button>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                className="flex w-full items-center justify-center"
-                onClick={(event) => event.stopPropagation()}
+            </aside>
+
+            <div className="min-w-0 md:col-start-2">
+              <button
+                type="button"
+                onClick={returnToCaseStudies}
+                className="group mb-5 inline-flex min-h-10 items-center gap-2 rounded-[10px] border border-black/[0.08] bg-white px-3.5 text-[13px] font-medium text-[#54514d] md:hidden"
               >
-                <ComparisonFrame comparison={selectedComparison} expanded />
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                <ArrowLeft className="h-4 w-4 text-[#f05637]" />
+                Back to projects
+              </button>
+
+              <div className="case-study-media-bg relative flex w-full items-center justify-center overflow-hidden rounded-[14px] p-5 sm:p-8">
+                <img
+                  src={detail.hero}
+                  alt={`${activeCaseStudy.title} Hero`}
+                  className={`h-auto w-full object-contain ${detail.heroBorderless ? 'rounded-none' : 'rounded-[9px] border border-black/[0.05] shadow-[0_12px_34px_rgba(32,32,32,0.08)]'}`}
+                />
+              </div>
+
+              <div className="mt-8 flex w-full flex-col gap-5 text-[16px] leading-[28px] text-[#302e2b] sm:text-[17px] sm:leading-[30px]">
+                {detail.overview.split('\n\n').map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+
+              <div className="mt-16 flex flex-col gap-16 md:mt-20 md:gap-20">
+                {detail.sections.map((section, index) => (
+                  <section key={`${activeCaseStudy.id}-${index}`} className="flex flex-col">
+                    {section.heading && (
+                      <h2 className="font-heading text-[22px] font-semibold leading-[1.2] tracking-[-0.025em] text-[#202020] sm:text-[24px]">
+                        {section.heading}
+                      </h2>
+                    )}
+
+                    {section.image && (
+                      <div className={`${section.heading ? 'mt-6' : ''} ${section.transparentImage
+                        ? 'relative flex w-full items-center justify-center overflow-hidden'
+                        : 'case-study-media-bg relative flex w-full items-center justify-center overflow-hidden rounded-[14px] p-5 sm:p-8'}`}>
+                        <img
+                          src={section.image}
+                          alt={section.heading ?? activeCaseStudy.title}
+                          loading="lazy"
+                          className={section.transparentImage
+                            ? 'h-auto w-full object-contain'
+                            : 'h-auto w-full rounded-[9px] border border-black/[0.05] object-contain shadow-[0_12px_34px_rgba(32,32,32,0.08)]'}
+                        />
+                      </div>
+                    )}
+
+                    {section.paragraphs.length > 0 && (
+                      <div className={`${section.heading || section.image ? 'mt-6' : ''} flex w-full flex-col gap-5 text-[16px] leading-[28px] text-[#302e2b] sm:text-[17px] sm:leading-[30px]`}>
+                        {section.paragraphs.map((paragraph) => (
+                          <p key={paragraph}>{paragraph}</p>
+                        ))}
+                      </div>
+                    )}
+                  </section>
+                ))}
+
+                <button
+                  type="button"
+                  onClick={returnToCaseStudies}
+                  className="group inline-flex min-h-11 w-fit items-center gap-2 rounded-[10px] border border-black/[0.09] bg-white px-4 text-[14px] font-semibold text-[#202020] transition-colors hover:border-black/[0.18] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                >
+                  <ArrowLeft className="h-4 w-4 text-[#f05637] transition-transform group-hover:-translate-x-0.5" />
+                  Back to projects
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
         <Booking compact />
       </>
     );
