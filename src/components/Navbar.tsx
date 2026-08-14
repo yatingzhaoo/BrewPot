@@ -1,6 +1,7 @@
 import { ArrowRight, Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import logo from '../asset/公司Logo.svg';
+import { BLOG_ENABLED } from '../config';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +41,7 @@ export default function Navbar() {
         <div className="brand-nav-links">
           <a href="/?view=case-studies">Case Studies</a>
           <a href="/#pricing">Pricing</a>
-          <a href="/?view=blog">Blog</a>
+          {BLOG_ENABLED && <a href="/?view=blog">Blog</a>}
         </div>
         <a className="nav-cta" href="https://cal.com/yating-zhao/15min" target="_blank" rel="noopener noreferrer">
           Book a call <ArrowRight size={16} />
@@ -53,7 +54,7 @@ export default function Navbar() {
         <div className="brand-mobile-menu">
           <a href="/?view=case-studies" onClick={() => setIsOpen(false)}>Case Studies</a>
           <a href="/#pricing" onClick={() => setIsOpen(false)}>Pricing</a>
-          <a href="/?view=blog" onClick={() => setIsOpen(false)}>Blog</a>
+          {BLOG_ENABLED && <a href="/?view=blog" onClick={() => setIsOpen(false)}>Blog</a>}
           <a href="https://cal.com/yating-zhao/15min" target="_blank" rel="noopener noreferrer">Book a call <ArrowRight size={16} /></a>
         </div>
       )}

@@ -853,3 +853,46 @@ final result: passed
 - None required for the corrected scope.
 
 final result: passed
+
+---
+
+## Production page-scope separation — 2026-08-14
+
+**Source visual truth**
+
+- User direction: the production site exposes only the homepage, Case Studies list, and Case Study detail pages. Blog remains available for testing but is not published in the production navigation or route surface.
+
+**Implementation evidence**
+
+- Production-build Case Studies list: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/production-scope-case-studies.png`.
+- Production-build HiTA detail: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/production-scope-case-detail.png`.
+- Both captures are 1280 × 720 pixels at a 1280 × 720 CSS viewport and device scale factor 1; no density normalization required.
+- Browser-rendered state: local server running the exact production build.
+
+**Findings and fixes**
+
+- Earlier [P1]: Blog appeared in desktop and mobile production navigation, and `?view=blog` rendered the Blog index publicly.
+- Fix: introduced a dedicated Blog feature flag. Local development keeps Blog enabled by default; production builds disable it unless a test build explicitly sets `VITE_ENABLE_BLOG=true`.
+- Fix: removed Blog from both production navigation variants. A direct production request to `?view=blog` now replaces the URL with `/` and renders the homepage.
+- Post-fix browser evidence: the production homepage and Case Studies DOM contain no visible Blog navigation link; the direct Blog URL reports the BrewPot homepage title and contains the homepage FAQ section.
+
+**Required fidelity surfaces**
+
+- Fonts and typography: unchanged.
+- Spacing and layout rhythm: the remaining desktop and mobile navigation items retain their existing alignment and spacing rules.
+- Colors and visual tokens: unchanged.
+- Image quality and asset fidelity: Case Studies list and detail imagery render from the same production assets with no new scaling or substitutions.
+- Copy and content: homepage, Case Studies list, and all Case Study article content are unchanged. Blog content remains in source for testing only.
+
+**Primary interactions and runtime checks**
+
+- Homepage renders successfully in the production build.
+- `?view=case-studies` renders the four-card Case Studies list.
+- `?view=case-studies&case=hita` renders the Case Study article.
+- `?view=blog` falls back to the homepage and removes the Blog query from browser history.
+- `npm run build`, `npm run test:sites`, and `git diff --check` pass.
+- `npm run lint` still reports the pre-existing `Gallery.tsx:280` `key` prop type error; this production-scope change does not touch that component and the deployable build succeeds.
+
+No actionable P0, P1, or P2 findings remain in the requested production scope.
+
+final result: passed

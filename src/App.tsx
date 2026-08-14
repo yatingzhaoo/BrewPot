@@ -10,14 +10,21 @@ import Footer from './components/Footer';
 import BlogPage from './components/BlogPage';
 import { blogPosts } from './components/BlogContent';
 import { setCtaVisibility, setSectionVisibility } from './analytics';
+import { BLOG_ENABLED } from './config';
 
 export default function App() {
   const searchParams = new URLSearchParams(window.location.search);
   const view = searchParams.get('view');
   const postSlug = searchParams.get('post');
   const isCaseStudiesPage = view === 'case-studies';
-  const isBlogPage = view === 'blog';
+  const isBlogPage = BLOG_ENABLED && view === 'blog';
+  const isUnavailableBlogRoute = !BLOG_ENABLED && view === 'blog';
   const activeBlogPost = blogPosts.find((post) => post.slug === postSlug);
+
+  useEffect(() => {
+    if (!isUnavailableBlogRoute) return;
+    window.history.replaceState({}, '', '/');
+  }, [isUnavailableBlogRoute]);
 
   useEffect(() => {
     document.title =
