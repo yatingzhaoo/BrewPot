@@ -34,6 +34,40 @@ final result: passed
 
 ---
 
+## Hero Components card responsive parity — 2026-08-13
+
+- Source visual truth: `/tmp/brewpot-component-desktop-reference.png`, the rendered Web Components card at a 1440 × 1000 CSS viewport. The captured card is 395 × 211 px after the desktop Hero's intentional 0.9 display scale.
+- Initial mobile evidence: `/tmp/brewpot-component-mobile-before.png`, captured at a 390 × 1024 CSS viewport; the responsive card is 113 × 142 px.
+- Revised mobile implementation: `/tmp/brewpot-component-mobile-after.png`, captured at the same 390 × 1024 CSS viewport and state.
+- Full-view evidence: `/tmp/brewpot-hero-desktop-buttons-reference.png` and `/tmp/brewpot-hero-mobile-buttons-after.png`.
+- Density normalization: browser captures use device scale factor 1. The focused cards intentionally have different responsive dimensions; comparison is based on component tokens and proportional treatment rather than forced raster scaling.
+
+**Comparison history**
+
+- Initial finding [P2]: the mobile buttons added a heavier 650 label weight, 5px radius, inset highlight shadows on the black and coral controls, and a mobile-only secondary border token. Those details made the compact card read as a separate button system from the Web reference.
+- Fix: removed the mobile-only highlights and border override, restored the Web button weight of 500, scaled the 7px Web radius to 4px for the 18px mobile controls, and corrected the toggle knob-to-track inset ratio.
+- Post-fix evidence: the Web reference and revised mobile capture were opened together. Primary, accent, secondary, and toggle controls now share the same flat surfaces, border colors, typography weight, and geometry language. No actionable P0/P1/P2 differences remain.
+
+**Required fidelity surfaces**
+
+- Fonts and typography: mobile labels retain the responsive 7px size but now use the Web card's 500 weight and line-height treatment.
+- Spacing and layout rhythm: the one-column mobile arrangement remains necessary at 113px card width; control height, 4px radius, and 5px vertical gaps keep the compact card readable without adding visual density.
+- Colors and visual tokens: black, BrewPot coral, white, and `#777` outline match the Web controls; no mobile-only highlight color remains.
+- Image quality and asset fidelity: the Components card is code-native UI in both breakpoints; no image asset, icon asset, or raster scaling changed.
+- Copy and content: Primary, Primary / Accent, and Secondary labels are unchanged. The responsive card continues to omit the input and icon row because they cannot remain legible at this width.
+
+**Responsive and interaction verification**
+
+- 390 × 1024 mobile: card remains inside the Hero grid with no clipping.
+- Mobile navigation opens and closes successfully.
+- Hero CTA retains `https://cal.com/yating-zhao/15min`.
+- Browser check found no app-origin console errors.
+- `npm run lint`, `npm run build`, and `npm run test:sites` pass.
+
+final result: passed
+
+---
+
 ## Mobile Components card button clarification — 2026-08-14
 
 - Source direction: selected Mobile Hero M6 option 01 plus the user's explicit request that the three bars read more clearly as conceptual buttons.
