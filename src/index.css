@@ -653,14 +653,19 @@ body {
 
   .color-card { padding: 13px 12px; }
   .color-list {
-    grid-template-columns: repeat(2, 25px);
-    gap: 10px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+    width: 100%;
     margin-top: 19px;
   }
-  .color-row { gap: 0; }
+  .color-row { justify-content: center; gap: 0; }
   .color-row:nth-child(5) { display: none; }
   .color-row > span:last-child { display: none; }
-  .color-swatch { width: 25px; height: 25px; border-radius: 50%; }
+  .color-swatch {
+    width: clamp(16px, 4.6vw, 18px);
+    height: clamp(16px, 4.6vw, 18px);
+    border-radius: 50%;
+  }
 
   .component-card { padding: 12px; }
   .component-grid {

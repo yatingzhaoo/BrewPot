@@ -578,3 +578,20 @@ final result: passed
 - None required for this breakpoint. Very small devices below 340px were not part of the selected visual target.
 
 final result: passed
+
+---
+
+## Mobile Colors card balance — 2026-08-14
+
+- User finding: the four mobile color swatches occupied a two-column block, leaving an unbalanced empty area on the right side of the Colors card.
+- Browser evidence: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-mobile-colors-balanced.png` at a 390 × 1024 CSS viewport and device scale factor 1.
+- Fix: changed the compact palette to one four-column row spanning the full 87.34px inner width, with responsive 16–18px circles and 4px gaps.
+- Measured final swatches: four circles at 17.94px each, extending from x=151.77 to x=238.21 inside the list bounds x=151.33–238.66. Left and right residual space are visually balanced.
+- The original coral, black, sage, and sand order and color tokens are unchanged.
+- Typography, card size, surrounding layout, component content, and image/icon quality are unchanged.
+- Browser measurement confirms viewport width and document width both equal 390px; no horizontal overflow or card overflow is introduced.
+- `npm run lint`, `npm run build`, and `npm run test:sites` pass.
+
+No actionable P0, P1, or P2 issues remain.
+
+final result: passed
