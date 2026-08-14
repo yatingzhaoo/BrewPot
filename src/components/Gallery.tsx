@@ -4,7 +4,7 @@ import { ArrowLeft2, ArrowRight2, CloseCircle } from 'iconsax-react';
 import vectrroWorkflow from '../asset/personal-site-showcase/vectrro-workflow.png';
 import cooragentLanding from '../asset/personal-site-showcase/cooragent-landing.png';
 import cooragentAgentMarket from '../asset/personal-site-showcase/cooragent-agent-market.png';
-import vectrroCover from '../asset/personal-site-showcase/vectrro-cover.png';
+import vectrroCover from '../asset/personal-site-showcase/vectrro-cover-retina.png';
 import vectrroInterface from '../asset/personal-site-showcase/vectrro-interface-alt.png';
 import cooragentMessages from '../asset/personal-site-showcase/cooragent-messages.png';
 import hitaWebsite from '../asset/personal-site-showcase/hita-website.png';

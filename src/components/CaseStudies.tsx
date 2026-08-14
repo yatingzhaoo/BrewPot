@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { ArrowLeft, ArrowUpRight, X } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { track } from '../analytics';
-import vectrroCover from '../asset/case-studies/vectrro-cover.png';
+import vectrroCover from '../asset/personal-site-showcase/vectrro-cover-retina.png';
 import nottaCover from '../asset/case-studies/notta-cover.png';
 import hitaCover from '../asset/case-studies/hita-cover.png';
 import cooragentCover from '../asset/case-studies/cooragent-cover.png';
