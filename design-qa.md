@@ -896,3 +896,54 @@ final result: passed
 No actionable P0, P1, or P2 findings remain in the requested production scope.
 
 final result: passed
+
+---
+
+## Ultra-wide Hero visual balance — 2026-08-14
+
+**Source visual truth**
+
+- User-provided problem capture: `/tmp/codex-remote-attachments/019fe30a-bb6a-7d00-a7e3-87d50b77d2f4/64B31BB4-C570-4BB3-A26D-F698D020AF17/1-Photo-1.jpg`.
+- Original raw 2560px browser capture: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-live-wide-2560.png`.
+- Source state: production homepage Hero at a nominal 2560 × 1440 CSS viewport. The source capture is evidence of the perceived rightward bias, but its in-app-browser raster is 2554 × 1440 and does not preserve a reliable one-to-one CSS-to-pixel mapping beyond approximately 1920px.
+
+**Implementation evidence**
+
+- Chrome 1920 × 1080: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-ultrawide-chrome-1920-final.jpg`.
+- Chrome 2560 × 1440: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-ultrawide-chrome-2560-final.jpg`.
+- Chrome 2880 × 1620: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-ultrawide-chrome-2880-final.jpg`.
+- Combined source/implementation comparison: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-ultrawide-qa-comparison.jpg`.
+- All final implementation screenshots use device scale factor 1 and match their stated CSS viewport dimensions exactly. The comparison image normalizes both sides to 1280 × 720 before horizontal composition.
+
+**Findings and fixes**
+
+- Earlier [P2]: the Hero copy and card mosaic were geometrically centered, but the laptop and mouse remained attached to the browser edges. On very wide screens the large dark laptop dominated the left edge while the low-contrast mouse receded on the right, making the centered content feel displaced.
+- Fix: at `min-width: 2200px`, both desk objects now attach to a shared 2060px visual stage centered on the viewport. At 2560px the laptop center is x=375 and mouse center is x=2177, placing them 905px and 897px from the page center respectively.
+- Regression protection: 1920px and narrower retain the original positioning. The 1920px Chrome capture and measured boxes are unchanged.
+
+**Required fidelity surfaces**
+
+- Fonts and typography: unchanged; headline, supporting copy, and button remain centered on the exact viewport midpoint.
+- Spacing and layout rhythm: the 1180px copy container and 990px rendered card mosaic remain centered. Only decorative image offsets change above 2200px.
+- Colors and visual tokens: unchanged; no tint, overlay, or new background was introduced.
+- Image quality and asset fidelity: the original laptop and mouse assets are reused without filters, artificial shapes, or generated replacements. Chrome confirms both assets load at their natural resolution and retain their native shadows.
+- Copy and content: unchanged.
+
+**Primary interactions and runtime checks**
+
+- Homepage, primary navigation, Hero CTA, logo strip, and following Pricing section remain visible at all tested widths.
+- Document `scrollWidth` equals viewport width at 1920, 2560, and 2880; there is no horizontal overflow.
+- Chrome console has no app-origin errors. The only local warning is Hotjar declining to run over HTTP, which does not occur on the HTTPS production site.
+- `npm run build`, `npm run test:sites`, and `git diff --check` pass.
+
+**Comparison history**
+
+- Pass 1 moved the devices onto a centered ultra-wide stage, but the in-app-browser screenshot surface rendered widths above 1920px inconsistently, so the visual result remained blocked.
+- Pass 2 used Chrome for a true 2560px raster and exposed a [P2] white rectangular patch caused by an attempted mouse contrast filter.
+- Pass 3 removed the filter and retained only the symmetric positioning. Chrome evidence at 1920, 2560, and 2880 shows balanced edge weight, natural asset backgrounds, exact central alignment, and no overflow. No actionable P0/P1/P2 findings remain.
+
+**Follow-up polish**
+
+- None required. The fixed 1180px content width intentionally preserves a standard editorial reading measure on very large displays.
+
+final result: passed

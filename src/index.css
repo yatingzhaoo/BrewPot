@@ -504,6 +504,16 @@ body {
   object-fit: cover;
 }
 
+@media (min-width: 2200px) {
+  .laptop-object {
+    left: calc(50% - 1030px);
+  }
+
+  .mouse-object {
+    right: calc(50% - 1030px);
+  }
+}
+
 .result-showcase {
   position: relative;
   z-index: 8;
