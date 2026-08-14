@@ -306,12 +306,12 @@ body {
   }
 
   .online-gallery-frame {
-    height: 168px;
-    padding: 0 24px;
+    height: clamp(176px, 53.85vw, 210px);
+    padding: 0 16px;
   }
 
   .online-gallery-card {
-    height: 168px;
+    height: clamp(176px, 53.85vw, 210px);
   }
 
   .online-gallery-arrow {
@@ -709,6 +709,27 @@ body {
   .component-icons { display: none; }
   .mini-toggle { width: 28px; height: 16px; }
   .mini-toggle span { top: 2px; right: 2px; width: 12px; height: 12px; }
+  .pricing-cards {
+    --pricing-edge: clamp(24px, 6.15vw, 32px);
+    display: flex;
+    width: calc(100% + (var(--pricing-edge) * 2));
+    max-width: none;
+    margin-inline: calc(var(--pricing-edge) * -1);
+    padding: 4px var(--pricing-edge) 22px;
+    gap: 16px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: var(--pricing-edge);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .pricing-cards::-webkit-scrollbar { display: none; }
+  .pricing-card {
+    flex: 0 0 min(84vw, 360px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
   .site-footer-inner {
     align-items: flex-start;
     flex-direction: column;

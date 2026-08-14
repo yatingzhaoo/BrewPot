@@ -72,11 +72,11 @@ export default function Pricing() {
           </h2>
         </div>
 
-        <div className="mx-auto grid w-full max-w-[1180px] items-stretch gap-7 md:grid-cols-2 md:gap-5 lg:grid-cols-3">
+        <div className="pricing-cards mx-auto grid w-full max-w-[1180px] items-stretch gap-7 md:grid-cols-2 md:gap-5 lg:grid-cols-3">
           {plans.map((plan) => (
             <article
               key={plan.name}
-              className="relative flex flex-col overflow-hidden rounded-[12px] bg-white p-6 sm:p-7"
+              className="pricing-card relative flex flex-col overflow-hidden rounded-[12px] bg-white p-6 sm:p-7"
               style={{
                 boxShadow: plan.popular
                   ? '0 14px 34px rgba(32, 32, 32, 0.08), inset 0 0 0 1px #171717'
