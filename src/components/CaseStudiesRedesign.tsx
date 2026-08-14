@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { ArrowUpRight, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { track } from '../analytics';
 import Booking from './Booking';
 import {
@@ -305,7 +305,7 @@ export default function CaseStudiesRedesign() {
                 </div>
               </div>
 
-              <div className="flex w-full items-end justify-between gap-5 px-5 pb-5 pt-5 sm:px-6 sm:pb-6 sm:pt-6">
+              <div className="w-full px-5 pb-5 pt-5 sm:px-6 sm:pb-6 sm:pt-6">
                 <div className="min-w-0">
                   <h2 className="font-heading text-[24px] font-medium leading-7 tracking-[-0.025em] text-[#202020]">{caseStudy.title}</h2>
                   <p className="mt-1.5 flex flex-wrap items-center gap-x-2 text-[14px] leading-5 text-[#737373]">
@@ -315,9 +315,6 @@ export default function CaseStudiesRedesign() {
                   </p>
                 </div>
 
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[#d8d5d2] bg-[#fdfcfb] text-[#202020] transition duration-200 group-hover:border-[#e94f37] group-hover:text-[#e94f37]" aria-hidden="true">
-                  <ArrowUpRight className="h-[19px] w-[19px]" strokeWidth={1.8} />
-                </span>
               </div>
             </button>
           ))}
