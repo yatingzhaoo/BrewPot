@@ -608,3 +608,20 @@ final result: passed
 - Remaining verification: visually confirm that the swatch row has balanced space above and below at 390px and that no card overflow appears at 360px.
 
 final result: blocked
+
+---
+
+## Mobile Colors 2×2 and Calendar spacing — 2026-08-13
+
+- User direction: replace the single-row palette with four larger circles arranged two above and two below; remove the Calendar card's unexplained bottom void.
+- Browser evidence: `/tmp/brewpot-mobile-card-spacing.png`, captured at a 390 × 1024 CSS viewport.
+- Colors implementation: a two-column, two-row grid with four 28.86px visible circles. The two rows remain within the existing compact card and preserve coral, black, sage, and sand order.
+- Calendar implementation: the six date rows now divide the remaining card height evenly instead of using a fixed small row gap at the top.
+- Measured Calendar bottom clearance from the final date row to the card edge is 20.2px; the date grid occupies 134px of the 214px card.
+- Viewport width and document width both equal 390px, so the revision introduces no horizontal overflow.
+- Mobile navigation interaction was exercised successfully during the check.
+- `npm run lint`, `npm run build`, and `npm run test:sites` pass.
+
+No actionable P0, P1, or P2 issues remain.
+
+final result: passed
