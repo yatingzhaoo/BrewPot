@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { X } from 'lucide-react';
+import { ArrowUpRight, X } from 'lucide-react';
 import { track } from '../analytics';
 import Booking from './Booking';
 import {
@@ -278,36 +278,56 @@ export default function CaseStudiesRedesign() {
   }
 
   return (
-    <section id="case-studies" data-analytics-section="case_studies" className="min-h-screen pb-28 pt-24 md:pt-28">
+    <section id="case-studies" data-analytics-section="case_studies" className="min-h-screen bg-[#fdfcfb] pb-28 pt-28 md:pt-36">
       <div className="mx-auto max-w-[1180px] px-6 md:px-10">
+        <header className="mx-auto mb-10 max-w-[760px] text-center md:mb-12">
+          <h1 className="font-heading text-[40px] font-medium leading-[1.12] tracking-[-0.03em] text-[#202020] sm:text-[48px]">
+            Selected Case Studies
+          </h1>
+          <p className="mx-auto mt-3 max-w-[620px] text-[16px] leading-6 text-[#737373] sm:text-[17px] sm:leading-7">
+            A closer look at product strategy, interaction design, and interface work.
+          </p>
+        </header>
+
         <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 md:gap-6">
-          {CASE_STUDIES.map((caseStudy) => (
+          {CASE_STUDIES.map((caseStudy, index) => (
             <button
               type="button"
               key={caseStudy.id}
-              className="group flex h-full w-full flex-col overflow-hidden rounded-[14px] border border-black/[0.07] bg-white text-left transition duration-300 hover:-translate-y-1 hover:border-black/[0.12] hover:shadow-[0_18px_50px_rgba(32,32,32,0.07)]"
+              className="group flex h-full w-full flex-col overflow-hidden rounded-[12px] border border-[#dedddb] bg-white text-left shadow-[0_8px_22px_rgba(0,0,0,0.03)] transition duration-200 hover:-translate-y-0.5 hover:border-[#c8c3bf] hover:shadow-[0_12px_30px_rgba(0,0,0,0.07)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               onClick={() => openCaseStudy(caseStudy)}
               aria-label={`Open ${caseStudy.title} case study`}
             >
-              <div className="flex aspect-[1.34] w-full items-center justify-center overflow-hidden bg-[#F3F1ED]">
+              <div className="relative flex aspect-[1.34] w-full items-center justify-center overflow-hidden border-b border-[#dedddb] bg-[#f3f1ed]">
                 <div className={`flex items-center justify-center ${
                   caseStudy.id === 'notta' ? 'h-[72%] w-[72%]' : 'h-[88%] w-[88%]'
                 }`}>
                   <img
                     src={caseStudy.cover}
                     alt={`${caseStudy.title} product design case study`}
-                    className={`max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.015] ${
+                    className={`max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.012] ${
                       caseStudy.id === 'vectrro'
                         ? 'rounded-none'
-                        : 'rounded-[8px] border border-black/[0.015] shadow-[0_0_24px_rgba(0,0,0,0.08)]'
+                        : 'rounded-[8px] border border-black/[0.04] shadow-[0_10px_30px_rgba(0,0,0,0.08)]'
                     }`}
                   />
                 </div>
               </div>
 
-              <div className="px-5 pb-6 pt-5 sm:px-6 sm:pb-7">
-                <h2 className="font-heading text-[22px] font-medium leading-7 tracking-[-0.02em] text-[#202020]">{caseStudy.title}</h2>
-                <p className="mt-1 text-[14px] leading-5 text-[#77736d]">{caseStudy.subtitle}</p>
+              <div className="flex w-full items-end justify-between gap-5 px-5 pb-5 pt-5 sm:px-6 sm:pb-6 sm:pt-6">
+                <div className="min-w-0">
+                  <div className="mb-3 flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.09em] text-[#77736d]">
+                    <span className="text-[#e94f37]">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="h-px w-5 bg-[#d9d5d1]" />
+                    <span>{caseStudy.fundingStage}</span>
+                  </div>
+                  <h2 className="font-heading text-[24px] font-medium leading-7 tracking-[-0.025em] text-[#202020]">{caseStudy.title}</h2>
+                  <p className="mt-1.5 text-[14px] leading-5 text-[#737373]">{caseStudy.subtitle}</p>
+                </div>
+
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[#d8d5d2] bg-[#fdfcfb] text-[#202020] transition duration-200 group-hover:border-[#e94f37] group-hover:text-[#e94f37]" aria-hidden="true">
+                  <ArrowUpRight className="h-[19px] w-[19px]" strokeWidth={1.8} />
+                </span>
               </div>
             </button>
           ))}
