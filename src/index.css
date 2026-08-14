@@ -853,7 +853,7 @@ body {
 
 @layer utilities {
   .case-study-media-bg {
-    background-color: #f3f1ed;
+    background-color: #f1f1f0;
   }
 
   .hide-scrollbar::-webkit-scrollbar {

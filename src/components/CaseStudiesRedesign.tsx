@@ -23,7 +23,7 @@ function ComparisonFrame({ comparison }: { comparison: CaseStudyComparison }) {
   const imageShadow = 'shadow-[0_2px_8px_rgba(32,32,32,0.08),0_20px_42px_-16px_rgba(32,32,32,0.24)]';
 
   return (
-    <div className={`grid ${gridClass} w-full items-start rounded-[14px] bg-[#f3f1ed] p-5 sm:p-8`}>
+    <div className={`grid ${gridClass} w-full items-start rounded-[14px] bg-[#f1f1f0] p-5 sm:p-8`}>
       {([
         ['Before', comparison.before, comparison.beforeAlt],
         ['After', comparison.after, comparison.afterAlt],
@@ -232,7 +232,7 @@ export default function CaseStudiesRedesign() {
               onClick={() => openCaseStudy(caseStudy)}
               aria-label={`Open ${caseStudy.title} case study`}
             >
-              <div className="relative flex aspect-[1.34] w-full items-center justify-center overflow-hidden rounded-[14px] bg-[#f0f1ef] transition-colors duration-200 group-hover:bg-[#ebece9]">
+              <div className="relative flex aspect-[1.34] w-full items-center justify-center overflow-hidden rounded-[14px] bg-[#f1f1f0] transition-colors duration-200 group-hover:bg-[#ebebe9]">
                 <div className={`flex items-center justify-center ${
                   caseStudy.id === 'notta' ? 'h-[72%] w-[72%]' : 'h-[88%] w-[88%]'
                 }`}>
