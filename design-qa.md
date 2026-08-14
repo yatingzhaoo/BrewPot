@@ -34,6 +34,23 @@ final result: passed
 
 ---
 
+## Mobile Components card button clarification — 2026-08-14
+
+- Source direction: selected Mobile Hero M6 option 01 plus the user's explicit request that the three bars read more clearly as conceptual buttons.
+- Browser-rendered evidence: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-mobile-components-buttons-final.png` at a 390 × 1024 CSS viewport and device scale factor 1.
+- The Components card now presents three actual button samples: black `Primary`, coral `Primary / Accent`, and white outlined `Secondary`.
+- Button height increased from 15px to 18px, with compact 7px semibold labels, 5px radii, and restrained inset highlights on the filled states.
+- The card keeps the existing toggle sample and remains within its 142px frame without internal overflow.
+- Page and viewport widths both measure 390px; no horizontal overflow is introduced.
+- Fonts, spacing, colors, component content, icon assets, and surrounding Hero copy remain unchanged.
+- Comparison history: the first pass inherited the desktop 16px button font and visibly overflowed; the final scoped mobile rule resolves the specificity conflict and fits all three labels cleanly.
+
+No actionable P0, P1, or P2 issues remain.
+
+final result: passed
+
+---
+
 **Two-row Gallery grid QA — 2026-08-12**
 
 - Direction source: the selected first Grid concept, refined by the user's explicit structure request.
