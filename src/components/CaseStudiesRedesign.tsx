@@ -210,7 +210,7 @@ export default function CaseStudiesRedesign() {
                 <button
                   type="button"
                   onClick={returnToCaseStudies}
-                  className="group mx-auto mt-2 inline-flex min-h-11 w-fit items-center gap-2 rounded-[10px] bg-[#202020] px-5 text-[14px] font-medium text-white shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-colors hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="group mx-auto mt-2 inline-flex h-[48px] w-fit items-center gap-2.5 rounded-[6px] bg-black px-7 text-[16px] font-medium text-white transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
                   <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
                   Back to case studies
