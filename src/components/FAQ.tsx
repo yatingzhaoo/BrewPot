@@ -41,7 +41,7 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(1);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const openFaqIndex = useRef<number | null>(null);
   const faqOpenedAt = useRef<number | null>(null);
 
