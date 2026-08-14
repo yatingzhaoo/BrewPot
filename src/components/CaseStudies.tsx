@@ -6,6 +6,10 @@ import vectrroCover from '../asset/case-studies/vectrro-cover.png';
 import nottaCover from '../asset/case-studies/notta-cover.png';
 import hitaCover from '../asset/case-studies/hita-cover.png';
 import cooragentCover from '../asset/case-studies/cooragent-cover.png';
+import cooragentLogo from '../asset/客户logo/Cooragent.webp';
+import nottaLogo from '../asset/客户logo/imgi_6_o4UWPHLGPNwYlcELZ4oZzdXn9I.png';
+import hitaLogo from '../asset/客户logo/imgi_13_Nn8dpshxMgsuQ7It6iWPlfrtQo.png';
+import vectrroLogo from '../asset/客户logo/imgi_8_7bCZJUraCFC0DQkcEEHToiQTFk.png';
 
 export type CaseStudy = {
   id: string;
@@ -13,6 +17,7 @@ export type CaseStudy = {
   subtitle: string;
   fundingStage: string;
   cover: string;
+  logo: string;
   overview: string[];
   highlights: Array<{ heading: string; body: string }>;
 };
@@ -26,6 +31,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     subtitle: 'Meeting notetaker',
     fundingStage: 'Series B',
     cover: nottaCover,
+    logo: nottaLogo,
     overview: [
       'Since June 2025, Yating has served as an external consultant for Notta, a global voice AI product with more than 15 million users as of December 2025.',
       'The collaboration addresses onboarding, payment conversion, homepage capability communication, core AI feature integration, transcription simplification, and new product directions.',
@@ -47,6 +53,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     subtitle: 'Higher education AI',
     fundingStage: 'Seed',
     cover: hitaCover,
+    logo: hitaLogo,
     overview: [
       'HiTA is an AI teaching-assistant platform co-founded by university professors and used by institutions including Cornell, the University of Colorado, and Michigan State University.',
       'Rapid feature growth had made its hierarchy difficult for students, faculty, and administrators to understand, limiting both usability and future expansion.',
@@ -72,6 +79,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     subtitle: 'AI agents',
     fundingStage: 'Seed',
     cover: cooragentCover,
+    logo: cooragentLogo,
     overview: [
       'Cooragent is an AI agent platform originating from Tsinghua University’s LEAP Lab. Its technical capabilities were strong, but new users struggled to understand what the product could do and how to create or manage agents.',
       'The engagement clarified the information architecture, product positioning, interaction model, and brand system so complex capabilities could feel understandable and trustworthy.',
@@ -97,6 +105,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     subtitle: 'Trucking operation',
     fundingStage: 'Pre-seed',
     cover: vectrroCover,
+    logo: vectrroLogo,
     overview: [
       'Vectrro is a Los Angeles logistics AI startup. After securing angel investment, the team needed to turn a rough product concept into an AI-assisted quoting workflow for freight brokers.',
       'Over two to three months, the work covered product strategy, interaction and interface design, brand identity, the official website, and presentation materials.',

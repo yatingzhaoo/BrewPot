@@ -34,6 +34,45 @@ final result: passed
 
 ---
 
+## Case Studies logo-card redesign — 2026-08-14
+
+- Source visual truth: `/tmp/codex-remote-attachments/019fe30a-bb6a-7d00-a7e3-87d50b77d2f4/915FA04C-22D1-42E8-8510-33D20649B0FC/1-Photo-1.jpg`, 1280 × 959 pixels.
+- Browser-rendered implementation: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-studies-logo-cards-desktop.png`, 1280 × 1312 pixels.
+- Combined comparison evidence: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-studies-design-qa-comparison.png`.
+- Desktop viewport: 1280 × 720 CSS px; full document height 1312 CSS px. Browser screenshot output is CSS-pixel normalized at 1280 × 1312 despite device pixel ratio 2.
+- Mobile verification viewport: 390 × 844 CSS px. State: default Case Studies index with all cards closed.
+
+**Findings**
+
+- No actionable P0, P1, or P2 issues remain.
+- Fonts and typography: project names use the existing BrewPot heading family at 18px/600; funding stages use compact 11px neutral pills; subtitles use the homepage's 13px secondary-text treatment.
+- Spacing and layout rhythm: the source's simple two-column project directory is preserved, while BrewPot's 14px media radius, 9px logo-tile radius, 28px desktop gutter, and more generous row spacing create consistency with the homepage.
+- Colors and visual tokens: the page retains the existing warm-white canvas, neutral gray media wells, dark text, restrained borders, and homepage hover treatment. No new decorative color system was introduced.
+- Image quality and asset fidelity: all four existing high-resolution case-study covers remain unchanged and use `object-contain`. Real Notta, HiTA, Cooragent, and Vectrro logo assets are displayed below their media panels; no placeholder or drawn approximation is used.
+- Copy and content: existing project names, descriptions, and funding stages are unchanged. Funding stages now sit beside the title rather than occupying a separate row, as requested previously.
+
+**Interaction and responsive verification**
+
+- All four cards remain full-surface buttons with visible keyboard focus treatment.
+- Opening Notta updates the route and renders its case-study article; browser back restores the index.
+- At 390px, the layout becomes a single column, images retain their proportions, and metadata remains readable without horizontal overflow.
+- Browser console check found no errors during the card-open interaction.
+- Focused comparison was included in the combined board because the logo row, tag sizing, image containment, and card spacing are clearly readable there.
+
+**Comparison history**
+
+- Initial implementation used bordered white card containers, large 24px titles, a bottom image divider, and placed funding stage after the subtitle. This felt heavier than the selected reference.
+- Final implementation removes the outer card shell and divider, adds real project logos, places funding stage beside the title, and applies the homepage's neutral surfaces and restrained radii.
+- The reference uses a narrower personal-portfolio column and persistent side navigation; these are intentionally not copied because BrewPot uses its existing 1180px content frame and global navigation.
+
+**Known non-visual check**
+
+- The repository's TypeScript check is currently blocked by a pre-existing `Gallery.tsx` prop typing error unrelated to this Case Studies change. The edited Case Studies components introduce no new browser errors.
+
+final result: passed
+
+---
+
 ## Hero Components card responsive parity — 2026-08-13
 
 - Source visual truth: `/tmp/brewpot-component-desktop-reference.png`, the rendered Web Components card at a 1440 × 1000 CSS viewport. The captured card is 395 × 211 px after the desktop Hero's intentional 0.9 display scale.

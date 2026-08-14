@@ -280,23 +280,23 @@ export default function CaseStudiesRedesign() {
   return (
     <section id="case-studies" data-analytics-section="case_studies" className="min-h-screen bg-[#fdfcfb] pb-28 pt-24 md:pt-28">
       <div className="mx-auto max-w-[1180px] px-6 md:px-10">
-        <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 md:gap-6">
+        <div className="grid grid-cols-1 items-start gap-x-6 gap-y-11 md:grid-cols-2 md:gap-x-7 md:gap-y-14">
           {CASE_STUDIES.map((caseStudy) => (
             <button
               type="button"
               key={caseStudy.id}
-              className="group flex h-full w-full flex-col overflow-hidden rounded-[12px] border border-[#dedddb] bg-white text-left shadow-[0_8px_22px_rgba(0,0,0,0.03)] transition duration-200 hover:-translate-y-0.5 hover:border-[#c8c3bf] hover:shadow-[0_12px_30px_rgba(0,0,0,0.07)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="group flex w-full flex-col text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black"
               onClick={() => openCaseStudy(caseStudy)}
               aria-label={`Open ${caseStudy.title} case study`}
             >
-              <div className="relative flex aspect-[1.34] w-full items-center justify-center overflow-hidden border-b border-[#dedddb] bg-[#f3f1ed]">
+              <div className="relative flex aspect-[1.34] w-full items-center justify-center overflow-hidden rounded-[14px] bg-[#f0f1ef] transition-colors duration-200 group-hover:bg-[#ebece9]">
                 <div className={`flex items-center justify-center ${
                   caseStudy.id === 'notta' ? 'h-[72%] w-[72%]' : 'h-[88%] w-[88%]'
                 }`}>
                   <img
                     src={caseStudy.cover}
                     alt={`${caseStudy.title} product design case study`}
-                    className={`max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.012] ${
+                    className={`max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.01] ${
                       caseStudy.id === 'vectrro'
                         ? 'rounded-none'
                         : 'rounded-[8px] border border-black/[0.04] shadow-[0_10px_30px_rgba(0,0,0,0.08)]'
@@ -305,16 +305,24 @@ export default function CaseStudiesRedesign() {
                 </div>
               </div>
 
-              <div className="w-full px-5 pb-5 pt-5 sm:px-6 sm:pb-6 sm:pt-6">
-                <div className="min-w-0">
-                  <h2 className="font-heading text-[24px] font-medium leading-7 tracking-[-0.025em] text-[#202020]">{caseStudy.title}</h2>
-                  <p className="mt-1.5 flex flex-wrap items-center gap-x-2 text-[14px] leading-5 text-[#737373]">
-                    <span>{caseStudy.subtitle}</span>
-                    <span className="text-[#bbb6b0]" aria-hidden="true">·</span>
-                    <span>{caseStudy.fundingStage}</span>
-                  </p>
+              <div className="flex w-full items-start gap-3 pt-4">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-[9px] border border-black/[0.06] bg-white p-1.5">
+                  <img
+                    src={caseStudy.logo}
+                    alt=""
+                    aria-hidden="true"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </span>
+                <div className="min-w-0 pt-px">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h2 className="font-heading text-[18px] font-semibold leading-5 tracking-[-0.02em] text-[#202020]">{caseStudy.title}</h2>
+                    <span className="rounded-full border border-black/[0.08] bg-[#f3f1ed] px-2 py-0.5 text-[11px] font-medium leading-4 text-[#737373]">
+                      {caseStudy.fundingStage}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-[13px] leading-5 text-[#737373]">{caseStudy.subtitle}</p>
                 </div>
-
               </div>
             </button>
           ))}
