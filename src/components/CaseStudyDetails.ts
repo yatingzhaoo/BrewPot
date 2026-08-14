@@ -7,7 +7,13 @@ import vectrroBrand from '../asset/case-studies/detail/vectrro-brand.png';
 import nottaCover from '../asset/case-studies/detail/notta-cover.png';
 import hitaCover from '../asset/case-studies/detail/hita-cover.png';
 import hitaFramework from '../asset/case-studies/detail/hita-framework.png';
-import hitaChat from '../asset/case-studies/detail/hita-chat.png';
+import hitaGradingWorkspaceBefore from '../asset/case-studies/detail/hita-grading-workspace-before-crop.png';
+import hitaNavigationBefore from '../asset/case-studies/detail/hita-navigation-before.png';
+import hitaNavigationAfter from '../asset/case-studies/detail/hita-navigation-after.png';
+import hitaGradingBefore from '../asset/case-studies/detail/hita-grading-before.png';
+import hitaGradingAfter from '../asset/case-studies/detail/hita-grading-after.png';
+import hitaWebsiteBefore from '../asset/case-studies/detail/hita-website-before.png';
+import hitaWebsiteAfter from '../asset/case-studies/detail/hita-website-after.png';
 
 export type CaseStudyComparison = {
   before: string;
@@ -15,6 +21,7 @@ export type CaseStudyComparison = {
   beforeAlt: string;
   afterAlt: string;
   layout: 'portrait' | 'landscape';
+  crop?: 'right-panel' | 'criteria-area';
 };
 
 export type CaseStudySection = {
@@ -93,6 +100,13 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
     sections: [
       {
         heading: 'Let the Structure Guide Students on How to Use It',
+        comparison: {
+          before: hitaNavigationBefore,
+          after: hitaNavigationAfter,
+          beforeAlt: 'HiTA navigation before redesign',
+          afterAlt: 'HiTA navigation after redesign',
+          layout: 'portrait',
+        },
         paragraphs: [
           `The product structure of HiTA is highly complex. The platform contains a vast number of assistants tailored to different courses and fields, with each assistant housing functional modules such as chat history, knowledge documents, and resource management. This nested hierarchy makes it easy for users to lose their way and leads to a cluttered menu. Such complexity not only increases the learning curve but also creates structural resistance when the team attempts to add new features.`,
           `HiTA’s user base includes students, teachers, administrative staff, and system administrators. Some of these roles overlap; for instance, graduate students act as both students and teaching assistants, while some teachers also serve as administrators. This multi-role structure places higher demands on information architecture design.`,
@@ -101,8 +115,27 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
         ],
       },
       {
+        heading: 'Make Grading Criteria Easier to Scan and Manage',
+        comparison: {
+          before: hitaGradingBefore,
+          after: hitaGradingAfter,
+          beforeAlt: 'HiTA grading criteria before redesign',
+          afterAlt: 'HiTA grading criteria after redesign',
+          layout: 'landscape',
+          crop: 'criteria-area',
+        },
+        paragraphs: [],
+      },
+      {
         heading: 'Rebuilding Consensus Through a Framework',
-        image: hitaFramework,
+        comparison: {
+          before: hitaGradingWorkspaceBefore,
+          after: hitaFramework,
+          beforeAlt: 'HiTA grading workspace before redesign',
+          afterAlt: 'HiTA grading workspace after redesign',
+          layout: 'landscape',
+          crop: 'right-panel',
+        },
         paragraphs: [
           `During early project communications, I discovered that the HiTA team had not reached a consistent understanding of the functions and values they provided. While everyone could describe their own areas of responsibility, it was difficult to clearly define the boundaries of the entire product. This ambiguity not only impacted internal collaboration efficiency but also left external promotion lacking a core narrative.`,
           `Through in-depth discussions with the founder and core members, we collectively summarized a clear capability classification framework. All of HiTA’s functions can be categorized into four directions: teaching and learning support for students and teachers, administrative service support for student affairs, office support for faculty and staff, and promotion and recruitment support for external stakeholders.`,
@@ -111,6 +144,13 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
       },
       {
         heading: 'Accelerating Understanding Through Authentic Campus Spaces',
+        comparison: {
+          before: hitaWebsiteBefore,
+          after: hitaWebsiteAfter,
+          beforeAlt: 'HiTA website before redesign',
+          afterAlt: 'HiTA website after redesign',
+          layout: 'landscape',
+        },
         paragraphs: [
           `As HiTA’s founding team comes from academia, the product is naturally intertwined with various campus scenarios, such as classroom teaching, faculty offices, and library self-study.`,
           `I realized that for university users, the most direct way to understand the product is to “see a familiar environment.” Therefore, throughout the design process, I proposed using scenarios as the narrative core, allowing product capabilities to be understood through real-life contexts. The new official website no longer presents information as an abstract list of features. Instead, it showcases product utility through numerous campus life scenes, such as interactions between teachers, students, and assistants in a classroom, administrative staff processing tasks in bulk, or prospective applicants initiating Q&A on an admissions page. In this way, visitors can immediately grasp which environments these functions serve and instinctively perceive the platform’s value.`,
@@ -118,7 +158,6 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
       },
       {
         heading: 'From the Perspective of University Administrators',
-        image: hitaChat,
         paragraphs: [
           `While the direct users of HiTA are students and faculty, the decision to adopt the platform usually lies with university administrators. Management’s core concern is not just learning convenience, but rather how to lower costs, reduce manpower requirements, and improve efficiency.`,
           `Therefore, I helped the team reposition the official website’s narrative to focus on the administrator’s mindset. The focus of the platform’s presentation shifted from “what it can do” to “how it helps the school improve operations.” Through specific case studies, the pages demonstrate how AI optimizes the allocation of teaching resources, enhances communication efficiency, and reduces repetitive administrative work. This shift in language brings HiTA closer to the priorities of school decision-makers and makes the platform more persuasive in commercial communications.`,

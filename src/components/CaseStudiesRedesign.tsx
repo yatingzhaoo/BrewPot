@@ -7,7 +7,65 @@ import {
   type CaseStudy,
   projectProperties,
 } from './CaseStudies';
-import { CASE_STUDY_DETAILS } from './CaseStudyDetails';
+import {
+  CASE_STUDY_DETAILS,
+  type CaseStudyComparison,
+} from './CaseStudyDetails';
+
+function ComparisonFrame({ comparison }: { comparison: CaseStudyComparison }) {
+  const isPortrait = comparison.layout === 'portrait';
+  const isRightPanelCrop = comparison.crop === 'right-panel';
+  const isCriteriaAreaCrop = comparison.crop === 'criteria-area';
+  const isStacked = !isPortrait && !isRightPanelCrop;
+  const gridClass = isRightPanelCrop
+    ? 'grid-cols-2 justify-center gap-4 sm:grid-cols-[240px_240px] sm:gap-6'
+    : isStacked
+      ? 'grid-cols-1 justify-items-center gap-7'
+      : 'grid-cols-2 justify-center gap-4 sm:grid-cols-[170px_170px] sm:gap-6';
+  const imageShadow = 'shadow-[0_2px_8px_rgba(32,32,32,0.08),0_20px_42px_-16px_rgba(32,32,32,0.24)]';
+
+  return (
+    <div className={`grid ${gridClass} w-full items-start rounded-[14px] bg-[#f3f1ed] p-5 sm:p-8`}>
+      {([
+        ['Before', comparison.before, comparison.beforeAlt],
+        ['After', comparison.after, comparison.afterAlt],
+      ] as const).map(([label, src, alt]) => (
+        <div
+          key={label}
+          className={`flex min-w-0 flex-col items-center gap-3 ${isRightPanelCrop ? 'w-full max-w-[240px]' : 'w-full'}`}
+        >
+          <span className="font-heading text-[13px] font-semibold leading-5 text-[#54514d] sm:text-[14px]">
+            {label}
+          </span>
+          <div
+            className={`flex w-full min-w-0 items-start justify-center ${isRightPanelCrop || isCriteriaAreaCrop ? imageShadow : ''} ${
+              isRightPanelCrop
+                ? 'relative aspect-[0.7/1] overflow-hidden rounded-[9px]'
+                : isCriteriaAreaCrop
+                  ? 'relative aspect-[2/1] overflow-hidden rounded-[9px]'
+                  : isPortrait
+                    ? 'h-[340px] sm:h-[460px]'
+                    : 'relative aspect-[1.7/1] rounded-[9px]'
+            }`}
+          >
+            <img
+              src={src}
+              alt={alt}
+              loading="lazy"
+              className={isRightPanelCrop
+                ? 'absolute inset-y-0 right-0 h-full w-auto max-w-none'
+                : isCriteriaAreaCrop
+                  ? 'absolute inset-0 h-full w-full object-cover object-top'
+                  : `${isPortrait
+                    ? 'h-full w-auto max-w-full rounded-[9px] object-contain'
+                    : 'absolute inset-y-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain'} ${imageShadow}`}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 function caseFromUrl() {
   const caseId = new URLSearchParams(window.location.search).get('case');
@@ -163,8 +221,14 @@ export default function CaseStudiesRedesign() {
                       </div>
                     )}
 
+                    {section.comparison && (
+                      <div className={section.heading ? 'mt-6' : ''}>
+                        <ComparisonFrame comparison={section.comparison} />
+                      </div>
+                    )}
+
                     {section.paragraphs.length > 0 && (
-                      <div className={`${section.heading || section.image ? 'mt-6' : ''} flex w-full flex-col gap-5 text-[16px] leading-[28px] text-[#302e2b] sm:text-[17px] sm:leading-[30px]`}>
+                      <div className={`${section.heading || section.image || section.comparison ? 'mt-6' : ''} flex w-full flex-col gap-5 text-[16px] leading-[28px] text-[#302e2b] sm:text-[17px] sm:leading-[30px]`}>
                         {section.paragraphs.map((paragraph) => (
                           <p key={paragraph}>{paragraph}</p>
                         ))}

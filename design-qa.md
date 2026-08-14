@@ -751,3 +751,54 @@ final result: blocked
 No actionable P0, P1, or P2 issues remain.
 
 final result: passed
+
+---
+
+## Case Study source correction — 2026-08-14
+
+**Source visual truth**
+
+- Correct production source: `https://brewpot.co/?view=case-studies&case=hita`
+- Production browser capture: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-live-hita-reference.png`
+- User-provided production screenshot: `/tmp/codex-remote-attachments/019fe30a-bb6a-7d00-a7e3-87d50b77d2f4/FDEE7333-5B6A-403B-84F0-D46FD156CA95/1-Photo-1.jpg`
+- Source pixels and viewport: 1280 × 720 at a 1280 × 720 CSS viewport.
+
+**Implementation evidence**
+
+- Overview and first comparison: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-study-hita-corrected.png`
+- Grading workspace comparison: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-study-hita-corrected-mid.png`
+- Website comparison: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-study-hita-corrected-website.png`
+- Combined source/implementation comparison: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/case-study-hita-correct-source-comparison.png`
+- Implementation pixels and viewport: 1280 × 720 at a 1280 × 720 CSS viewport; no density normalization required.
+- State: HiTA Case Study with the same production copy and comparison sequence.
+
+**Findings**
+
+- Earlier [P1]: the personal portfolio was mistakenly treated as the production content source, which removed four production Before/After comparison groups and one heading.
+- Fix: switched the source of truth to `brewpot.co`, restored every production HiTA heading, paragraph, comparison, label, crop rule, and original high-resolution asset, while retaining only the new BrewPot visual treatment.
+- Post-fix: no actionable P0/P1/P2 differences remain.
+
+**Required fidelity surfaces**
+
+- Fonts and typography: production copy and heading order are exact; the implementation intentionally applies the new brand heading face, 17/30 body rhythm, and warmer charcoal ink.
+- Spacing and layout rhythm: the production 640px reading flow becomes a 720px brand article column inside the existing 1180px page grid. Comparison wells use the new 14px radius and balanced 24–32px padding.
+- Colors and visual tokens: warm white canvas, warm-gray comparison surfaces, charcoal text, coral return accent, low-opacity borders, and restrained shadows match the current homepage.
+- Image quality and asset fidelity: all seven production HiTA comparison assets are reused at their original resolution. Portrait, criteria crop, grading-workspace crop, and stacked website layouts were visually checked after lazy loading.
+- Copy and content: live DOM inspection confirms five headings, the full overview, all production paragraphs, and four Before/After groups are present in the same sequence.
+
+**Primary interactions and runtime checks**
+
+- Direct HiTA route loads correctly and preserves the sticky return control.
+- Lazy-loaded comparison images report complete with their original natural pixel widths after entering the viewport.
+- Production build and Sites compatibility tests pass; no visible runtime error overlay appears.
+
+**Comparison history**
+
+- Pass 1 used the wrong source and was rejected by the user.
+- Pass 2 uses `brewpot.co` and the user screenshot as the source of truth. The side-by-side evidence confirms matching content, while the visible differences are the requested new-brand typography, spacing, radius, palette, and return control.
+
+**Follow-up polish**
+
+- None required for the corrected scope.
+
+final result: passed
