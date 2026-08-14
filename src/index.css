@@ -562,9 +562,7 @@ body {
 .mini-toggle span { position: absolute; top: 4px; right: 4px; width: 20px; height: 20px; background: white; border-radius: 50%; }
 
 @media (max-width: 1100px) {
-  .desk-object { opacity: .72; }
-  .laptop-object { left: -370px; }
-  .mouse-object { right: -20px; }
+  .desk-object { display: none; }
   .result-showcase { left: 50%; width: 1122px; height: 472px; margin-left: -561px; transform: scale(.89); transform-origin: top center; }
 }
 
