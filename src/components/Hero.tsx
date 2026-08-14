@@ -98,9 +98,9 @@ function ComponentCard() {
     <article className="brand-card result-card component-card" aria-label="Component library design">
       <h2>Components</h2>
       <div className="component-grid">
-        <button className="mini-primary" type="button">Primary</button>
-        <button className="mini-accent" type="button">Primary / Accent</button>
-        <button className="mini-secondary" type="button">Secondary</button>
+        <button className="mini-primary" type="button" aria-label="Primary button"><span>Primary</span></button>
+        <button className="mini-accent" type="button" aria-label="Primary accent button"><span>Primary / Accent</span></button>
+        <button className="mini-secondary" type="button" aria-label="Secondary button"><span>Secondary</span></button>
         <label className="mini-input"><span>Input field</span></label>
       </div>
       <div className="component-footer">

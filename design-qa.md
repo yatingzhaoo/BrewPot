@@ -514,3 +514,50 @@ final result: passed
 - Browser verification: 1414px desktop now has `12px` inside-Hero clearance and `92px` total card-to-logo-heading spacing; 900px tablet has `16px` and `96px` respectively; no cards are clipped.
 - Mobile retains a deliberate `64px` transition between Hero and the logo heading.
 - Final result: passed.
+## Mobile Hero M6 strategy mosaic — 2026-08-14
+
+- Source visual truth: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/mobile-hero-original-m6-option01-source.png` (496 × 460 px), cropped from selected direction 01 in the six-refinement board.
+- Browser-rendered implementation: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-mobile-hero-m6-final.png` (390 × 1024 px) at a 390 × 1024 CSS viewport and device scale factor 1.
+- Focused implementation evidence: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-mobile-hero-m6-final-cards.png` (390 × 455 px).
+- State: homepage Hero, mobile navigation closed, completed entrance animation.
+- Density normalization: the source is a conceptual comparison-board crop rather than a 390px viewport capture. The implementation was judged at 1:1 CSS pixels; the focused crops were compared by structure and proportions rather than forced resampling.
+
+**Full-view comparison evidence**
+
+- The 390px browser capture shows the complete Hero copy and the selected two-row strategy-card mosaic in context.
+- The five cards preserve the Web order in both DOM and visual reading order: Calendar, Icons, Typography, Colors, Components.
+- The Hero and card grid stay within the 390px viewport with no horizontal overflow.
+
+**Focused comparison evidence**
+
+- The source crop and final card-region crop were opened together for direct visual comparison.
+- Both use the same two-large-card upper row, three-compact-card lower row, warm-white surface, thin neutral border, restrained shadow, and coral/black/sage accent system.
+
+**Required fidelity surfaces**
+
+- Fonts and typography: existing Inter hierarchy is preserved; mobile card headings and calendar labels remain readable without changing the desktop scale.
+- Spacing and layout rhythm: 9px grid gaps, 12px radii, 16px side margins, and a 205/144px upper-row split match the selected compact mosaic direction. Bottom cards are equal-height for a calmer production layout.
+- Colors and visual tokens: existing BrewPot coral, black, sage, cream, and warm-gray border tokens are retained.
+- Image quality and asset fidelity: this section remains code-native UI using the project's existing Lucide icon system; no raster scaling, placeholder imagery, or newly approximated brand assets were introduced.
+- Copy and content: original Hero message and all five deliverable categories remain unchanged. Compact mobile component samples hide only their tiny visible labels while retaining explicit accessible names.
+
+**Comparison history**
+
+- Pass 1 finding [P2]: the narrow Components card rendered button labels inside 15px visual samples, causing clipped text and visual noise.
+- Fix: wrapped the desktop button labels, added explicit `aria-label` values, and hid only the label spans at the mobile breakpoint.
+- Pass 2 evidence: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-mobile-hero-m6-final.png` shows clean black, coral, outlined, and toggle samples with no clipping. No actionable P0/P1/P2 differences remain.
+
+**Responsive and interaction verification**
+
+- 390 × 1024: complete selected layout verified in Chrome.
+- 360 × 800: document width and viewport width both measured 360px; the 328px showcase ends at x=344 with 16px right clearance.
+- Mobile menu opens successfully.
+- Hero CTA retains `https://cal.com/yating-zhao/15min`.
+- Browser console: no app-origin errors. Observed only the expected localhost Hotjar HTTPS warning and an unrelated Immersive Translate extension error.
+- `npm run lint` and `npm run build` pass.
+
+**Follow-up polish**
+
+- None required for this breakpoint. Very small devices below 340px were not part of the selected visual target.
+
+final result: passed
