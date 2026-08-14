@@ -589,7 +589,7 @@ body {
   .desk-object { display: none; }
   .hero-copy h1 { margin-top: 24px; font-size: clamp(48px, 14vw, 68px); }
   .hero-copy p { max-width: 540px; font-size: 16px; }
-  .hero-cta { width: min(100%, 280px); }
+  .hero-cta { width: 100%; max-width: 360px; }
   .result-showcase {
     left: auto;
     display: grid;

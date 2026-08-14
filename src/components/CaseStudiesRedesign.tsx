@@ -290,7 +290,7 @@ export default function CaseStudiesRedesign() {
         </header>
 
         <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 md:gap-6">
-          {CASE_STUDIES.map((caseStudy, index) => (
+          {CASE_STUDIES.map((caseStudy) => (
             <button
               type="button"
               key={caseStudy.id}
@@ -316,13 +316,12 @@ export default function CaseStudiesRedesign() {
 
               <div className="flex w-full items-end justify-between gap-5 px-5 pb-5 pt-5 sm:px-6 sm:pb-6 sm:pt-6">
                 <div className="min-w-0">
-                  <div className="mb-3 flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.09em] text-[#77736d]">
-                    <span className="text-[#e94f37]">{String(index + 1).padStart(2, '0')}</span>
-                    <span className="h-px w-5 bg-[#d9d5d1]" />
-                    <span>{caseStudy.fundingStage}</span>
-                  </div>
                   <h2 className="font-heading text-[24px] font-medium leading-7 tracking-[-0.025em] text-[#202020]">{caseStudy.title}</h2>
-                  <p className="mt-1.5 text-[14px] leading-5 text-[#737373]">{caseStudy.subtitle}</p>
+                  <p className="mt-1.5 flex flex-wrap items-center gap-x-2 text-[14px] leading-5 text-[#737373]">
+                    <span>{caseStudy.subtitle}</span>
+                    <span className="text-[#bbb6b0]" aria-hidden="true">·</span>
+                    <span>{caseStudy.fundingStage}</span>
+                  </p>
                 </div>
 
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[#d8d5d2] bg-[#fdfcfb] text-[#202020] transition duration-200 group-hover:border-[#e94f37] group-hover:text-[#e94f37]" aria-hidden="true">
