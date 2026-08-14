@@ -4,8 +4,10 @@ import { ArrowLeft2, ArrowRight2, CloseCircle } from 'iconsax-react';
 import vectrroWorkflow from '../asset/personal-site-showcase/vectrro-workflow.png';
 import cooragentLanding from '../asset/personal-site-showcase/cooragent-landing.png';
 import cooragentAgentMarket from '../asset/personal-site-showcase/cooragent-agent-market.png';
-import vectrroCover from '../asset/personal-site-showcase/vectrro-cover-retina.png';
+import vectrroCover from '../asset/personal-site-showcase/vectrro-cover.png';
+import vectrroCoverFull from '../asset/personal-site-showcase/vectrro-quote-reply-full.png';
 import vectrroInterface from '../asset/personal-site-showcase/vectrro-interface-alt.png';
+import mobileOnboarding from '../asset/personal-showcase/article-cover-work-1.png';
 import cooragentMessages from '../asset/personal-site-showcase/cooragent-messages.png';
 import hitaWebsite from '../asset/personal-site-showcase/hita-website.png';
 import hitaCover from '../asset/personal-site-showcase/hita-cover.png';
@@ -16,6 +18,7 @@ type GalleryItem = {
   project: string;
   alt: string;
   src: string;
+  fullSrc?: string;
   aspectRatio: string;
 };
 
@@ -23,8 +26,9 @@ const galleryItems: GalleryItem[] = [
   { project: 'Vectrro', src: vectrroWorkflow, alt: 'Vectrro trucking operations website design', aspectRatio: '3670 / 2174' },
   { project: 'Cooragent', src: cooragentLanding, alt: 'Cooragent landing page', aspectRatio: '3178 / 1920' },
   { project: 'Cooragent', src: cooragentAgentMarket, alt: 'Cooragent agent market interface', aspectRatio: '3178 / 1920' },
-  { project: 'Vectrro', src: vectrroCover, alt: 'Vectrro quote reply UI elements', aspectRatio: '1024 / 564' },
+  { project: 'Vectrro', src: vectrroCover, fullSrc: vectrroCoverFull, alt: 'Vectrro quote reply UI elements', aspectRatio: '1024 / 564' },
   { project: 'Vectrro', src: vectrroInterface, alt: 'Vectrro product interface', aspectRatio: '3670 / 2174' },
+  { project: 'Mobile App', src: mobileOnboarding, alt: 'Mobile automation app onboarding flow', aspectRatio: '5322 / 3105' },
   { project: 'Cooragent', src: cooragentMessages, alt: 'Cooragent messages interface', aspectRatio: '3178 / 1924' },
   { project: 'HiTA', src: hitaWebsite, alt: 'HiTA assignment grading interface', aspectRatio: '3206 / 1942' },
   { project: 'HiTA', src: hitaCover, alt: 'HiTA product and website cover', aspectRatio: '1780 / 1071' },
@@ -111,15 +115,17 @@ function analyzeArtwork(image: HTMLImageElement, description: string): ArtworkPr
 
 function GalleryArtwork({
   item,
+  src = item.src,
   onPresentationDetected,
 }: {
   item: GalleryItem;
+  src?: string;
   onPresentationDetected?: (presentation: ArtworkPresentation) => void;
 }) {
   return (
     <span className="gallery-artwork-media">
       <img
-        src={item.src}
+        src={src}
         alt={item.alt}
         loading="eager"
         onLoad={(event) => onPresentationDetected?.(analyzeArtwork(event.currentTarget, item.alt))}
@@ -270,7 +276,11 @@ export default function Gallery() {
             className={`gallery-lightbox-stage${componentArtworkBackgrounds.has(activeIndex) ? ' is-component-artwork' : ''}`}
             style={{ '--component-artwork-background': componentArtworkBackgrounds.get(activeIndex) } as CSSProperties}
           >
-            <GalleryArtwork key={activeItem.src} item={activeItem} />
+            <GalleryArtwork
+              key={activeItem.fullSrc ?? activeItem.src}
+              item={activeItem}
+              src={activeItem.fullSrc ?? activeItem.src}
+            />
           </div>
           <button
             type="button"
