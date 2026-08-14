@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { Minus, Plus } from 'lucide-react';
 import { track } from '../analytics';
 
@@ -42,6 +42,7 @@ const faqs = [
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const prefersReducedMotion = useReducedMotion();
   const openFaqIndex = useRef<number | null>(null);
   const faqOpenedAt = useRef<number | null>(null);
 
@@ -69,8 +70,14 @@ export default function FAQ() {
     const isOpen = openIndex === index;
 
     return (
-      <article
+      <motion.article
+        layout="position"
         key={faq.question}
+        transition={{
+          layout: prefersReducedMotion
+            ? { duration: 0 }
+            : { duration: 0.28, ease: [0.22, 1, 0.36, 1] },
+        }}
         className={`overflow-hidden rounded-[10px] border bg-white transition-colors duration-200 ${
           isOpen ? 'border-[#F05637]/45' : 'border-[#D9DAD8] hover:border-[#B8BAB7]'
         }`}
@@ -98,9 +105,7 @@ export default function FAQ() {
             }
             setOpenIndex(opened ? index : null);
           }}
-          className={`group flex w-full items-start text-left ${
-            isOpen ? 'px-4 pb-2 pt-4 sm:px-5 sm:pb-3 sm:pt-5' : 'items-center px-4 py-4 sm:px-5 sm:py-4'
-          }`}
+          className="group flex w-full items-start px-4 py-4 text-left sm:px-5 sm:py-5"
         >
           <span className="flex min-w-0 flex-1 items-start justify-between gap-4">
             <span className="max-w-[410px] font-sans text-[16px] font-semibold leading-[1.3] tracking-[-0.018em] text-[#171717] sm:text-[17px] lg:text-[18px]">
@@ -123,7 +128,9 @@ export default function FAQ() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              transition={prefersReducedMotion
+                ? { duration: 0 }
+                : { duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               className="overflow-hidden"
             >
               <p className="px-4 pb-5 font-sans text-[15px] leading-[1.6] text-[#545454] whitespace-pre-line sm:px-5 sm:pb-6 sm:text-[16px]">
@@ -151,7 +158,7 @@ export default function FAQ() {
             </motion.div>
           )}
         </AnimatePresence>
-      </article>
+      </motion.article>
     );
   };
 
@@ -176,7 +183,7 @@ export default function FAQ() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-3 md:mt-12 md:grid-cols-2 md:gap-5">
+        <div className="mt-10 grid items-start gap-3 md:mt-12 md:grid-cols-2 md:gap-5">
           <div className="flex flex-col gap-3">
             {faqs.slice(0, 4).map((faq, index) => renderFaq(faq, index))}
           </div>
