@@ -505,3 +505,12 @@ final result: passed
 - Kept the complete subtitle in one typographic style and widened its desktop measure so the full sentence stays on one line when space permits.
 - The primary headline, availability badge, CTA, artwork, and responsive structure remain unchanged.
 - Final result: passed.
+
+## Hero-to-logo spacing correction — 2026-08-13
+
+- Removed the forced `100vh` Hero minimum height, which created viewport-dependent blank space when the artwork content was shorter than the screen.
+- Reduced the Gallery artwork layout reservation at each desktop/tablet scale while retaining `12–16px` of safe space beneath the visible cards.
+- Reduced the client-logo section top padding from `112px` to `80px` on desktop/tablet and from `96px` to `64px` on mobile.
+- Browser verification: 1414px desktop now has `12px` inside-Hero clearance and `92px` total card-to-logo-heading spacing; 900px tablet has `16px` and `96px` respectively; no cards are clipped.
+- Mobile retains a deliberate `64px` transition between Hero and the logo heading.
+- Final result: passed.

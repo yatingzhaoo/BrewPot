@@ -470,7 +470,6 @@ body {
 
 .branding-hero {
   position: relative;
-  min-height: 100vh;
   overflow: hidden;
   background: #fdfcfb;
   padding: 104px 24px 0;
@@ -506,7 +505,7 @@ body {
   position: relative;
   z-index: 8;
   width: min(1100px, calc(100vw - 48px));
-  height: 495px;
+  height: 476px;
   margin: 28px auto 0;
   transform: scale(.90);
   transform-origin: top center;
@@ -566,15 +565,15 @@ body {
   .desk-object { opacity: .72; }
   .laptop-object { left: -370px; }
   .mouse-object { right: -20px; }
-  .result-showcase { left: 50%; width: 1122px; height: 490px; margin-left: -561px; transform: scale(.89); transform-origin: top center; }
+  .result-showcase { left: 50%; width: 1122px; height: 472px; margin-left: -561px; transform: scale(.89); transform-origin: top center; }
 }
 
 @media (max-width: 1040px) {
-  .result-showcase { height: 462px; transform: scale(.84); }
+  .result-showcase { height: 448px; transform: scale(.84); }
 }
 
 @media (max-width: 920px) {
-  .result-showcase { height: 408px; transform: scale(.74); }
+  .result-showcase { height: 398px; transform: scale(.74); }
 }
 
 @media (max-width: 760px) {
@@ -584,7 +583,7 @@ body {
   .nav-menu-button { display: grid; place-items: center; }
   .brand-mobile-menu { display: flex; position: absolute; inset: 72px 12px auto; flex-direction: column; gap: 16px; padding: 20px; background: white; border: 1px solid #e3e3e3; border-radius: 14px; box-shadow: 0 18px 45px rgba(0,0,0,.1); }
   .brand-mobile-menu a { display: flex; align-items: center; gap: 8px; color: black; font-weight: 600; text-decoration: none; }
-  .branding-hero { min-height: 100vh; padding: 112px 16px 32px; }
+  .branding-hero { padding: 112px 16px 32px; }
   .desk-object { display: none; }
   .hero-copy h1 { margin-top: 24px; font-size: clamp(48px, 14vw, 68px); }
   .hero-copy p { max-width: 540px; font-size: 16px; }
