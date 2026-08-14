@@ -6,10 +6,10 @@ import vectrroCover from '../asset/case-studies/vectrro-cover.png';
 import nottaCover from '../asset/case-studies/notta-cover.png';
 import hitaCover from '../asset/case-studies/hita-cover.png';
 import cooragentCover from '../asset/case-studies/cooragent-cover.png';
-import cooragentLogo from '../asset/客户logo/Cooragent.webp';
-import nottaLogo from '../asset/客户logo/imgi_6_o4UWPHLGPNwYlcELZ4oZzdXn9I.png';
-import hitaLogo from '../asset/客户logo/imgi_13_Nn8dpshxMgsuQ7It6iWPlfrtQo.png';
-import vectrroLogo from '../asset/客户logo/imgi_8_7bCZJUraCFC0DQkcEEHToiQTFk.png';
+import cooragentLogo from '../asset/case-studies/logos/cooragent.png';
+import nottaLogo from '../asset/case-studies/logos/notta.png';
+import hitaLogo from '../asset/case-studies/logos/hita.png';
+import vectrroLogo from '../asset/case-studies/logos/vectrro.png';
 
 export type CaseStudy = {
   id: string;

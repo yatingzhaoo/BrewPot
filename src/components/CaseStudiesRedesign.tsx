@@ -306,12 +306,12 @@ export default function CaseStudiesRedesign() {
               </div>
 
               <div className="flex w-full items-start gap-3 pt-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-[9px] border border-black/[0.06] bg-white p-1.5">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-[9px] border border-black/[0.06] bg-white">
                   <img
                     src={caseStudy.logo}
                     alt=""
                     aria-hidden="true"
-                    className="max-h-full max-w-full object-contain"
+                    className="h-full w-full object-cover"
                   />
                 </span>
                 <div className="min-w-0 pt-px">
