@@ -278,17 +278,8 @@ export default function CaseStudiesRedesign() {
   }
 
   return (
-    <section id="case-studies" data-analytics-section="case_studies" className="min-h-screen bg-[#fdfcfb] pb-28 pt-28 md:pt-36">
+    <section id="case-studies" data-analytics-section="case_studies" className="min-h-screen bg-[#fdfcfb] pb-28 pt-24 md:pt-28">
       <div className="mx-auto max-w-[1180px] px-6 md:px-10">
-        <header className="mx-auto mb-10 max-w-[760px] text-center md:mb-12">
-          <h1 className="font-heading text-[40px] font-medium leading-[1.12] tracking-[-0.03em] text-[#202020] sm:text-[48px]">
-            Selected Case Studies
-          </h1>
-          <p className="mx-auto mt-3 max-w-[620px] text-[16px] leading-6 text-[#737373] sm:text-[17px] sm:leading-7">
-            A closer look at product strategy, interaction design, and interface work.
-          </p>
-        </header>
-
         <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 md:gap-6">
           {CASE_STUDIES.map((caseStudy) => (
             <button
