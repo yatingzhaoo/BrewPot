@@ -191,7 +191,7 @@ export default function Gallery() {
       id="gallery"
       data-analytics-section="gallery"
       aria-labelledby="gallery-heading"
-      className="online-gallery-section"
+      className={`online-gallery-section${activeIndex !== null ? ' has-open-lightbox' : ''}`}
     >
       <div className="online-gallery-heading">
         <h2 id="gallery-heading">A Glimpse of Recent Work</h2>
@@ -270,7 +270,7 @@ export default function Gallery() {
             className={`gallery-lightbox-stage${componentArtworkBackgrounds.has(activeIndex) ? ' is-component-artwork' : ''}`}
             style={{ '--component-artwork-background': componentArtworkBackgrounds.get(activeIndex) } as CSSProperties}
           >
-            <GalleryArtwork item={activeItem} />
+            <GalleryArtwork key={activeItem.src} item={activeItem} />
           </div>
           <button
             type="button"

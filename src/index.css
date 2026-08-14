@@ -40,6 +40,10 @@ body {
   background: #fdfcfb;
 }
 
+.online-gallery-section.has-open-lightbox .online-gallery-frame {
+  visibility: hidden;
+}
+
 .online-gallery-heading {
   width: min(1180px, 100%);
   margin: 0 auto 32px;
@@ -187,8 +191,7 @@ body {
   place-items: center;
   padding: 48px 116px;
   color: white;
-  background: rgba(8, 8, 8, 0.94);
-  backdrop-filter: blur(12px);
+  background: #080808;
 }
 
 .gallery-lightbox-stage {
