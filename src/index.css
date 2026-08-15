@@ -494,6 +494,8 @@ body {
   aspect-ratio: 275 / 527;
   object-fit: cover;
   clip-path: polygon(0 0, 26.2% 0, 100% 65.5%, 100% 100%, 0 100%);
+  -webkit-mask-image: radial-gradient(ellipse 135% 110% at 0 0, #000 0%, #000 55%, rgba(0, 0, 0, .88) 68%, rgba(0, 0, 0, .38) 84%, transparent 100%);
+  mask-image: radial-gradient(ellipse 135% 110% at 0 0, #000 0%, #000 55%, rgba(0, 0, 0, .88) 68%, rgba(0, 0, 0, .38) 84%, transparent 100%);
 }
 .mouse-object {
   top: min(72px, 5vw);

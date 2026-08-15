@@ -34,6 +34,58 @@ final result: passed
 
 ---
 
+## Hero laptop edge fade — 2026-08-14
+
+**Source visual truth**
+
+- Original 2560 × 1440 Hero capture before the fade: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-ultrawide-chrome-2560-final.jpg`.
+- User direction: preserve the current laptop decoration and layout, but replace its hard inner/bottom termination with a gradual transparent fade.
+
+**Implementation evidence**
+
+- Chrome 1440 × 900: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-keyboard-fade-1440-final.png`.
+- Chrome 2560 × 1440: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-keyboard-fade-2560-final.png`.
+- Full-view before/after comparison: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-keyboard-fade-comparison.png`.
+- Focused laptop comparison: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-keyboard-fade-detail-comparison.png`.
+- Source and 2560px implementation are both 2560 × 1440 pixels at a matching 2560 × 1440 CSS viewport and device scale factor 1; no density normalization was required.
+
+**Findings and fixes**
+
+- Earlier [P2]: the laptop asset ended with a comparatively firm diagonal/bottom edge against the cream page, making the left decoration feel more like a cropped rectangle than an object entering the scene.
+- Fix: added a transparent radial alpha mask anchored at the laptop's top-left corner. The keyboard stays sharp while the inner and lower chassis gradually dissolve into the existing page background; no white overlay or asset recoloring is used.
+- Iteration [P2]: a stronger mask looked balanced at 2560px but removed too much of the laptop at 1440px, leaving a ghost-like fragment.
+- Post-fix: the mask was relaxed to preserve the laptop silhouette at 1440px while still softening the inner and lower termination at 2560px.
+
+**Required fidelity surfaces**
+
+- Fonts and typography: unchanged.
+- Spacing and layout rhythm: unchanged; laptop dimensions, crop, positioning, Hero copy, CTA, and card mosaic retain the previous geometry.
+- Colors and visual tokens: unchanged. The fade is an alpha mask and introduces no white gradient layer or new color.
+- Image quality and asset fidelity: the original high-resolution laptop asset remains in use. The mask preserves the sharp keyboard area and native shadow without stretching or raster substitution.
+- Copy and content: unchanged.
+
+**Primary interactions and runtime checks**
+
+- Navigation, Hero CTA, responsive card mosaic, logo strip, and Pricing transition remain unchanged.
+- The existing mobile breakpoint continues to hide both decorative desk objects together.
+- Chrome renders the fade at 1440 and 2560 without layout overflow or a visible rectangular overlay.
+- The browser shows no app-origin errors; the existing local-only Hotjar HTTPS warning is unrelated to this visual change.
+- `npm run build`, `npm run test:sites`, and `git diff --check` pass.
+
+**Comparison history**
+
+- Pass 1 used a medium fade and removed the hard termination while preserving the object.
+- Pass 2 tested a stronger fade; this introduced a 1440px P2 because too much chassis disappeared.
+- Pass 3 restored the medium fade. Same-size browser evidence confirms the laptop stays recognizable on standard desktop and dissolves naturally on ultra-wide screens. No actionable P0/P1/P2 findings remain.
+
+**Follow-up polish**
+
+- The mouse intentionally remains unchanged so the user can judge the laptop treatment independently before deciding whether both objects should share a fade.
+
+final result: passed
+
+---
+
 ## Mobile CTA and Footer refinement — 2026-08-14
 
 **Source visual truth**
