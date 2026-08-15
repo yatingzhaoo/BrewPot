@@ -15,7 +15,7 @@ import {
   Star,
   UserRound,
 } from 'lucide-react';
-import laptop from '../asset/branding/laptop-reference-v2.png';
+import laptop from '../asset/branding/laptop-reference-v3.png';
 import mouse from '../asset/branding/mouse-reference.png';
 
 const calendarDays = Array.from({ length: 31 }, (_, index) => index + 1);

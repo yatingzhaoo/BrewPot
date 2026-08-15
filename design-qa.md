@@ -34,6 +34,38 @@ final result: passed
 
 ---
 
+## Hero laptop Return-key correction — 2026-08-14
+
+**Source visual truth**
+
+- Previous accepted laptop asset: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/src/asset/branding/laptop-reference-v2.png`.
+- Physical-key reference: a real Apple keyboard Return key using the two-line lowercase legend `enter` above `return`, without an arrow.
+
+**Implementation evidence**
+
+- Corrected asset: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/src/asset/branding/laptop-reference-v3.png`.
+- Final Chrome capture at a 2560 × 1440 CSS viewport and device scale factor 1: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/BrewPot-live-ultrawide-2560x1440.png`.
+
+**Findings and fixes**
+
+- Earlier [P2]: the Return key used an incorrect arrow/legend treatment, making the otherwise realistic keyboard read as generated rather than photographed.
+- Fix: changed only that keycap to the exact two-line lowercase `enter` / `return` legend, right-aligned in white, with no arrow. The laptop angle, finish, key layout, crop, shadow, background, CSS mask, and Hero composition were preserved.
+
+**Required fidelity surfaces**
+
+- Typography, copy, spacing, layout, card mosaic, CTA, mouse decoration, and responsive rules are unchanged.
+- The corrected 908 × 1731 asset renders without stretching, clipping, overflow, or a visible image boundary.
+- The 2560 × 1440 evidence capture remains visually centered on the ultra-wide layout.
+
+**Primary interactions and runtime checks**
+
+- `npm run build`, `npm run test:sites`, and `git diff --check` pass.
+- Navigation, Hero CTA, pricing, gallery, and responsive behavior are unaffected.
+
+final result: passed
+
+---
+
 ## Hero laptop edge fade — 2026-08-14
 
 **Source visual truth**
