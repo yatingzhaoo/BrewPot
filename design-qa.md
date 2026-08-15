@@ -999,3 +999,54 @@ final result: passed
 - None required. The fixed 1180px content width intentionally preserves a standard editorial reading measure on very large displays.
 
 final result: passed
+
+---
+
+## Hero laptop material realism — 2026-08-14
+
+**Source visual truth**
+
+- Previous accepted faded-laptop implementation: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-keyboard-fade-2560-final.png`.
+- User direction: make the pale laptop body more convincingly realistic while preserving the existing Hero composition, edge fade, and ultra-wide behavior.
+
+**Implementation evidence**
+
+- Updated project asset: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/src/asset/branding/laptop-reference-v2.png`.
+- Chrome 1440 × 900: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-realistic-laptop-1440.png`.
+- Chrome 2560 × 1440: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-realistic-laptop-2560.png`.
+- Full-view before/after comparison: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-realistic-laptop-comparison.png`.
+- Focused material comparison: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-realistic-laptop-detail-comparison.png`.
+- Source and implementation comparison screenshots are both 2560 × 1440 pixels at a matching 2560 × 1440 CSS viewport and device scale factor 1.
+
+**Findings and fixes**
+
+- Earlier [P2]: the laptop palm-rest area read as a flat pale plane, with weak material texture and edge definition compared with the realistic mouse on the opposite side.
+- Fix: replaced the laptop raster with a higher-resolution, product-photography treatment. The new asset adds anodized-aluminum texture, a clearer chamfered edge, realistic speaker perforations, trackpad definition, and a physically plausible soft shadow while preserving the original angle and portrait aspect ratio.
+- Iteration [P1]: the first edited asset rendered its intended transparent area as a visible checkerboard, which was not deployable.
+- Post-fix: replaced only that checkerboard with the Hero's `#FDFCFB` warm off-white and retained the generated laptop detail and shadow. The existing CSS alpha mask continues to soften the inner and lower edge.
+
+**Required fidelity surfaces**
+
+- Fonts and typography: unchanged.
+- Spacing and layout rhythm: laptop width, aspect ratio, crop, mask, placement, Hero copy, CTA, and card mosaic geometry remain unchanged.
+- Colors and visual tokens: the laptop background matches the existing `#FDFCFB` Hero surface; no new page color or overlay was introduced.
+- Image quality and asset fidelity: asset resolution increases from 275 × 527 to 908 × 1732. The accepted browser captures show sharper key edges, finer metal detail, and no checkerboard, white rectangle, stretching, or compression blur.
+- Copy and content: unchanged.
+
+**Primary interactions and runtime checks**
+
+- Navigation, Hero CTA, responsive mosaic, logo strip, and mobile desk-object visibility rules remain unchanged.
+- Chrome renders the updated asset at 1440 and 2560 without overflow or a visible asset boundary.
+- No app-origin browser errors were introduced; the existing local-only Hotjar HTTPS warning is unrelated.
+- `npm run build`, `npm run test:sites`, and `git diff --check` pass.
+
+**Comparison history**
+
+- Pass 1 increased the product realism but produced an unusable checkerboard background.
+- Pass 2 corrected only the background, preserved the laptop treatment, and passed same-size 1440/2560 browser review. No actionable P0/P1/P2 findings remain.
+
+**Follow-up polish**
+
+- The mouse remains unchanged so its lighter visual weight continues to counterbalance the larger laptop.
+
+final result: passed
