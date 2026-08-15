@@ -120,6 +120,7 @@ export default function Hero() {
   return (
     <section className="branding-hero">
       <img className="desk-object laptop-object" src={laptop} alt="Silver laptop" />
+      <img className="desk-object laptop-object laptop-object-blur" src={laptop} alt="" aria-hidden="true" />
       <img className="desk-object mouse-object" src={mouse} alt="White Apple Magic Mouse" />
 
       <div className="hero-copy">

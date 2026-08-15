@@ -34,6 +34,41 @@ final result: passed
 
 ---
 
+## Responsive laptop blur and crop — 2026-08-14
+
+**Source visual truth**
+
+- Latest accepted Wave & Steam Hero composition and corrected laptop asset.
+- User rule: the laptop owns a soft left-edge blur; a normal desktop crop hides that blurred portion, while an ultra-wide layout reveals it naturally.
+
+**Implementation evidence**
+
+- Normal desktop, 1440 × 900: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-laptop-responsive-1440.png`.
+- Ultra-wide desktop, 2560 × 1440: `/Users/yatingzhao/Desktop/01_项目/BrewPot/brewpot-branding-upgrade/brewpot-laptop-responsive-2560.png`.
+- Both captures use device scale factor 1 and the same loaded interaction state.
+
+**Findings and fixes**
+
+- Earlier [P2]: an opacity mask lived on the primary laptop image, so the keyboard faded even at ordinary desktop widths.
+- Fix: the primary laptop is now always fully opaque. A second, accessibility-hidden copy provides a 3px blur over only the left 28% and fades that blur into the sharp source image.
+- At ordinary desktop widths the laptop starts 54px outside the viewport, placing the blurred portion off-canvas and leaving the visible keys and aluminum body sharp.
+- At 2200px and above the existing centered 2060px visual stage reveals the complete left side, including its gradual blurred-to-sharp transition.
+
+**Required fidelity surfaces**
+
+- Hero copy, CTA, mouse, card mosaic, colors, typography, vertical spacing, and mobile visibility remain unchanged.
+- The decorative duplicate is empty-alt and `aria-hidden`; screen readers encounter only the original descriptive image.
+- Neither tested viewport introduces horizontal overflow, visible asset seams, opacity loss, or a breakpoint jump in the central content.
+
+**Primary interactions and runtime checks**
+
+- The primary CTA and navigation remain available and visually unchanged.
+- `npm run build`, `npm run test:sites`, and `git diff --check` pass.
+
+final result: passed
+
+---
+
 ## Hero laptop Return-key correction — 2026-08-14
 
 **Source visual truth**
