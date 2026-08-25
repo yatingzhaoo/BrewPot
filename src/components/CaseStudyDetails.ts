@@ -193,6 +193,7 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
           beforeAlt: 'Cooragent task collaboration interface before redesign',
           afterAlt: 'Cooragent task experience after redesign',
           layout: 'landscape',
+          crop: 'criteria-area',
         },
         paragraphs: [
           `Beyond structural issues, emotional design remains a subject of debate. For instance, is it necessary to design a unique avatar for every agent? When agents collaborate, should we emphasize the sense of “ritual” that comes with a multi-person team completing a task?`,

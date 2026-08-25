@@ -34,6 +34,19 @@ final result: passed
 
 ---
 
+## Cooragent comparison crop alignment — 2026-08-25
+
+- Reference: HiTA section, “Make Grading Criteria Easier to Scan and Manage”.
+- Target: Cooragent section, “Reflecting on Humanizing AI Agents”.
+- Both sections use the same `ComparisonFrame` component and `criteria-area` crop mode.
+- Desktop: reference and target render at 656 × 328 px (2:1), with `object-fit: cover` and top alignment.
+- Mobile (390 px): the Cooragent comparison renders at 302 × 151 px (2:1), stacked vertically without overflow.
+- Browser console: no runtime errors.
+
+final result: passed
+
+---
+
 ## Responsive laptop blur and crop — 2026-08-14
 
 **Source visual truth**
