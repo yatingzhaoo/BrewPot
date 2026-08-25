@@ -1,6 +1,7 @@
 import cooragentLanding from '../asset/case-studies/detail/cooragent-landing.png';
 import cooragentAgentMarket from '../asset/case-studies/detail/cooragent-agent-market.png';
 import cooragentMessages from '../asset/case-studies/detail/cooragent-messages.png';
+import cooragentTaskCollaborationBefore from '../asset/case-studies/detail/cooragent-task-collaboration-before.png';
 import vectrroCover from '../asset/case-studies/detail/vectrro-cover.png';
 import vectrroWorkflow from '../asset/case-studies/detail/vectrro-workflow.png';
 import vectrroBrand from '../asset/case-studies/detail/vectrro-brand.png';
@@ -186,6 +187,13 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
       },
       {
         heading: 'Reflecting on Humanizing AI Agents',
+        comparison: {
+          before: cooragentTaskCollaborationBefore,
+          after: cooragentMessages,
+          beforeAlt: 'Cooragent task collaboration interface before redesign',
+          afterAlt: 'Cooragent task experience after redesign',
+          layout: 'landscape',
+        },
         paragraphs: [
           `Beyond structural issues, emotional design remains a subject of debate. For instance, is it necessary to design a unique avatar for every agent? When agents collaborate, should we emphasize the sense of “ritual” that comes with a multi-person team completing a task?`,
           `After discussion and exploration, we decided to abandon character avatars and downplay the concept of “multi-agent collaboration“. We realized splitting AI capabilities and assigning them individual identities is often a subjective presupposition based on human experience. Users’ intention is simply to “get things done.” Even in the real world, it isn’t always necessary to clearly divide responsibilities or form a multi-role team to handle a task. It’s actually a traditional way of thinking in human society. While some applications adopt this emotional design by using animation to create a sense of multiple assistants working together on writing, the effect looks fun and visually attractive but requires significant costs while providing limited improvement to the actual user experience.`,
@@ -206,7 +214,6 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
       },
       {
         heading: 'The Delicate Balance of Information Disclosure Density',
-        image: cooragentMessages,
         paragraphs: [
           `Another key challenge lies in balancing the level of detail during task execution. We want the process to be detailed enough so users aren’t left staring at a result after a long wait, yet not so granular that it leads to information overload. If a user needs to trace the details of a specific step, they should still be able to do so. Task planning also needs to grant users a degree of control and fine-tuning space without requiring them to audit every single link; there are many subtle points of equilibrium to consider here.`,
           `Regarding the overall visual and brand identity, much of their previous UI was AI-generated, and despite efforts to avoid an “AI look,” they were unsuccessful. The overall aesthetic felt unrefined and immature, dominated by a heavy blue, purple, and black color scheme. Additionally, their marketing website focused heavily on multi-agent collaboration and was riddled with technical jargon, making it difficult for average users to understand what the product actually meant for achieving their goals. As a result, the powerful capabilities of Cooragent were not fully showcased.`,
