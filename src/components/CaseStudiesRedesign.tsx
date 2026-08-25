@@ -50,6 +50,7 @@ function ComparisonFrame({ comparison }: { comparison: CaseStudyComparison }) {
               src={src}
               alt={alt}
               loading="lazy"
+              decoding="async"
               className={isRightPanelCrop
                 ? 'absolute inset-y-0 right-0 h-full w-auto max-w-none'
                 : isCriteriaAreaCrop
