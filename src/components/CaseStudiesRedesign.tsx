@@ -14,6 +14,7 @@ function ComparisonFrame({ comparison }: { comparison: CaseStudyComparison }) {
   const isPortrait = comparison.layout === 'portrait';
   const isRightPanelCrop = comparison.crop === 'right-panel';
   const isCriteriaAreaCrop = comparison.crop === 'criteria-area';
+  const usesCroppedPreview = comparison.frameAspectRatio !== undefined && !isRightPanelCrop && !isCriteriaAreaCrop;
   const isStacked = !isPortrait && !isRightPanelCrop;
   const gridClass = isRightPanelCrop
     ? 'grid-cols-2 justify-center gap-4 sm:grid-cols-[240px_240px] sm:gap-6'
@@ -23,7 +24,13 @@ function ComparisonFrame({ comparison }: { comparison: CaseStudyComparison }) {
   const imageShadow = 'shadow-[0_2px_8px_rgba(32,32,32,0.08),0_20px_42px_-16px_rgba(32,32,32,0.24)]';
 
   return (
-    <div className={`grid ${gridClass} w-full items-start rounded-[14px] bg-[#f1f1f0] p-5 sm:p-8`}>
+    <figure className="flex w-full flex-col gap-3">
+      {comparison.label && (
+        <figcaption className="font-heading text-[14px] font-medium leading-5 text-[#77736d]">
+          {comparison.label}
+        </figcaption>
+      )}
+      <div className={`grid ${gridClass} w-full items-start rounded-[14px] bg-[#f1f1f0] p-5 sm:p-8`}>
       {([
         ['Before', comparison.before, comparison.beforeAlt],
         ['After', comparison.after, comparison.afterAlt],
@@ -36,15 +43,16 @@ function ComparisonFrame({ comparison }: { comparison: CaseStudyComparison }) {
             {label}
           </span>
           <div
-            className={`flex w-full min-w-0 items-start justify-center ${isRightPanelCrop || isCriteriaAreaCrop ? imageShadow : ''} ${
+            className={`flex w-full min-w-0 items-start justify-center ${isRightPanelCrop || isCriteriaAreaCrop || usesCroppedPreview ? imageShadow : ''} ${
               isRightPanelCrop
                 ? 'relative aspect-[0.7/1] overflow-hidden rounded-[9px]'
                 : isCriteriaAreaCrop
                   ? 'relative aspect-[2/1] overflow-hidden rounded-[9px]'
                   : isPortrait
                     ? 'h-[340px] sm:h-[460px]'
-                    : 'relative aspect-[1.7/1] rounded-[9px]'
+                    : 'relative aspect-[1.7/1] overflow-hidden rounded-[9px]'
             }`}
+            style={usesCroppedPreview ? { aspectRatio: comparison.frameAspectRatio } : undefined}
           >
             <img
               src={src}
@@ -55,14 +63,17 @@ function ComparisonFrame({ comparison }: { comparison: CaseStudyComparison }) {
                 ? 'absolute inset-y-0 right-0 h-full w-auto max-w-none'
                 : isCriteriaAreaCrop
                   ? 'absolute inset-0 h-full w-full object-cover object-top'
-                  : `${isPortrait
-                    ? 'h-full w-auto max-w-full rounded-[9px] object-contain'
-                    : 'absolute inset-y-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain'} ${imageShadow}`}
+                  : usesCroppedPreview
+                    ? 'absolute inset-0 h-full w-full object-cover object-top'
+                    : `${isPortrait
+                      ? 'h-full w-auto max-w-full rounded-[9px] object-contain'
+                      : 'absolute inset-y-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain'} ${imageShadow}`}
             />
           </div>
         </div>
       ))}
-    </div>
+      </div>
+    </figure>
   );
 }
 
@@ -168,7 +179,17 @@ export default function CaseStudiesRedesign() {
               </div>
 
               <div className="mt-14 flex flex-col gap-14 md:mt-16 md:gap-16">
-                {detail.sections.map((section, index) => (
+                {detail.sections.map((section, index) => {
+                  const comparisons = section.comparisons ?? (section.comparison ? [section.comparison] : []);
+                  const comparisonIndex = Math.min(
+                    section.comparisonAfterParagraph ?? 0,
+                    section.paragraphs.length,
+                  );
+                  const paragraphsBeforeComparison = section.paragraphs.slice(0, comparisonIndex);
+                  const paragraphsAfterComparison = section.paragraphs.slice(comparisonIndex);
+                  const hasMedia = Boolean(section.image || comparisons.length > 0);
+
+                  return (
                   <section key={`${activeCaseStudy.id}-${index}`} className="flex flex-col">
                     {section.heading && (
                       <h2 className="font-heading text-[22px] font-semibold leading-[1.2] tracking-[-0.025em] text-[#202020] sm:text-[24px]">
@@ -191,21 +212,33 @@ export default function CaseStudiesRedesign() {
                       </div>
                     )}
 
-                    {section.comparison && (
-                      <div className={section.heading ? 'mt-6' : ''}>
-                        <ComparisonFrame comparison={section.comparison} />
+                    {paragraphsBeforeComparison.length > 0 && (
+                      <div className={`${section.heading || section.image ? 'mt-6' : ''} flex w-full flex-col gap-5 text-[16px] leading-[28px] text-[#302e2b] sm:text-[17px] sm:leading-[30px]`}>
+                        {paragraphsBeforeComparison.map((paragraph) => (
+                          <p key={paragraph}>{paragraph}</p>
+                        ))}
                       </div>
                     )}
 
-                    {section.paragraphs.length > 0 && (
-                      <div className={`${section.heading || section.image || section.comparison ? 'mt-6' : ''} flex w-full flex-col gap-5 text-[16px] leading-[28px] text-[#302e2b] sm:text-[17px] sm:leading-[30px]`}>
-                        {section.paragraphs.map((paragraph) => (
+                    {comparisons.map((comparison, comparisonPosition) => (
+                      <div
+                        key={comparison.label ?? comparison.before}
+                        className={section.heading || section.image || paragraphsBeforeComparison.length > 0 || comparisonPosition > 0 ? 'mt-6' : ''}
+                      >
+                        <ComparisonFrame comparison={comparison} />
+                      </div>
+                    ))}
+
+                    {paragraphsAfterComparison.length > 0 && (
+                      <div className={`${section.heading || hasMedia || paragraphsBeforeComparison.length > 0 ? 'mt-6' : ''} flex w-full flex-col gap-5 text-[16px] leading-[28px] text-[#302e2b] sm:text-[17px] sm:leading-[30px]`}>
+                        {paragraphsAfterComparison.map((paragraph) => (
                           <p key={paragraph}>{paragraph}</p>
                         ))}
                       </div>
                     )}
                   </section>
-                ))}
+                  );
+                })}
 
                 <button
                   type="button"
@@ -240,11 +273,7 @@ export default function CaseStudiesRedesign() {
                   <img
                     src={caseStudy.cover}
                     alt={`${caseStudy.title} product design case study`}
-                    className={`max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.01] ${
-                      caseStudy.id === 'vectrro'
-                        ? 'rounded-none'
-                        : 'rounded-[8px] border border-black/[0.04] shadow-[0_10px_30px_rgba(0,0,0,0.08)]'
-                    }`}
+                    className="max-h-full max-w-full rounded-[8px] border border-black/[0.04] object-contain shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-transform duration-300 group-hover:scale-[1.01]"
                   />
                 </div>
               </div>

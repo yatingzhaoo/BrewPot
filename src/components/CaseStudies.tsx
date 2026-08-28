@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { ArrowLeft, ArrowUpRight, X } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { track } from '../analytics';
-import vectrroCover from '../asset/case-studies/vectrro-cover.png';
+import vectrroCover from '../asset/case-studies/detail/vectrro-brand.png';
 import nottaCover from '../asset/case-studies/notta-cover.png';
 import hitaCover from '../asset/case-studies/hita-cover.png';
 import cooragentCover from '../asset/case-studies/cooragent-cover.png';
@@ -25,6 +25,32 @@ export type CaseStudy = {
 export const SOURCE_URL = 'https://yatingzhao.com';
 
 export const CASE_STUDIES: CaseStudy[] = [
+  {
+    id: 'cooragent',
+    title: 'Cooragent',
+    subtitle: 'AI agents',
+    fundingStage: 'Seed',
+    cover: cooragentCover,
+    logo: cooragentLogo,
+    overview: [
+      'Cooragent is an AI agent platform originating from Tsinghua University’s LEAP Lab. Its technical capabilities were strong, but new users struggled to understand what the product could do and how to create or manage agents.',
+      'The engagement clarified the information architecture, product positioning, interaction model, and brand system so complex capabilities could feel understandable and trustworthy.',
+    ],
+    highlights: [
+      {
+        heading: 'Separate marketing from product functionality',
+        body: 'Marketing content and core tools previously competed on the same screen. Separating them created a familiar SaaS structure, lowered the entry barrier, and gave both surfaces room to evolve.',
+      },
+      {
+        heading: 'Design for casual and advanced users together',
+        body: 'The default path lets general users move directly from an instruction to a result, while clear secondary entry points expose agent creation, configuration, and marketplace tools for advanced users.',
+      },
+      {
+        heading: 'Move beyond the generic “AI look”',
+        body: 'A clean and reusable visual system replaced the heavy blue-purple-black aesthetic. More accessible messaging helped visitors understand the product’s value without relying on technical jargon.',
+      },
+    ],
+  },
   {
     id: 'notta',
     title: 'Notta',
@@ -70,32 +96,6 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         heading: 'Explain value from an administrator’s perspective',
         body: 'The website narrative shifted from listing features to showing how AI reduces repetitive work, improves communication, and helps institutions allocate resources more effectively.',
-      },
-    ],
-  },
-  {
-    id: 'cooragent',
-    title: 'Cooragent',
-    subtitle: 'AI agents',
-    fundingStage: 'Seed',
-    cover: cooragentCover,
-    logo: cooragentLogo,
-    overview: [
-      'Cooragent is an AI agent platform originating from Tsinghua University’s LEAP Lab. Its technical capabilities were strong, but new users struggled to understand what the product could do and how to create or manage agents.',
-      'The engagement clarified the information architecture, product positioning, interaction model, and brand system so complex capabilities could feel understandable and trustworthy.',
-    ],
-    highlights: [
-      {
-        heading: 'Separate marketing from product functionality',
-        body: 'Marketing content and core tools previously competed on the same screen. Separating them created a familiar SaaS structure, lowered the entry barrier, and gave both surfaces room to evolve.',
-      },
-      {
-        heading: 'Design for casual and advanced users together',
-        body: 'The default path lets general users move directly from an instruction to a result, while clear secondary entry points expose agent creation, configuration, and marketplace tools for advanced users.',
-      },
-      {
-        heading: 'Move beyond the generic “AI look”',
-        body: 'A clean and reusable visual system replaced the heavy blue-purple-black aesthetic. More accessible messaging helped visitors understand the product’s value without relying on technical jargon.',
       },
     ],
   },

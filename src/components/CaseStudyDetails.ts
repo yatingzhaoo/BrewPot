@@ -1,7 +1,12 @@
 import cooragentLanding from '../asset/case-studies/detail/cooragent-landing.png';
-import cooragentAgentMarket from '../asset/case-studies/detail/cooragent-agent-market.png';
 import cooragentMessages from '../asset/case-studies/detail/cooragent-messages-comparison.avif';
 import cooragentTaskCollaborationBefore from '../asset/case-studies/detail/cooragent-task-collaboration-before.avif';
+import cooragentMarketingBefore from '../asset/case-studies/detail/cooragent-marketing-before.webp';
+import cooragentMarketingAfter from '../asset/case-studies/detail/cooragent-marketing-after.webp';
+import cooragentAgentMarketBefore from '../asset/case-studies/detail/cooragent-agent-market-before.webp';
+import cooragentAgentMarketAfter from '../asset/case-studies/detail/cooragent-agent-market-after.webp';
+import cooragentMyAgentsBefore from '../asset/case-studies/detail/cooragent-my-agents-before.webp';
+import cooragentMyAgentsAfter from '../asset/case-studies/detail/cooragent-my-agents-after.webp';
 import vectrroCover from '../asset/case-studies/detail/vectrro-cover.png';
 import vectrroWorkflow from '../asset/case-studies/detail/vectrro-workflow.png';
 import vectrroBrand from '../asset/case-studies/detail/vectrro-brand.png';
@@ -17,12 +22,14 @@ import hitaWebsiteBefore from '../asset/case-studies/detail/hita-website-before.
 import hitaWebsiteAfter from '../asset/case-studies/detail/hita-website-after.png';
 
 export type CaseStudyComparison = {
+  label?: string;
   before: string;
   after: string;
   beforeAlt: string;
   afterAlt: string;
   layout: 'portrait' | 'landscape';
   crop?: 'right-panel' | 'criteria-area';
+  frameAspectRatio?: number;
 };
 
 export type CaseStudySection = {
@@ -31,6 +38,8 @@ export type CaseStudySection = {
   image?: string;
   transparentImage?: boolean;
   comparison?: CaseStudyComparison;
+  comparisons?: CaseStudyComparison[];
+  comparisonAfterParagraph?: number;
 };
 
 export type CaseStudyDetail = {
@@ -178,6 +187,16 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
     sections: [
       {
         heading: 'Decoupling Marketing and Functionality',
+        comparison: {
+          label: 'Marketing website',
+          before: cooragentMarketingBefore,
+          after: cooragentMarketingAfter,
+          beforeAlt: 'Cooragent marketing website before redesign',
+          afterAlt: 'Cooragent marketing website after redesign',
+          layout: 'landscape',
+          frameAspectRatio: 16 / 9,
+        },
+        comparisonAfterParagraph: 3,
         paragraphs: [
           `The main challenge lay in the Cooragent’s information architecture.`,
           `When users first entered the product, they saw multiple agents with avatars and an empty chat input box. New users had to interpret the unfamiliar layout cues on their own, leading to a high entry barrier.`,
@@ -188,6 +207,7 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
       {
         heading: 'Reflecting on Humanizing AI Agents',
         comparison: {
+          label: 'Task execution',
           before: cooragentTaskCollaborationBefore,
           after: cooragentMessages,
           beforeAlt: 'Cooragent task collaboration interface before redesign',
@@ -203,7 +223,26 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
       },
       {
         heading: 'Balancing Experience for Casual and Advanced Users',
-        image: cooragentAgentMarket,
+        comparisons: [
+          {
+            label: 'Agent Market',
+            before: cooragentAgentMarketBefore,
+            after: cooragentAgentMarketAfter,
+            beforeAlt: 'Cooragent Agent Market before redesign',
+            afterAlt: 'Cooragent Agent Market after redesign',
+            layout: 'landscape',
+            frameAspectRatio: 8 / 5,
+          },
+          {
+            label: 'My Agents',
+            before: cooragentMyAgentsBefore,
+            after: cooragentMyAgentsAfter,
+            beforeAlt: 'Cooragent My Agents before redesign',
+            afterAlt: 'Cooragent My Agents after redesign',
+            layout: 'landscape',
+          },
+        ],
+        comparisonAfterParagraph: 4,
         paragraphs: [
           `Another issue is that our audience includes both developers and general users. The design must cater to the needs of different groups, which is the core challenge of this project.`,
           `In the previous version, general users were greeted by several Agents upon entering, yet they still struggled to understand the exact definition of an “Agent.” They often felt confused: “There are several characters here, how do I operate them? Am I supposed to assign them tasks?” This does not align with the general public’s intuitive way of using AI. If a user wants to create an analytical report, the most natural interaction is to enter a chat interface, input their objective, and receive the result directly. They expect a seamless “instruction-to-result” experience rather than having to study what an Agent is first. For these users, overemphasizing Agents actually increases the cognitive load.`,
