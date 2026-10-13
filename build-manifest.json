@@ -1,5 +1,5 @@
 {
-  "sourceCommit": "9af775d78b87367edb5a632aa159f6e2492a22e3",
+  "sourceCommit": "a511910ef86852f71f0e5e6a16cd4cda7eef2032",
   "sourceDirty": false,
   "lockfileSha256": "6f766a97e5d589d8873773d763811165df622f0d772d6e2af73c3a1736a16b10",
   "buildCommand": "npm run build",
@@ -43,7 +43,7 @@
     "assets/imgi_8_7bCZJUraCFC0DQkcEEHToiQTFk-CfkNyi2a.png": "67a76d535861945e425274b9f137b033dff148cc7441a665df797e8c41f56f75",
     "assets/imgi_9_W6yiYTdcW0BT9FE0qobXvGVTCY-Dfm7ao7j.png": "b130b3ef7797ad8c3c9e10e04ddc70f1c92d8fe1cd431967a7b5d052ea9aa207",
     "assets/index-BaZHdwXg.css": "3f4f4fbf75ab76196a807c3f64d588e2c57ee0025b6a1bda351c7a7675eb06f3",
-    "assets/index-Dcgv8vZ4.js": "59b998338cde387900253d60a6ab074a24b0142b8d9cf50a3cca362363e68462",
+    "assets/index-BWuGhDWh.js": "42d0559a58a53fb713142fd6842ae659aeeee39c5c8fdc2480e5908487124953",
     "assets/laptop-studio-b-DJpTJBhy.png": "f09af27be9d0fb0f265e164b58c881cf2b5750c2092757e73ee5987454ab0884",
     "assets/mouse-studio-b-Dxcb5m2C.png": "32f3ea9a59f02ebac21f9812175041dd478d1ac2fded3e308997b39e34506d45",
     "assets/notta-CMZdrD09.png": "de0ba37c7dd6b063a502d360fdcc3f9ed0f19b0b21f6aac6f8f117cdf119ab75",
@@ -62,7 +62,7 @@
     "favicon.png": "891f1d5846c3fa9da4da03eebbca0667cc601ad165e321897b4130935a32a8bc",
     "for-agents/index.html": "928730cb9ac2085f76a3d3af98336cf7bc1fe4ddb62fab4b05150887c919242e",
     "for-agents.md": "58c26f26f5c3d52c82c1e3750cdd76b1ff0b42819aa03dff499e93a0da0588ad",
-    "index.html": "26cf08867eb01849efa02c87c3f9cb811ae552aecd8e9d66e9fbbf54e75aa188",
+    "index.html": "cd9f6f434e4a675456edf9edc90262abf5eafe25d46f824fb55d40f0422c497d",
     "llms-full.txt": "58c26f26f5c3d52c82c1e3750cdd76b1ff0b42819aa03dff499e93a0da0588ad",
     "llms.txt": "8b77d168f617d94f2a315d70ebd119c10db3bf12161765f61ce9cd9fa05a5177"
   }
