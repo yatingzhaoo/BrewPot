@@ -52,28 +52,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    id: 'notta',
-    title: 'Notta',
-    subtitle: 'Meeting notetaker',
-    fundingStage: 'Series B',
-    cover: nottaCover,
-    logo: nottaLogo,
-    overview: [
-      'Since June 2025, Yating has served as an external consultant for Notta, a global voice AI product with more than 15 million users as of December 2025.',
-      'The collaboration addresses onboarding, payment conversion, homepage capability communication, core AI feature integration, transcription simplification, and new product directions.',
-    ],
-    highlights: [
-      {
-        heading: 'Ongoing product design partnership',
-        body: 'The work is embedded with Notta’s internal product and design teams rather than limited to isolated interface delivery, allowing product strategy and execution details to be improved together.',
-      },
-      {
-        heading: 'Confidential product work',
-        body: 'Specific flows and results cannot be shared publicly because of a non-disclosure agreement. The public case study therefore focuses on the scope and nature of the collaboration.',
-      },
-    ],
-  },
-  {
     id: 'hita',
     title: 'HiTA',
     subtitle: 'Higher education AI',
@@ -122,6 +100,28 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         heading: 'Progressive disclosure for complex pricing logic',
         body: 'The interface shows the useful outcome first—the final quote email—then lets users reveal calculations and source-platform details only when they need to audit the recommendation.',
+      },
+    ],
+  },
+  {
+    id: 'notta',
+    title: 'Notta',
+    subtitle: 'Meeting notetaker',
+    fundingStage: 'Series B',
+    cover: nottaCover,
+    logo: nottaLogo,
+    overview: [
+      'Since June 2025, Yating has served as an external consultant for Notta, a global voice AI product with more than 15 million users as of December 2025.',
+      'The collaboration addresses onboarding, payment conversion, homepage capability communication, core AI feature integration, transcription simplification, and new product directions.',
+    ],
+    highlights: [
+      {
+        heading: 'Ongoing product design partnership',
+        body: 'The work is embedded with Notta’s internal product and design teams rather than limited to isolated interface delivery, allowing product strategy and execution details to be improved together.',
+      },
+      {
+        heading: 'Confidential product work',
+        body: 'Specific flows and results cannot be shared publicly because of a non-disclosure agreement. The public case study therefore focuses on the scope and nature of the collaboration.',
       },
     ],
   },

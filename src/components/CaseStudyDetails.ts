@@ -30,6 +30,11 @@ export type CaseStudyComparison = {
   layout: 'portrait' | 'landscape';
   crop?: 'right-panel' | 'criteria-area';
   frameAspectRatio?: number;
+  beforeFrameAspectRatio?: number;
+  containAfterImage?: boolean;
+  preserveImageRatio?: boolean;
+  trimAfterBottom?: boolean;
+  afterParagraph?: number;
 };
 
 export type CaseStudySection = {
@@ -132,7 +137,7 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
           beforeAlt: 'HiTA grading criteria before redesign',
           afterAlt: 'HiTA grading criteria after redesign',
           layout: 'landscape',
-          crop: 'criteria-area',
+          preserveImageRatio: true,
         },
         paragraphs: [],
       },
@@ -160,6 +165,7 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
           beforeAlt: 'HiTA website before redesign',
           afterAlt: 'HiTA website after redesign',
           layout: 'landscape',
+          preserveImageRatio: true,
         },
         paragraphs: [
           `As HiTA’s founding team comes from academia, the product is naturally intertwined with various campus scenarios, such as classroom teaching, faculty offices, and library self-study.`,
@@ -186,15 +192,33 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
     overview: `Cooragent, an innovative AI agent platform originating from the LEAP Lab at Tsinghua University (which focuses on machine learning, multimodal learning, and embodied intelligence), centers its core functionality on allowing users to freely create, edit, and schedule single or multiple agents to achieve diverse task objectives.\n\nCoincidentally, when the founder reached out to me, I happened to be in Beijing as well, so we had an initial conversation in a tech incubator building near Tsinghua’s campus.\n\nAlthough they already had a basic functional interface, users were generally confused upon opening the app: How was it different from other AI tools on the market? What tasks could it perform? How do you create and edit agents? Despite the team’s strong technical background, they struggled to bridge the gap between their complex, powerful capabilities and a user interface that was easy to understand and use.\n\nNonetheless, they had already validated their capabilities among a small group of users, accumulated followers on GitHub, and maintained their own group of test users, proving that their functionality is indeed effective.`,
     sections: [
       {
+        heading: 'Reflecting on Humanizing AI Agents',
+        comparison: {
+          before: cooragentTaskCollaborationBefore,
+          after: cooragentMessages,
+          beforeAlt: 'Cooragent task collaboration interface before redesign',
+          afterAlt: 'Cooragent task experience after redesign',
+          layout: 'landscape',
+          preserveImageRatio: true,
+          trimAfterBottom: true,
+        },
+        paragraphs: [
+          `Beyond structural issues, emotional design remains a subject of debate. For instance, is it necessary to design a unique avatar for every agent? When agents collaborate, should we emphasize the sense of “ritual” that comes with a multi-person team completing a task?`,
+          `After discussion and exploration, we decided to abandon character avatars and downplay the concept of “multi-agent collaboration“. We realized splitting AI capabilities and assigning them individual identities is often a subjective presupposition based on human experience. Users’ intention is simply to “get things done.” Even in the real world, it isn’t always necessary to clearly divide responsibilities or form a multi-role team to handle a task. It’s actually a traditional way of thinking in human society. While some applications adopt this emotional design by using animation to create a sense of multiple assistants working together on writing, the effect looks fun and visually attractive but requires significant costs while providing limited improvement to the actual user experience.`,
+          `If we take a different approach and step back to use simple symbols or just names for presentation, it is actually entirely feasible. Most of the time, users do not care whether you used multiple computers, multiple programs, or just a single one. For them, the most important thing is always the result and quality of the completed task.`,
+        ],
+      },
+      {
         heading: 'Decoupling Marketing and Functionality',
         comparison: {
-          label: 'Marketing website',
           before: cooragentMarketingBefore,
           after: cooragentMarketingAfter,
           beforeAlt: 'Cooragent marketing website before redesign',
           afterAlt: 'Cooragent marketing website after redesign',
           layout: 'landscape',
-          frameAspectRatio: 16 / 9,
+          frameAspectRatio: 1200 / 725,
+          beforeFrameAspectRatio: 1200 / 800,
+          containAfterImage: true,
         },
         comparisonAfterParagraph: 3,
         paragraphs: [
@@ -205,44 +229,28 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
         ],
       },
       {
-        heading: 'Reflecting on Humanizing AI Agents',
-        comparison: {
-          label: 'Task execution',
-          before: cooragentTaskCollaborationBefore,
-          after: cooragentMessages,
-          beforeAlt: 'Cooragent task collaboration interface before redesign',
-          afterAlt: 'Cooragent task experience after redesign',
-          layout: 'landscape',
-          crop: 'criteria-area',
-        },
-        paragraphs: [
-          `Beyond structural issues, emotional design remains a subject of debate. For instance, is it necessary to design a unique avatar for every agent? When agents collaborate, should we emphasize the sense of “ritual” that comes with a multi-person team completing a task?`,
-          `After discussion and exploration, we decided to abandon character avatars and downplay the concept of “multi-agent collaboration“. We realized splitting AI capabilities and assigning them individual identities is often a subjective presupposition based on human experience. Users’ intention is simply to “get things done.” Even in the real world, it isn’t always necessary to clearly divide responsibilities or form a multi-role team to handle a task. It’s actually a traditional way of thinking in human society. While some applications adopt this emotional design by using animation to create a sense of multiple assistants working together on writing, the effect looks fun and visually attractive but requires significant costs while providing limited improvement to the actual user experience.`,
-          `If we take a different approach and step back to use simple symbols or just names for presentation, it is actually entirely feasible. Most of the time, users do not care whether you used multiple computers, multiple programs, or just a single one. For them, the most important thing is always the result and quality of the completed task.`,
-        ],
-      },
-      {
         heading: 'Balancing Experience for Casual and Advanced Users',
         comparisons: [
           {
-            label: 'Agent Market',
             before: cooragentAgentMarketBefore,
             after: cooragentAgentMarketAfter,
             beforeAlt: 'Cooragent Agent Market before redesign',
             afterAlt: 'Cooragent Agent Market after redesign',
             layout: 'landscape',
-            frameAspectRatio: 8 / 5,
+            frameAspectRatio: 1200 / 725,
+            containAfterImage: true,
+            afterParagraph: 4,
           },
           {
-            label: 'My Agents',
             before: cooragentMyAgentsBefore,
             after: cooragentMyAgentsAfter,
             beforeAlt: 'Cooragent My Agents before redesign',
             afterAlt: 'Cooragent My Agents after redesign',
             layout: 'landscape',
+            preserveImageRatio: true,
+            afterParagraph: 6,
           },
         ],
-        comparisonAfterParagraph: 4,
         paragraphs: [
           `Another issue is that our audience includes both developers and general users. The design must cater to the needs of different groups, which is the core challenge of this project.`,
           `In the previous version, general users were greeted by several Agents upon entering, yet they still struggled to understand the exact definition of an “Agent.” They often felt confused: “There are several characters here, how do I operate them? Am I supposed to assign them tasks?” This does not align with the general public’s intuitive way of using AI. If a user wants to create an analytical report, the most natural interaction is to enter a chat interface, input their objective, and receive the result directly. They expect a seamless “instruction-to-result” experience rather than having to study what an Agent is first. For these users, overemphasizing Agents actually increases the cognitive load.`,

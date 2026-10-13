@@ -8,16 +8,58 @@ import {
 import {
   CASE_STUDY_DETAILS,
   type CaseStudyComparison,
+  type CaseStudySection,
 } from './CaseStudyDetails';
+
+type SectionContentBlock =
+  | { type: 'paragraphs'; paragraphs: string[] }
+  | { type: 'comparison'; comparison: CaseStudyComparison };
+
+function sectionContentBlocks(section: CaseStudySection): SectionContentBlock[] {
+  const comparisons = section.comparisons ?? (section.comparison ? [section.comparison] : []);
+  const positionedComparisons = comparisons
+    .map((comparison, index) => ({
+      comparison,
+      index,
+      afterParagraph: Math.min(
+        comparison.afterParagraph ?? section.comparisonAfterParagraph ?? 0,
+        section.paragraphs.length,
+      ),
+    }))
+    .sort((a, b) => a.afterParagraph - b.afterParagraph || a.index - b.index);
+  const blocks: SectionContentBlock[] = [];
+  let paragraphCursor = 0;
+
+  positionedComparisons.forEach(({ comparison, afterParagraph }) => {
+    if (afterParagraph > paragraphCursor) {
+      blocks.push({
+        type: 'paragraphs',
+        paragraphs: section.paragraphs.slice(paragraphCursor, afterParagraph),
+      });
+    }
+    blocks.push({ type: 'comparison', comparison });
+    paragraphCursor = afterParagraph;
+  });
+
+  if (paragraphCursor < section.paragraphs.length) {
+    blocks.push({
+      type: 'paragraphs',
+      paragraphs: section.paragraphs.slice(paragraphCursor),
+    });
+  }
+
+  return blocks;
+}
 
 function ComparisonFrame({ comparison }: { comparison: CaseStudyComparison }) {
   const isPortrait = comparison.layout === 'portrait';
   const isRightPanelCrop = comparison.crop === 'right-panel';
   const isCriteriaAreaCrop = comparison.crop === 'criteria-area';
+  const preservesImageRatio = comparison.preserveImageRatio === true;
   const usesCroppedPreview = comparison.frameAspectRatio !== undefined && !isRightPanelCrop && !isCriteriaAreaCrop;
   const isStacked = !isPortrait && !isRightPanelCrop;
   const gridClass = isRightPanelCrop
-    ? 'grid-cols-2 justify-center gap-4 sm:grid-cols-[240px_240px] sm:gap-6'
+    ? 'grid-cols-2 justify-center gap-4 sm:grid-cols-[230px_230px] sm:gap-6'
     : isStacked
       ? 'grid-cols-1 justify-items-center gap-7'
       : 'grid-cols-2 justify-center gap-4 sm:grid-cols-[170px_170px] sm:gap-6';
@@ -37,37 +79,45 @@ function ComparisonFrame({ comparison }: { comparison: CaseStudyComparison }) {
       ] as const).map(([label, src, alt]) => (
         <div
           key={label}
-          className={`flex min-w-0 flex-col items-center gap-3 ${isRightPanelCrop ? 'w-full max-w-[240px]' : 'w-full'}`}
+          className={`flex min-w-0 flex-col items-center gap-3 ${isRightPanelCrop ? 'w-full max-w-[230px]' : 'w-full'}`}
         >
           <span className="font-heading text-[13px] font-semibold leading-5 text-[#54514d] sm:text-[14px]">
             {label}
           </span>
           <div
-            className={`flex w-full min-w-0 items-start justify-center ${isRightPanelCrop || isCriteriaAreaCrop || usesCroppedPreview ? imageShadow : ''} ${
-              isRightPanelCrop
-                ? 'relative aspect-[0.7/1] overflow-hidden rounded-[9px]'
+            className={`flex min-w-0 items-start justify-center overflow-hidden rounded-[9px] ${imageShadow} ${
+              isPortrait ? 'w-fit max-w-full' : 'w-full'
+            } ${
+              preservesImageRatio
+                ? ''
+                : isRightPanelCrop
+                ? 'relative aspect-[0.67/1]'
                 : isCriteriaAreaCrop
-                  ? 'relative aspect-[2/1] overflow-hidden rounded-[9px]'
+                  ? 'relative aspect-[2/1]'
                   : isPortrait
                     ? 'h-[340px] sm:h-[460px]'
-                    : 'relative aspect-[1.7/1] overflow-hidden rounded-[9px]'
+                    : 'relative aspect-[1.7/1]'
             }`}
-            style={usesCroppedPreview ? { aspectRatio: comparison.frameAspectRatio } : undefined}
+            style={usesCroppedPreview ? { aspectRatio: label === 'Before'
+              ? comparison.beforeFrameAspectRatio ?? comparison.frameAspectRatio
+              : comparison.frameAspectRatio } : undefined}
           >
             <img
               src={src}
               alt={alt}
               loading="lazy"
               decoding="async"
-              className={isRightPanelCrop
-                ? 'absolute inset-y-0 right-0 h-full w-auto max-w-none'
+              className={`${preservesImageRatio || usesCroppedPreview ? '' : 'scale-[1.004]'} ${isRightPanelCrop
+                ? 'absolute inset-y-0 right-0 block h-full w-auto max-w-none'
+                : preservesImageRatio
+                  ? `block h-auto w-full object-contain ${label === 'After' && comparison.trimAfterBottom ? '-mb-px' : ''}`
                 : isCriteriaAreaCrop
-                  ? 'absolute inset-0 h-full w-full object-cover object-top'
+                  ? 'absolute inset-0 block h-full w-full object-cover object-top'
                   : usesCroppedPreview
-                    ? 'absolute inset-0 h-full w-full object-cover object-top'
-                    : `${isPortrait
-                      ? 'h-full w-auto max-w-full rounded-[9px] object-contain'
-                      : 'absolute inset-y-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain'} ${imageShadow}`}
+                    ? `absolute inset-0 block h-full w-full ${label === 'After' && comparison.containAfterImage ? 'object-contain' : 'object-cover'} object-top`
+                    : isPortrait
+                      ? 'block h-full w-auto max-w-full object-contain'
+                      : 'absolute inset-y-0 left-1/2 block h-full w-auto max-w-none -translate-x-1/2 object-contain'}`}
             />
           </div>
         </div>
@@ -180,14 +230,7 @@ export default function CaseStudiesRedesign() {
 
               <div className="mt-14 flex flex-col gap-14 md:mt-16 md:gap-16">
                 {detail.sections.map((section, index) => {
-                  const comparisons = section.comparisons ?? (section.comparison ? [section.comparison] : []);
-                  const comparisonIndex = Math.min(
-                    section.comparisonAfterParagraph ?? 0,
-                    section.paragraphs.length,
-                  );
-                  const paragraphsBeforeComparison = section.paragraphs.slice(0, comparisonIndex);
-                  const paragraphsAfterComparison = section.paragraphs.slice(comparisonIndex);
-                  const hasMedia = Boolean(section.image || comparisons.length > 0);
+                  const contentBlocks = sectionContentBlocks(section);
 
                   return (
                   <section key={`${activeCaseStudy.id}-${index}`} className="flex flex-col">
@@ -212,30 +255,31 @@ export default function CaseStudiesRedesign() {
                       </div>
                     )}
 
-                    {paragraphsBeforeComparison.length > 0 && (
-                      <div className={`${section.heading || section.image ? 'mt-6' : ''} flex w-full flex-col gap-5 text-[16px] leading-[28px] text-[#302e2b] sm:text-[17px] sm:leading-[30px]`}>
-                        {paragraphsBeforeComparison.map((paragraph) => (
-                          <p key={paragraph}>{paragraph}</p>
-                        ))}
-                      </div>
-                    )}
+                    {contentBlocks.map((block, blockIndex) => {
+                      const hasTopSpacing = section.heading || section.image || blockIndex > 0;
 
-                    {comparisons.map((comparison, comparisonPosition) => (
-                      <div
-                        key={comparison.label ?? comparison.before}
-                        className={section.heading || section.image || paragraphsBeforeComparison.length > 0 || comparisonPosition > 0 ? 'mt-6' : ''}
-                      >
-                        <ComparisonFrame comparison={comparison} />
-                      </div>
-                    ))}
+                      if (block.type === 'comparison') {
+                        return (
+                          <div
+                            key={block.comparison.label ?? block.comparison.before}
+                            className={hasTopSpacing ? 'mt-6' : ''}
+                          >
+                            <ComparisonFrame comparison={block.comparison} />
+                          </div>
+                        );
+                      }
 
-                    {paragraphsAfterComparison.length > 0 && (
-                      <div className={`${section.heading || hasMedia || paragraphsBeforeComparison.length > 0 ? 'mt-6' : ''} flex w-full flex-col gap-5 text-[16px] leading-[28px] text-[#302e2b] sm:text-[17px] sm:leading-[30px]`}>
-                        {paragraphsAfterComparison.map((paragraph) => (
-                          <p key={paragraph}>{paragraph}</p>
-                        ))}
-                      </div>
-                    )}
+                      return (
+                        <div
+                          key={`paragraphs-${blockIndex}`}
+                          className={`${hasTopSpacing ? 'mt-6' : ''} flex w-full flex-col gap-5 text-[16px] leading-[28px] text-[#302e2b] sm:text-[17px] sm:leading-[30px]`}
+                        >
+                          {block.paragraphs.map((paragraph) => (
+                            <p key={paragraph}>{paragraph}</p>
+                          ))}
+                        </div>
+                      );
+                    })}
                   </section>
                   );
                 })}
@@ -262,18 +306,19 @@ export default function CaseStudiesRedesign() {
             <button
               type="button"
               key={caseStudy.id}
-              className="group flex w-full flex-col text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black"
+              className="flex w-full cursor-pointer flex-col text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black"
               onClick={() => openCaseStudy(caseStudy)}
               aria-label={`Open ${caseStudy.title} case study`}
             >
-              <div className="relative flex aspect-[1.34] w-full items-center justify-center overflow-hidden rounded-[14px] bg-[#f1f1f0] transition-colors duration-200 group-hover:bg-[#ebebe9]">
-                <div className={`flex items-center justify-center ${
-                  caseStudy.id === 'notta' ? 'h-[72%] w-[72%]' : 'h-[88%] w-[88%]'
+              <div className="relative flex aspect-[1.34] w-full items-center justify-center overflow-hidden rounded-[14px] bg-[#f1f1f0]">
+                <div className={`flex items-center justify-center drop-shadow-[0_8px_20px_rgba(0,0,0,0.055)] ${
+                  caseStudy.id === 'notta' ? 'h-[64%] w-[64%]' : 'h-[88%] w-[88%]'
                 }`}>
                   <img
                     src={caseStudy.cover}
                     alt={`${caseStudy.title} product design case study`}
-                    className="max-h-full max-w-full rounded-[8px] border border-black/[0.04] object-contain shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-transform duration-300 group-hover:scale-[1.01]"
+                    className="block max-h-full max-w-full rounded-[8px] border border-black/[0.04] object-contain"
+                    style={caseStudy.id === 'hita' ? { clipPath: 'inset(0 1px 0 0)' } : undefined}
                   />
                 </div>
               </div>
@@ -288,13 +333,12 @@ export default function CaseStudiesRedesign() {
                   />
                 </span>
                 <div className="min-w-0 pt-px">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <h2 className="font-heading text-[18px] font-semibold leading-5 tracking-[-0.02em] text-[#202020]">{caseStudy.title}</h2>
-                    <span className="rounded-full border border-black/[0.08] bg-[#f3f1ed] px-2 py-0.5 text-[11px] font-medium leading-4 text-[#737373]">
-                      {caseStudy.fundingStage}
-                    </span>
-                  </div>
-                  <p className="mt-1 text-[13px] leading-5 text-[#737373]">{caseStudy.subtitle}</p>
+                  <h2 className="font-heading text-[18px] font-semibold leading-5 tracking-[-0.02em] text-[#202020]">{caseStudy.title}</h2>
+                  <p className="mt-1 flex flex-wrap items-center gap-1.5 text-[13px] leading-5 text-[#737373]">
+                    <span>{caseStudy.subtitle}</span>
+                    <span aria-hidden="true">·</span>
+                    <span>{caseStudy.fundingStage}</span>
+                  </p>
                 </div>
               </div>
             </button>

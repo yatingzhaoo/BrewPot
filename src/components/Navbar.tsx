@@ -2,6 +2,17 @@ import { ArrowRight, Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import logo from '../asset/公司Logo.svg';
 import { BLOG_ENABLED } from '../config';
+import { track } from '../analytics';
+
+const BOOKING_URL = 'https://cal.com/yating-zhao/15min';
+
+function trackBookingClick(source: 'navbar_desktop' | 'navbar_mobile') {
+  track('booking_link_clicked', {
+    source,
+    destination: BOOKING_URL,
+    cta_label: 'Book a call',
+  });
+}
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +54,14 @@ export default function Navbar() {
           <a href="/#pricing">Pricing</a>
           {BLOG_ENABLED && <a href="/?view=blog">Blog</a>}
         </div>
-        <a className="nav-cta" href="https://cal.com/yating-zhao/15min" target="_blank" rel="noopener noreferrer">
+        <a
+          className="nav-cta"
+          data-analytics-booking
+          href={BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackBookingClick('navbar_desktop')}
+        >
           Book a call <ArrowRight size={16} />
         </a>
         <button className="nav-menu-button" type="button" aria-label={isOpen ? 'Close menu' : 'Open menu'} onClick={() => setIsOpen(!isOpen)}>
@@ -55,7 +73,15 @@ export default function Navbar() {
           <a href="/?view=case-studies" onClick={() => setIsOpen(false)}>Case Studies</a>
           <a href="/#pricing" onClick={() => setIsOpen(false)}>Pricing</a>
           {BLOG_ENABLED && <a href="/?view=blog" onClick={() => setIsOpen(false)}>Blog</a>}
-          <a href="https://cal.com/yating-zhao/15min" target="_blank" rel="noopener noreferrer">Book a call <ArrowRight size={16} /></a>
+          <a
+            data-analytics-booking
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackBookingClick('navbar_mobile')}
+          >
+            Book a call <ArrowRight size={16} />
+          </a>
         </div>
       )}
     </nav>

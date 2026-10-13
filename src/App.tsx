@@ -33,8 +33,8 @@ export default function App() {
         : isBlogPage
           ? 'Blog — BrewPot'
           : isCaseStudiesPage
-            ? 'Case Studies — BrewPot'
-            : 'BrewPot';
+            ? 'Case Studies | BrewPot'
+            : 'BrewPot - Monthly Designer Subscription';
   }, [activeBlogPost, isBlogPage, isCaseStudiesPage]);
 
   useEffect(() => {

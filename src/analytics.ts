@@ -3,11 +3,7 @@ export type AnalyticsProperties = Record<string, string | number | boolean | nul
 type PostHogClient = {
   init: (token: string, config: Record<string, unknown>) => void;
   register: (properties: AnalyticsProperties) => void;
-  capture: (
-    event: string,
-    properties?: AnalyticsProperties,
-    options?: { transport?: 'sendBeacon'; send_instantly?: boolean },
-  ) => void;
+  capture: (event: string, properties?: AnalyticsProperties) => void;
 };
 
 declare global {
@@ -28,10 +24,6 @@ const queuedEvents: Array<[string, AnalyticsProperties]> = [];
 const seenSections = new Set<string>();
 const engagedSections = new Set<string>();
 const seenCtas = new Set<string>();
-const pageStartedAt = Date.now();
-let visibleStartedAt = document.visibilityState === 'visible' ? pageStartedAt : null;
-let activeDurationMs = 0;
-let pageleaveSent = false;
 
 function pageProperties(): AnalyticsProperties {
   return {
@@ -50,44 +42,6 @@ function capture(event: string, properties: AnalyticsProperties = {}) {
   window.posthog.capture(event, properties);
 }
 
-function finishVisiblePeriod(now: number) {
-  if (visibleStartedAt === null) return;
-  activeDurationMs += Math.max(0, now - visibleStartedAt);
-  visibleStartedAt = null;
-}
-
-function durationInSeconds(milliseconds: number) {
-  return Math.round(milliseconds / 100) / 10;
-}
-
-function capturePageleave(reason: string) {
-  if (pageleaveSent || !ready || !window.posthog) return;
-
-  const now = Date.now();
-  finishVisiblePeriod(now);
-  pageleaveSent = true;
-
-  window.posthog.capture('$pageleave', {
-    ...pageProperties(),
-    $prev_pageview_duration: durationInSeconds(now - pageStartedAt),
-    active_duration_seconds: durationInSeconds(activeDurationMs),
-    exit_reason: reason,
-  }, { transport: 'sendBeacon', send_instantly: true });
-}
-
-function installPageleaveTracking() {
-  document.addEventListener('visibilitychange', () => {
-    const now = Date.now();
-    if (document.visibilityState === 'hidden') {
-      finishVisiblePeriod(now);
-    } else if (visibleStartedAt === null) {
-      visibleStartedAt = now;
-    }
-  });
-  window.addEventListener('pagehide', () => capturePageleave('pagehide'));
-  window.addEventListener('beforeunload', () => capturePageleave('beforeunload'));
-}
-
 function loadAnalytics() {
   if (loading || typeof window === 'undefined') return;
   loading = true;
@@ -103,7 +57,7 @@ function loadAnalytics() {
       api_host: 'https://us.i.posthog.com',
       autocapture: false,
       capture_pageview: false,
-      capture_pageleave: false,
+      capture_pageleave: true,
       person_profiles: 'identified_only',
       persistence: 'localStorage',
     });
@@ -133,6 +87,10 @@ function installClickTracking() {
       });
       return;
     }
+
+    // Booking links emit their dedicated event from the component click handler.
+    // Do not also classify navbar booking links as section navigation.
+    if (target.closest<HTMLElement>('[data-analytics-booking]')) return;
 
     const navLink = target.closest<HTMLAnchorElement>('nav a');
     if (navLink) {
@@ -189,7 +147,4 @@ export function setSectionVisibility(
 }
 
 loadAnalytics();
-if (typeof document !== 'undefined') {
-  installClickTracking();
-  installPageleaveTracking();
-}
+if (typeof document !== 'undefined') installClickTracking();

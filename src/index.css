@@ -107,14 +107,8 @@ body {
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.03);
   cursor: zoom-in;
   scroll-snap-align: start;
-  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
-.online-gallery-card:hover {
-  border-color: #c8c3bf;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
-  transform: translateY(-2px);
-}
 
 .online-gallery-arrow {
   position: absolute;
@@ -132,14 +126,8 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   transform: translateY(-50%);
-  transition: color 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
 
-.online-gallery-arrow:hover {
-  color: var(--brand-coral);
-  border-color: var(--brand-coral);
-  transform: translateY(-50%) scale(1.04);
-}
 
 .online-gallery-arrow.is-left { left: 18px; }
 .online-gallery-arrow.is-right { right: 18px; }
@@ -448,8 +436,8 @@ body {
 
 .brand-nav-inner img { width: auto; height: 30px; display: block; }
 .brand-nav-links { display: flex; align-items: center; gap: 28px; margin-left: 44px; }
-.brand-nav-links a { color: #000; font-size: 14px; font-weight: 550; text-decoration: none; }
-.brand-nav-links a:hover { color: var(--brand-coral); }
+.brand-nav-links a { color: #000; font-size: 14px; font-weight: 550; text-decoration: none; transition: color 150ms ease; }
+.brand-nav-links a:hover { color: rgba(0, 0, 0, .7); }
 
 .nav-cta,
 .hero-cta {
@@ -886,3 +874,52 @@ body {
     -webkit-overflow-scrolling: touch;
   }
 }
+
+/* Real photographed device cutouts. */
+.laptop-object{clip-path:none;filter:drop-shadow(3px 7px 5px rgba(0,0,0,.14))}.laptop-object-blur{display:none}.mouse-object{filter:drop-shadow(3px 8px 5px rgba(0,0,0,.16))}
+
+/* Selected direction 2. Scoped to the homepage hero only. */
+.branding-hero .hero-copy h1 { color:#111214; font-weight:650; letter-spacing:-.04em; line-height:1.07; }
+.branding-hero .hero-copy p { max-width:660px; font-size:18px; font-weight:400; line-height:1.48; color:#55575d; text-wrap:balance; }
+.branding-hero .availability-badge { border-color:#e0dfdc; background:#fff; color:#34363b; font-weight:400; }
+.branding-hero .brand-card { border-color:#e7e6e3; border-radius:14px; box-shadow:0 8px 24px rgba(35,30,25,.035); }
+.branding-hero .icon-cell,.branding-hero .mini-icon { border-color:#e3e3e1; background:#fff; }
+.branding-hero .calendar-heading > span,.branding-hero .type-card p { color:#777b82; }
+.branding-hero .hero-cta { border-radius:8px; }
+@media (min-width:1101px) {
+ .branding-hero { padding-top:108px; }
+ .branding-hero .hero-copy h1 { font-size:60px; margin:30px auto 18px; }
+ .branding-hero .hero-cta { margin-top:24px; height:48px; }
+ .branding-hero .result-showcase { width:978px; height:466px; margin:40px auto 0; transform:none; }
+ .branding-hero .calendar-wrap { left:0; top:0; }
+ .branding-hero .icon-wrap { left:320px; top:0; }
+ .branding-hero .type-wrap { left:674px; top:0; }
+ .branding-hero .color-wrap { left:320px; top:224px; }
+ .branding-hero .component-wrap { left:546px; top:224px; }
+ .branding-hero .calendar-card { width:306px; height:306px; padding:22px 20px; }
+ .branding-hero .calendar-heading { margin-bottom:24px; }
+ .branding-hero .calendar-grid { row-gap:14px; }
+ .branding-hero .icon-card { width:340px; height:210px; padding:20px; }
+ .branding-hero .icon-grid { gap:10px 8px; }
+ .branding-hero .icon-cell { height:42px; }
+ .branding-hero .type-card { width:304px; height:210px; padding:20px; }
+ .branding-hero .type-sample { font-size:72px; }
+ .branding-hero .type-line { font-size:22px; line-height:1.08; }
+ .branding-hero .type-card p { font-size:14px; }
+ .branding-hero .color-card { width:212px; height:238px; padding:18px 20px; }
+ .branding-hero .component-card { width:432px; height:238px; padding:22px 20px; }
+ .branding-hero .result-card h2 { font-size:15px; }
+}
+@media(max-width:760px) {
+ .branding-hero .hero-copy h1 { font-size:clamp(44px,12.8vw,62px); letter-spacing:-.04em; }
+ .branding-hero .hero-copy p { max-width:440px; font-size:16px; }
+ .branding-hero .result-card { border-radius:12px; }
+}
+@media(min-width:761px) {
+ .branding-hero .hero-copy p { max-width:800px; white-space:pre-line; text-wrap:initial; }
+}
+
+.branding-hero { background:#FEFDFD; }
+
+/* Temporarily hide hero device decorations; remove this rule to restore. */
+.branding-hero .desk-object { display: none !important; }

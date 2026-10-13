@@ -15,29 +15,41 @@ import {
   Star,
   UserRound,
 } from 'lucide-react';
-import laptop from '../asset/branding/laptop-reference-v3.png';
-import mouse from '../asset/branding/mouse-reference.png';
+import laptop from '../asset/branding/laptop-studio-b.png';
+import mouse from '../asset/branding/mouse-studio-b.png';
+import {
+  formatAvailabilityDate,
+  formatAvailabilityMonth,
+  getNextAvailableMonday,
+  type AvailabilityDate,
+} from '../utils/availability';
+import { track } from '../analytics';
 
-const calendarDays = Array.from({ length: 31 }, (_, index) => index + 1);
+const BOOKING_URL = 'https://cal.com/yating-zhao/15min';
 
 const cardMotion = {
   initial: { opacity: 0, y: 28 },
   animate: { opacity: 1, y: 0 },
 };
 
-function CalendarCard() {
+function CalendarCard({ availability }: { availability: AvailabilityDate }) {
+  const daysInMonth = new Date(Date.UTC(availability.year, availability.month, 0)).getUTCDate();
+  const firstDayOffset = new Date(Date.UTC(availability.year, availability.month - 1, 1)).getUTCDay();
+  const calendarDays = Array.from({ length: daysInMonth }, (_, index) => index + 1);
+  const month = formatAvailabilityMonth(availability);
+
   return (
-    <article className="brand-card result-card calendar-card" aria-label="August 2026 calendar design">
+    <article className="brand-card result-card calendar-card" aria-label={`${month} ${availability.year} calendar design`}>
       <div className="calendar-heading">
-        <strong>August</strong>
-        <span>2026</span>
+        <strong>{month}</strong>
+        <span>{availability.year}</span>
       </div>
       <div className="calendar-grid calendar-weekdays" aria-hidden="true">
         {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, index) => <span key={`${day}-${index}`}>{day}</span>)}
       </div>
       <div className="calendar-grid">
-        {Array.from({ length: 5 }).map((_, index) => <span key={`empty-${index}`} />)}
-        {calendarDays.map((day) => <span key={day} className={day === 10 ? 'selected-day' : ''}>{day}</span>)}
+        {Array.from({ length: firstDayOffset }).map((_, index) => <span key={`empty-${index}`} />)}
+        {calendarDays.map((day) => <span key={day} className={day === availability.day ? 'selected-day' : ''}>{day}</span>)}
       </div>
     </article>
   );
@@ -117,6 +129,8 @@ function ComponentCard() {
 }
 
 export default function Hero() {
+  const nextAvailability = getNextAvailableMonday();
+
   return (
     <section className="branding-hero">
       <img className="desk-object laptop-object" src={laptop} alt="Silver laptop" />
@@ -125,30 +139,37 @@ export default function Hero() {
 
       <div className="hero-copy">
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
-          <span className="availability-badge">Next availability: August 10, 2026</span>
+          <span className="availability-badge">Next availability: {formatAvailabilityDate(nextAvailability)}</span>
         </motion.div>
         <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.08 }}>
           Product design support,
           <span>on demand.</span>
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.16 }}>
-          Expert product UI and UX design support for one flat monthly rate. No hiring. No waiting.
+          {'Expert product UI and UX design support for one flat monthly rate.\nNo hiring. No waiting.'}
         </motion.p>
         <motion.a
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.22 }}
-          href="https://cal.com/yating-zhao/15min"
+          href={BOOKING_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="hero-cta"
+          onClick={() =>
+            track('booking_link_clicked', {
+              source: 'hero',
+              destination: BOOKING_URL,
+              cta_label: 'Book a 15-min call',
+            })
+          }
         >
           Book a 15-min call
         </motion.a>
       </div>
 
       <div className="result-showcase" aria-label="Selected product design deliverables">
-        <motion.div className="result-card-wrap calendar-wrap" {...cardMotion} transition={{ duration: 0.55, delay: 0.26 }}><CalendarCard /></motion.div>
+        <motion.div className="result-card-wrap calendar-wrap" {...cardMotion} transition={{ duration: 0.55, delay: 0.26 }}><CalendarCard availability={nextAvailability} /></motion.div>
         <motion.div className="result-card-wrap icon-wrap" {...cardMotion} transition={{ duration: 0.55, delay: 0.32 }}><IconCard /></motion.div>
         <motion.div className="result-card-wrap type-wrap" {...cardMotion} transition={{ duration: 0.55, delay: 0.38 }}><TypeCard /></motion.div>
         <motion.div className="result-card-wrap color-wrap" {...cardMotion} transition={{ duration: 0.55, delay: 0.44 }}><ColorCard /></motion.div>
