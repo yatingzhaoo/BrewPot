@@ -151,9 +151,6 @@ export default function Pricing() {
           ))}
         </div>
 
-        <p className="text-center font-sans text-[14px] leading-relaxed text-neutral-500">
-          Standard and Pro can be paused when you have no active design needs. Pause and restart dates are arranged together.
-        </p>
       </div>
     </section>
   );
