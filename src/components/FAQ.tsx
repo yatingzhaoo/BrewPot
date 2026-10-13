@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     question: "How do we communicate during the project?",
-    answer: "We will have 1–2 face-to-face design workshops each week. Each workshop will focus on a specific product problem or improvement opportunity. I will present a complete design solution, along with supporting research and the strategy behind it.\n\nBetween workshops, we will communicate asynchronously, and I will respond directly to your messages and questions."
+    answer: "We will arrange face-to-face design workshops around the needs of the project. Each workshop will focus on a specific product problem or improvement opportunity. I will present a complete design solution, along with supporting research and the strategy behind it.\n\nBetween workshops, we will communicate asynchronously, and I will respond directly to your messages and questions."
   },
   {
     question: "Is there a limit to what I can request?",
@@ -37,6 +37,10 @@ const faqs = [
   {
     question: "How do I pay?",
     answer: "You can pay directly through the website to secure your spot, or request a formal Mercury invoice after we confirm the collaboration.\n\nPayments are primarily accepted in USD, and a receipt will be issued once payment is processed. Alternative currencies and payment methods can be discussed case by case."
+  },
+  {
+    question: "Can I pause my plan?",
+    answer: "Yes. Standard and Pro can be paused when you have no active design needs. We will arrange the pause and restart dates together."
   }
 ];
 

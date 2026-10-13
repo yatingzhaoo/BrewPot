@@ -1,0 +1,54 @@
+.brewpot-calendar-section {
+  background: transparent;
+  padding: 32px 0 96px;
+  scroll-margin-top: 80px;
+}
+.brewpot-calendar-inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.calendar-intro { margin: 0 0 40px; text-align: center; }
+.calendar-intro h2 {
+  margin: 0;
+  color: #202020;
+  font-family: var(--font-heading);
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+.calendar-intro h2:focus { outline: none; }
+.calendar-frame { position: relative; min-height: 470px; }
+#brewpot-calendar { width: 100%; min-height: 470px; overflow: auto; }
+#brewpot-calendar iframe { display: block; width: 100%; border: 0; }
+.calendar-status {
+  position: absolute;
+  top: 24px;
+  left: 16px;
+  right: 16px;
+  z-index: 1;
+  pointer-events: none;
+  margin: 0;
+  padding: 12px;
+  color: #737373;
+  background: #fdfcfb;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+.calendar-status[hidden] { display: none; }
+@media (min-width: 640px) {
+  .brewpot-calendar-inner { padding-right: 32px; padding-left: 32px; }
+}
+@media (min-width: 768px) {
+  .brewpot-calendar-section { padding-top: 48px; padding-bottom: 112px; scroll-margin-top: 96px; }
+  .calendar-intro { margin-bottom: 48px; }
+  .calendar-intro h2 { font-size: 52px; }
+}
+@media (min-width: 1024px) {
+  .brewpot-calendar-inner { padding-right: 48px; padding-left: 48px; }
+}

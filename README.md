@@ -1,20 +1,11 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# BrewPot — focused October 12 release
 
-# Run and deploy your AI Studio app
+This source branch preserves the visual design deployed at `846f472` and publishes three requested content changes: remove fixed meeting counts, show Pause anytime on Standard and Pro with a short FAQ, and remove the Agent document's translation-process note.
 
-This contains everything you need to run your app locally.
+The UI comes from recovered source `400f69c`. The already deployed calendar assets are retained byte for byte under `public/assets`; do not add a second calendar component. The safe dependency lock and build configuration come from the canonical source repair branch. Earlier typography, image and layout changes from that branch are outside this release.
 
-View your app in AI Studio: https://ai.studio/apps/a72f0c6a-eae9-4f5d-9ce1-92f69f93fa0f
+Use Node 22.19+, npm and Python 3.9+. Install with `npm ci`, run `npm run typecheck`, then `npm run build` and `npm run test:build`. The build regenerates Agent HTML/Markdown/text from `content/for-agents.md`, and produces a GitHub Pages artifact in `dist/` with a provenance manifest and checksums. Commit source and generated public Agent files before creating the final release artifact.
 
-## Run Locally
+The general editable source remains `brewpot-agent-source-20260921`, branch `codex/source-health-20261012`; the same content changes are synchronized there. This branch is the narrowly scoped production source for this release.
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Hosting is GitHub Pages on `gh-pages`, domain `brewpot.co`. Publication is separate from building. Verify the generated artifact, focused browser behavior and remote production head before publishing. Preserve existing production assets so previously loaded pages can finish using them.

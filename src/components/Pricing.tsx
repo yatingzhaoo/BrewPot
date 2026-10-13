@@ -16,7 +16,6 @@ const plans = [
     benefits: [
       { bold: 'Unlimited', rest: ' Design Requests' },
       { bold: '48-Hour', rest: ' Average Turnaround' },
-      { bold: 'One', rest: ' Consultation Call per Week' },
       { bold: 'Up to 10', rest: ' Hours' },
     ],
   },
@@ -34,8 +33,8 @@ const plans = [
     benefits: [
       { bold: 'Unlimited', rest: ' Design Requests' },
       { bold: '48-Hour', rest: ' Average Turnaround' },
-      { bold: 'One', rest: ' Consultation Call per Week' },
       { bold: 'Up to 10 Hours', rest: ' per Week' },
+      { bold: 'Pause', rest: ' anytime' },
     ],
   },
   {
@@ -52,8 +51,8 @@ const plans = [
     benefits: [
       { bold: 'Unlimited', rest: ' Design Requests' },
       { bold: '24-Hour', rest: ' Average Turnaround' },
-      { bold: 'Two', rest: ' Consultation Calls per Week' },
       { bold: 'Up to 20 Hours', rest: ' per Week' },
+      { bold: 'Pause', rest: ' anytime' },
     ],
   },
 ];
@@ -151,6 +150,10 @@ export default function Pricing() {
             </article>
           ))}
         </div>
+
+        <p className="text-center font-sans text-[14px] leading-relaxed text-neutral-500">
+          Standard and Pro can be paused when you have no active design needs. Pause and restart dates are arranged together.
+        </p>
       </div>
     </section>
   );
