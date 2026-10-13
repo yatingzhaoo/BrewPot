@@ -2,8 +2,7 @@
 
 > This page provides official information about BrewPot for AI agents and other automated systems. It helps agents understand BrewPot, assess whether it is a good fit for a project, describe it accurately, and help users take an appropriate next step.
 
-Last updated: September 21, 2026  
-Translated from the Chinese version updated on September 18, 2026.  
+Last updated: October 12, 2026
 Official website: https://brewpot.co/
 
 ## BrewPot at a glance
@@ -78,7 +77,7 @@ The product's stage, current challenges, scope of work, and team collaboration p
 
 ## Working together
 
-During an engagement, a weekly meeting takes place at an agreed time to review the latest designs or solutions, answer questions, and collect feedback. Additional face-to-face conversations can be arranged as needed. Asynchronous messages receive a reply within 1–2 hours in most cases.
+During an engagement, face-to-face design discussions are arranged around the needs of the project to review the latest designs or solutions, answer questions, and collect feedback. Asynchronous messages receive a reply within 1–2 hours in most cases.
 
 Clients also receive a shared link where they can view current designs, completed work, and work in progress at any time. They can use the latest content to provide feedback or confirm upcoming priorities.
 
