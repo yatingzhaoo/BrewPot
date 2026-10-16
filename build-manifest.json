@@ -1,5 +1,5 @@
 {
-  "sourceCommit": "fcfd7b9e10e3981532273b2b54bcc03d98afa9f2",
+  "sourceCommit": "9ea38b2836ebe8396e869044bff1cdaa6f9da2ec",
   "sourceDirty": false,
   "lockfileSha256": "6f766a97e5d589d8873773d763811165df622f0d772d6e2af73c3a1736a16b10",
   "buildCommand": "npm run build",
@@ -8,7 +8,7 @@
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "assets/article-cover-work-1-D_yJG5zU.png": "a8a6832a6c38969a9934d7417ac593035880d807f9ef19d8da4a2bf9833aeb1d",
     "assets/calendar-embed-42e410ff.css": "42e410ffd777abd418a0bdfb330420fba6f4e06b54d8a40391182dfcfadf1469",
-    "assets/calendar-embed-d999c8a9.js": "d999c8a94530b404afb3dbd5f02a5ce264d7b821fa220c5fa86bba5554255192",
+    "assets/calendar-embed-bd6e1e87.js": "bd6e1e87fc3da0afc7b495058171cc087bb0f7bb063803a0620591ad2e81c77e",
     "assets/cooragent-agent-market-after-m3iM0MRl.webp": "9428dfd8294fcf2dec0f552b06c21a2ed7b5bce574b321067a19d87e4a9023c2",
     "assets/cooragent-agent-market-before-DOjH4IDn.webp": "0a9f34359f3fd0265ae8fdfd27738ab5054cd872feef75657b36539c5af5dd76",
     "assets/cooragent-agent-market-Bi1cVwlS.png": "b06c169cb9fc06cdfceab386ff5df788c3d96c4b2e6b87be0a9410c53e92c1d4",
@@ -42,8 +42,8 @@
     "assets/imgi_7_MlMNTVlGyQd08dXZRRurmqPjo-DzqZmLRk.png": "ab0cd865511f932fc789a8c88846143e9b32b7b78ed5ac8caf8a446cac55a1b4",
     "assets/imgi_8_7bCZJUraCFC0DQkcEEHToiQTFk-CfkNyi2a.png": "67a76d535861945e425274b9f137b033dff148cc7441a665df797e8c41f56f75",
     "assets/imgi_9_W6yiYTdcW0BT9FE0qobXvGVTCY-Dfm7ao7j.png": "b130b3ef7797ad8c3c9e10e04ddc70f1c92d8fe1cd431967a7b5d052ea9aa207",
-    "assets/index-CO0QXvaG.js": "e0a9ce87a7b4d4126263c5aa781913daae816f08609212a91432db99adcf3fac",
-    "assets/index-DLQZB31Z.css": "88229c5f2e884318e4024426cb8670a2bb92ec1773c41b14f33967839e52af09",
+    "assets/index-CzD2O1Tc.css": "e290a3b51c2b708084c4e5eb8f8d36d67be40de4587561f44a92696ff898535c",
+    "assets/index-wLML7C2p.js": "9b5ef32a684f50f557eb21b7bdc6535e1cb2c433f653d2da3206379d486436d4",
     "assets/laptop-studio-b-DJpTJBhy.png": "f09af27be9d0fb0f265e164b58c881cf2b5750c2092757e73ee5987454ab0884",
     "assets/mouse-studio-b-Dxcb5m2C.png": "32f3ea9a59f02ebac21f9812175041dd478d1ac2fded3e308997b39e34506d45",
     "assets/notta-CMZdrD09.png": "de0ba37c7dd6b063a502d360fdcc3f9ed0f19b0b21f6aac6f8f117cdf119ab75",
@@ -60,10 +60,10 @@
     "assets/公司Logo-Bbz4OMBk.svg": "7123cf199748cb58f66efbfa143af26018226a9a2b9909b9691228cf15e515a7",
     "CNAME": "bc8bf893b4d257f6c72c13d822f4d7a544cdd2291128f5764d78f807d2fafbbd",
     "favicon.png": "891f1d5846c3fa9da4da03eebbca0667cc601ad165e321897b4130935a32a8bc",
-    "for-agents/index.html": "928730cb9ac2085f76a3d3af98336cf7bc1fe4ddb62fab4b05150887c919242e",
-    "for-agents.md": "58c26f26f5c3d52c82c1e3750cdd76b1ff0b42819aa03dff499e93a0da0588ad",
-    "index.html": "0bbb5003dee1a0388c454db1a217c9e017a963b3f4aebf40e5826d85b4453759",
-    "llms-full.txt": "58c26f26f5c3d52c82c1e3750cdd76b1ff0b42819aa03dff499e93a0da0588ad",
-    "llms.txt": "8b77d168f617d94f2a315d70ebd119c10db3bf12161765f61ce9cd9fa05a5177"
+    "for-agents/index.html": "aef459636a57b212d5585383eab3f638d41d1b5f133a561ff82bd32cf2c51022",
+    "for-agents.md": "cc666010b539f18701506cce17d4c354dd15867a6b5900ee4138ae1203641259",
+    "index.html": "ab8c92dbbd5e8b382c6237bd76f1dab981a62f84197040fb28ad20bdc48e1ebd",
+    "llms-full.txt": "cc666010b539f18701506cce17d4c354dd15867a6b5900ee4138ae1203641259",
+    "llms.txt": "6d843cf688eb0d320cfed73af88f4008a50b5ae593dd50ba0230a555123b8b2b"
   }
 }
