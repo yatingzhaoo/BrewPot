@@ -34,7 +34,7 @@ export default function App() {
           ? 'Blog — BrewPot'
           : isCaseStudiesPage
             ? 'Case Studies | BrewPot'
-            : 'BrewPot - Monthly Designer Subscription';
+            : 'BrewPot | Product design for startups';
   }, [activeBlogPost, isBlogPage, isCaseStudiesPage]);
 
   useEffect(() => {

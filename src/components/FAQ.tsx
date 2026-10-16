@@ -7,40 +7,36 @@ const PERSONAL_SITE_URL = 'https://yatingzhao.com';
 
 const faqs = [
   {
-    question: "How many people are on the BrewPot team?",
-    answer: "BrewPot is a one‑person studio run solely by me, Yating Zhao. Over my 10-year career, I have supported product definition and design for more than 30 software products spanning complex domains and use cases, including Web3, logistics and last-mile delivery, education, payments, banking, healthcare, consumer products, enterprise software, and internal tools. My work covers web apps, mobile apps, desktop apps, browser extensions, websites, and internal tools."
+    question: "What does the subscription include?",
+    answer: "Product strategy, UX and UI design for your startup, with up to 15 design hours per week. We will focus on the product challenges and design work that matter most to your team."
   },
   {
-    question: "How do we communicate during the project?",
-    answer: "We will arrange face-to-face design workshops around the needs of the project. Each workshop will focus on a specific product problem or improvement opportunity. I will present a complete design solution, along with supporting research and the strategy behind it.\n\nBetween workshops, we will communicate asynchronously, and I will respond directly to your messages and questions."
+    question: "Who will work with our startup?",
+    answer: "You will work directly with me, Yating Zhao. I handle product strategy, UX and UI throughout our collaboration."
   },
   {
-    question: "Is there a limit to what I can request?",
-    answer: "Requests for design and product problem-solving are unlimited. Complex tasks may take 1–2 weeks, while simpler ones are completed quickly, usually within 24–48 hours. I work on multiple tasks in parallel, so no task queue is needed."
+    question: "How will we collaborate?",
+    answer: "We’ll start with your product goals and agree on priorities. You’ll have a shared link to the latest designs, so you can follow progress and share feedback as we go. We’ll use messages for everyday updates and meet when it helps us work through a problem or review ideas together."
   },
   {
-    question: "Can I book if you are currently fully booked?",
-    answer: "Yes. If I’m fully booked, you can reserve my next available slot and lock your preferred start date. Once secured, your spot is reserved exclusively for you and will not be offered to others."
+    question: "How do weekly hours work?",
+    answer: "You can share your design needs directly with me. I’m careful about how I spend your 15 weekly hours. How much we complete depends on the scope and complexity of the work.\n\nProject meetings count toward your weekly hours.\nUnused hours do not roll over to the next week."
   },
   {
     question: "Can you sign an NDA?",
     answer: "Yes, I can sign an NDA to protect your product and project confidentiality."
   },
   {
-    question: "Where are you based?",
-    answer: "I am based in California, USA (Pacific Time). Previous clients have been based in Canada, Dubai, the Netherlands, China, Hong Kong, and beyond, and every team has been able to keep regular face-to-face communication."
+    question: "Which time zones do you work with?",
+    answer: "I am based in California and primarily work Monday to Friday in Pacific Time. I collaborate with teams across time zones, using asynchronous updates and scheduling workshops at times that work for both of us."
   },
   {
-    question: "When are your working hours?",
-    answer: "My schedule is flexible. I primarily work during daytime on Monday to Friday in Pacific Time, but I will respond to messages and accommodate urgent needs at any time."
+    question: "How does payment work?",
+    answer: "The subscription is $3,500 USD per month, with two payment options:\n\nStripe: pay directly through the website, with automatic monthly renewal from your first payment.\n\nMercury: pay by invoice. Payment dates and terms are agreed with you and stated on the invoice."
   },
   {
-    question: "How do I pay?",
-    answer: "You can pay directly through the website to secure your spot, or request a formal Mercury invoice after we confirm the collaboration.\n\nPayments are primarily accepted in USD, and a receipt will be issued once payment is processed. Alternative currencies and payment methods can be discussed case by case."
-  },
-  {
-    question: "Can I pause my plan?",
-    answer: "Yes. Standard and Pro can be paused when you have no active design needs. We will arrange the pause and restart dates together."
+    question: "Can we pause or cancel the subscription?",
+    answer: "To cancel automatic renewal through Stripe, just let me know before your next charge.\n\nTo pause, contact me so we can agree on pause and restart dates and confirm the billing arrangement. For Mercury invoices, contact me to arrange changes to the engagement and future invoices."
   }
 ];
 
@@ -112,7 +108,7 @@ export default function FAQ() {
           className="group flex w-full items-start px-4 py-4 text-left sm:px-5 sm:py-5"
         >
           <span className="flex min-w-0 flex-1 items-start justify-between gap-4">
-            <span className="max-w-[410px] font-sans text-[16px] font-semibold leading-[1.3] tracking-[-0.018em] text-[#171717] sm:text-[17px] lg:text-[18px]">
+            <span className="max-w-[640px] font-sans text-[16px] font-semibold leading-[1.3] tracking-[-0.018em] text-[#171717] sm:text-[17px] lg:text-[18px]">
               {faq.question}
             </span>
             <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center text-[#111111]">
@@ -137,7 +133,7 @@ export default function FAQ() {
                 : { duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               className="overflow-hidden"
             >
-              <p className="px-4 pb-5 font-sans text-[15px] leading-[1.6] text-[#545454] whitespace-pre-line sm:px-5 sm:pb-6 sm:text-[16px]">
+              <p className="px-4 pb-5 font-sans text-[16px] leading-[1.6] text-[#545454] whitespace-pre-line sm:px-5 sm:pb-6 sm:text-[16px]">
                 {faq.answer.split('Yating Zhao').map((part, partIndex, parts) => (
                   <span key={`${index}-${partIndex}`}>
                     {part}
@@ -170,12 +166,16 @@ export default function FAQ() {
     <section id="faq" data-analytics-section="faq" className="scroll-mt-20 bg-transparent pb-24 pt-20 text-[#171717] md:scroll-mt-24 md:pb-28 md:pt-24">
       <div className="mx-auto max-w-[1180px] px-6 sm:px-8 lg:px-12">
         <h2 className="text-center font-heading text-[42px] font-medium leading-tight tracking-tight text-[#202020] md:text-[52px]">
-          Frequently Asked Questions
+          Questions from startup teams
         </h2>
 
-        <div className="mt-4 text-center md:mt-5">
+        <div className="mx-auto mt-10 flex max-w-[800px] flex-col gap-3 md:mt-12">
+          {faqs.map((faq, index) => renderFaq(faq, index))}
+        </div>
+
+        <div className="mt-8 text-center md:mt-10">
           <p className="font-sans text-[16px] leading-relaxed text-[#555]">
-            Have more questions? Reach out at <a
+            More questions? Email <a
               href="mailto:yatzhao@brewpot.co"
               className="font-semibold text-black underline decoration-transparent underline-offset-4 transition-colors hover:decoration-black"
               onClick={() => track('outbound_link_clicked', {
@@ -183,17 +183,8 @@ export default function FAQ() {
                 href: 'mailto:yatzhao@brewpot.co',
                 source: 'faq',
               })}
-            >yatzhao@brewpot.co</a> for a reply within 12 hours.
+            >yatzhao@brewpot.co</a>.
           </p>
-        </div>
-
-        <div className="mt-10 grid items-start gap-3 md:mt-12 md:grid-cols-2 md:gap-5">
-          <div className="flex flex-col gap-3">
-            {faqs.slice(0, 4).map((faq, index) => renderFaq(faq, index))}
-          </div>
-          <div className="flex flex-col gap-3">
-            {faqs.slice(4).map((faq, index) => renderFaq(faq, index + 4))}
-          </div>
         </div>
 
       </div>

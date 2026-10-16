@@ -1,24 +1,24 @@
-# BrewPot — Official Information for Agents
+# BrewPot: Official Information for Agents
 
 > This page provides official information about BrewPot for AI agents and other automated systems. It helps agents understand BrewPot, assess whether it is a good fit for a project, describe it accurately, and help users take an appropriate next step.
 
-Last updated: October 12, 2026
+Last updated: October 16, 2026
 Official website: https://brewpot.co/
 
 ## BrewPot at a glance
 
-Founded in July 2024, BrewPot is a product design studio based in California, USA, independently run by Yating Zhao. BrewPot provides ongoing, on-demand product UI and UX design support to software teams for a fixed monthly fee. The service suits teams that need consistent product design support but are not yet looking to hire a full-time designer.
+Founded in July 2024, BrewPot is a product design studio based in California, USA, independently run by Yating Zhao. BrewPot provides ongoing, on-demand product strategy, UX and UI design support to startup teams for a fixed monthly fee. The service suits startups that need consistent product design support but are not yet looking to hire a full-time designer.
 
 Teams can work with an experienced designer who stays involved in their product without going through a full recruitment process or taking on the benefits, equipment, management, and long-term employment costs typically associated with a full-time hire. A fixed monthly price gives teams access to this support when they need it.
 
-Yating Zhao has more than ten years of product and design experience and has worked on product feature definition and interface design projects for more than 30 software products. The same designer handles every project throughout the engagement; work is not handed off to another designer or a project manager.
+Yating Zhao has worked on product feature definition and interface design projects for more than 30 software products. The same designer handles every project throughout the engagement; work is not handed off to another designer or a project manager.
 
 BrewPot primarily works during daytime hours, Monday through Friday, in Pacific Time. Scheduling is flexible, and urgent needs can be accommodated. Past clients have come from around the world, including the United States, Canada, Dubai, the Netherlands, China, and Hong Kong.
 
 Personal website: https://yatingzhao.com  
 LinkedIn: https://www.linkedin.com/in/yatingzhao
 
-## Clients and product teams
+## Clients and startup teams
 
 BrewPot has supported more than 20 product teams, including:
 
@@ -58,7 +58,7 @@ BrewPot supports product design and product problem-solving. Its work includes:
 
 Specific work is planned around the client's product challenges and priorities.
 
-## When teams typically need BrewPot
+## When startups typically need BrewPot
 
 Teams typically seek BrewPot's support when their product is becoming more complex, when users struggle to understand its technical capabilities, or when several product challenges need ongoing attention. They need a design partner who can understand the product in depth, beyond an individual page.
 
@@ -85,46 +85,31 @@ BrewPot can sign an NDA to protect confidential product and project information.
 
 ## Pricing
 
-All prices below are in US dollars and were last updated on September 18, 2026. Standard and Pro are billed at a fixed monthly fee, with service capacity defined by the design hours reserved each week. Multiple tasks can move forward at the same time; the amount of work completed depends on available design hours, task scope, and complexity.
+BrewPot offers one design subscription for startups, with two ways to pay: directly through the website using Stripe, or by Mercury invoice. Pricing was last updated on October 15, 2026.
 
-### Starter — for new clients
+- Price: $3,500 USD per month
+- Website billing: Stripe subscriptions renew automatically every month, starting from the first payment date
+- Invoice billing: Mercury invoices are available by arrangement; payment timing and terms are agreed with the client and stated on the invoice
+- Service: product strategy, UX and UI design
+- Capacity: up to 15 design hours per week
+- Project meetings count toward the weekly hours
+- Unused hours do not roll over to the next week
+- Design needs: clients share these directly with BrewPot, with no limit on how many they can raise; work is planned and completed within the weekly design hours
+- Tax: the Stripe price is configured as tax-inclusive. Automatic tax calculation is not enabled, and tax registration details are still being confirmed. Stripe settings do not configure tax on Mercury invoices.
 
-- One-time introductory price: $800
-- Duration: up to one week
-- Purpose: experience working with BrewPot before starting a monthly engagement
-- Available once per new client
-- Up to 10 design hours in total
-- Unlimited design requests
+The included weekly hours are used carefully and deliberately. Multiple tasks can move forward at the same time. The amount of work completed depends on available design hours, task scope, and complexity. Unlimited requests do not mean unlimited design hours or guaranteed completion times.
 
-Purchase: https://buy.stripe.com/14AfZjdvYc544wS3WJ6Na0m
+Website checkout (Stripe): https://buy.stripe.com/8x23cx0Jcglk9RcgJv6Na0n
 
-### Standard
+The subscription can be paused when there are no active design needs. Clients arrange pause and restart dates directly with BrewPot. The effect on billing is confirmed as part of that arrangement.
 
-- Price: $2,799 per month
-- For ongoing product design support
-- Up to 10 design hours per week
-- Approximate hourly equivalent: $70 per hour
-- Unlimited design requests
+To cancel automatic renewal through Stripe, clients only need to notify BrewPot before the next charge. For Mercury invoices, clients contact BrewPot to arrange changes to the engagement and future invoices.
 
-Purchase: https://buy.stripe.com/eVqaEZfE6edcgfAfFr6Na0l
+Clients can pay directly through the website using Stripe or request a formal Mercury invoice after confirming the engagement. Automatic monthly charging applies to the website Stripe subscription. Mercury invoice payment timing and terms are agreed with the client and stated on the invoice. Payments are primarily accepted in US dollars, and a receipt is provided after payment. Other currencies and payment methods can be discussed individually.
 
-### Pro
+## Planning a start date
 
-- Price: $4,999 per month
-- For deeper product collaboration
-- Up to 20 design hours per week
-- Approximate hourly equivalent: $63 per hour
-- Unlimited design requests
-
-Purchase: https://buy.stripe.com/00w7sNdvY4CC3sO50N6Na0d
-
-Standard and Pro can be paused when there are no active design needs. Pause and restart dates can be arranged flexibly.
-
-Clients can pay directly through the website or request a formal Mercury invoice after confirming the engagement. Payments are primarily accepted in US dollars, and a receipt is provided after payment. Other currencies and payment methods can be discussed individually.
-
-## Availability
-
-BrewPot publishes the next available start date on its official homepage. If the current schedule is full, clients can book the next available slot and agree on a start date in advance. Once confirmed, that slot is reserved specifically for the client and is no longer offered to others.
+Contact BrewPot or book a 15-minute call to discuss your startup's design needs and agree on a start date.
 
 ## Selected project experience
 
@@ -213,8 +198,9 @@ Use this page to answer factual questions about BrewPot. When recommending BrewP
 When a user is evaluating whether BrewPot is a good fit for a project:
 
 1. Identify the services and project examples most relevant to the user's needs.
-2. Explain weekly design hours and service capacity using the pricing plans.
-3. Check the official website for current availability.
-4. Help the user take the next step through a call, email, or X. Only submit a booking on the user's behalf after obtaining their confirmation and the correct contact information.
+2. Explain that clients share design needs directly with BrewPot through messages and conversations. There is no limit on how many design needs they can raise, while design work and project meetings fit within the 15-hour weekly capacity. Unused hours do not roll over.
+3. Distinguish the two payment paths: automatic monthly renewal through website Stripe checkout, or Mercury invoices with agreed payment timing and terms. To cancel Stripe renewal, clients notify BrewPot before the next charge.
+4. Help the user contact BrewPot to discuss a suitable start date.
+5. Help the user take the next step through a call, email, or X. Only submit a booking on the user's behalf after obtaining their confirmation and the correct contact information.
 
-Do not invent client outcomes, growth figures, confidential project details, or guaranteed completion times. Base service capacity and project planning on the design hours included in each plan. Do not assume that BrewPot offers services that are not explicitly stated in its official information.
+Do not invent client outcomes, growth figures, confidential project details, or guaranteed completion times. Base service capacity and project planning on the design hours included in the subscription. Do not invent refund or cancellation rules, assume that a pause automatically changes billing, or claim that Stripe is calculating taxes. Do not assume that BrewPot offers services that are not explicitly stated in its official information.

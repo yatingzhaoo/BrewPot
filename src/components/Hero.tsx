@@ -18,7 +18,6 @@ import {
 import laptop from '../asset/branding/laptop-studio-b.png';
 import mouse from '../asset/branding/mouse-studio-b.png';
 import {
-  formatAvailabilityDate,
   formatAvailabilityMonth,
   getNextAvailableMonday,
   type AvailabilityDate,
@@ -138,15 +137,12 @@ export default function Hero() {
       <img className="desk-object mouse-object" src={mouse} alt="White Apple Magic Mouse" />
 
       <div className="hero-copy">
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
-          <span className="availability-badge">Next availability: {formatAvailabilityDate(nextAvailability)}</span>
-        </motion.div>
         <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.08 }}>
           Product design support,
-          <span>on demand.</span>
+          <span>for startups.</span>
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.16 }}>
-          {'Expert product UI and UX design support for one flat monthly rate.\nNo hiring. No waiting.'}
+          {'Product strategy, UX and UI to help your startup move forward.\nNo hiring. No waiting.'}
         </motion.p>
         <motion.a
           initial={{ opacity: 0, y: 14 }}

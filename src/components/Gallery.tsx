@@ -200,8 +200,8 @@ export default function Gallery() {
       className={`online-gallery-section${activeIndex !== null ? ' has-open-lightbox' : ''}`}
     >
       <div className="online-gallery-heading">
-        <h2 id="gallery-heading">A Glimpse of Recent Work</h2>
-        <p>Interfaces, interactions, and visual details from recent work.</p>
+        <h2 id="gallery-heading">Design work for startups</h2>
+        <p>From early ideas to evolving products.</p>
       </div>
 
       <div className="online-gallery-frame">

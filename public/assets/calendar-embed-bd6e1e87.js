@@ -95,7 +95,7 @@
       section.innerHTML = `
         <div class="brewpot-calendar-inner">
           <div class="calendar-intro">
-            <h2 id="booking-heading" tabindex="-1">Book a 15-min call</h2>
+            <h2 id="booking-heading" tabindex="-1">Let's talk about your startup.</h2><p>Book a 15-minute call to explore working together.</p>
           </div>
           <div class="calendar-frame">
             <p class="calendar-status" role="status">Loading available times…</p>

@@ -1,11 +1,11 @@
 # BrewPot
 
-> BrewPot is a California product design studio independently run by Yating Zhao, providing ongoing product UI and UX design support for a fixed monthly fee.
+> BrewPot is a California product design studio independently run by Yating Zhao, providing product strategy, UX and UI design for startups through one monthly subscription.
 
 ## Official studio information
 
 - [Complete information for agents](https://brewpot.co/for-agents.md): Services, fit, collaboration, pricing, availability guidance, selected projects, contact details, and agent guidance.
 - [Readable web page](https://brewpot.co/for-agents/): The same official information as static HTML.
 - [Full text](https://brewpot.co/llms-full.txt): The complete document in plain text.
-- [Homepage](https://brewpot.co/): Check the next available start date here.
+- [Homepage](https://brewpot.co/): Explore the design subscription for startups.
 - [Case studies](https://brewpot.co/?view=case-studies): Public project details.

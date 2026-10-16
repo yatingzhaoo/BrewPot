@@ -12,6 +12,8 @@ declare global {
   }
 }
 
+const isProductionHost = typeof window !== 'undefined' && ['brewpot.co', 'www.brewpot.co'].includes(window.location.hostname);
+
 const POSTHOG_TOKEN = 'phc_D5CVxCv7SL9dd4hBaL24doGifhHGJqAwbuDXqAToBXFN';
 const CONTEXT = {
   site: 'brewpot_co',
@@ -34,6 +36,7 @@ function pageProperties(): AnalyticsProperties {
 }
 
 function capture(event: string, properties: AnalyticsProperties = {}) {
+  if (!isProductionHost) return;
   if (!ready || !window.posthog) {
     queuedEvents.push([event, properties]);
     return;
@@ -43,7 +46,7 @@ function capture(event: string, properties: AnalyticsProperties = {}) {
 }
 
 function loadAnalytics() {
-  if (loading || typeof window === 'undefined') return;
+  if (!isProductionHost || loading || typeof window === 'undefined') return;
   loading = true;
 
   const script = document.createElement('script');
