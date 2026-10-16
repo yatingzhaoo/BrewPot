@@ -438,6 +438,8 @@ body {
 .brand-nav-links { display: flex; align-items: center; gap: 28px; margin-left: 44px; }
 .brand-nav-links a { color: #000; font-size: 14px; font-weight: 550; text-decoration: none; transition: color 150ms ease; }
 .brand-nav-links a:hover { color: rgba(0, 0, 0, .7); }
+.brand-nav-links a[aria-current="page"],
+.brand-mobile-menu a[aria-current="page"] { font-weight: 700; }
 
 .nav-cta,
 .hero-cta {

@@ -109,7 +109,7 @@ export default function App() {
 
   return (
     <div className="relative bg-[#fdfcfb] font-sans text-gray-900 selection:bg-orange-100 selection:text-orange-900">
-      <Navbar />
+      <Navbar isHomePage={!isCaseStudiesPage && !isBlogPage} />
       <main>
         {isCaseStudiesPage ? (
           <CaseStudies />

@@ -14,7 +14,7 @@ function trackBookingClick(source: 'navbar_desktop' | 'navbar_mobile') {
   });
 }
 
-export default function Navbar() {
+export default function Navbar({ isHomePage }: { isHomePage: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [navVisible, setNavVisible] = useState(true);
@@ -50,6 +50,7 @@ export default function Navbar() {
       <div className="brand-nav-inner">
         <a href="/" aria-label="BrewPot home"><img src={logo} alt="BrewPot" /></a>
         <div className="brand-nav-links">
+          <a href="/" aria-current={isHomePage ? 'page' : undefined}>Home</a>
           <a href="/?view=case-studies">Case Studies</a>
           <a href="/#pricing">Pricing</a>
           {BLOG_ENABLED && <a href="/?view=blog">Blog</a>}
@@ -70,6 +71,7 @@ export default function Navbar() {
       </div>
       {isOpen && (
         <div className="brand-mobile-menu">
+          <a href="/" aria-current={isHomePage ? 'page' : undefined} onClick={() => setIsOpen(false)}>Home</a>
           <a href="/?view=case-studies" onClick={() => setIsOpen(false)}>Case Studies</a>
           <a href="/#pricing" onClick={() => setIsOpen(false)}>Pricing</a>
           {BLOG_ENABLED && <a href="/?view=blog" onClick={() => setIsOpen(false)}>Blog</a>}
