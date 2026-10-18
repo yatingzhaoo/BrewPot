@@ -1,5 +1,5 @@
 {
-  "sourceCommit": "9ea38b2836ebe8396e869044bff1cdaa6f9da2ec",
+  "sourceCommit": "fdc3747c6bbe18dbf1750634af54c0ba85cb4b71",
   "sourceDirty": false,
   "lockfileSha256": "6f766a97e5d589d8873773d763811165df622f0d772d6e2af73c3a1736a16b10",
   "buildCommand": "npm run build",
@@ -8,7 +8,7 @@
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "assets/article-cover-work-1-D_yJG5zU.png": "a8a6832a6c38969a9934d7417ac593035880d807f9ef19d8da4a2bf9833aeb1d",
     "assets/calendar-embed-42e410ff.css": "42e410ffd777abd418a0bdfb330420fba6f4e06b54d8a40391182dfcfadf1469",
-    "assets/calendar-embed-bd6e1e87.js": "bd6e1e87fc3da0afc7b495058171cc087bb0f7bb063803a0620591ad2e81c77e",
+    "assets/calendar-embed-b49986d6.js": "b49986d614fbd0d2246df50c580da8d809a294dd260b9eb9ce7aee957e57af4e",
     "assets/cooragent-agent-market-after-m3iM0MRl.webp": "9428dfd8294fcf2dec0f552b06c21a2ed7b5bce574b321067a19d87e4a9023c2",
     "assets/cooragent-agent-market-before-DOjH4IDn.webp": "0a9f34359f3fd0265ae8fdfd27738ab5054cd872feef75657b36539c5af5dd76",
     "assets/cooragent-agent-market-Bi1cVwlS.png": "b06c169cb9fc06cdfceab386ff5df788c3d96c4b2e6b87be0a9410c53e92c1d4",
@@ -42,8 +42,8 @@
     "assets/imgi_7_MlMNTVlGyQd08dXZRRurmqPjo-DzqZmLRk.png": "ab0cd865511f932fc789a8c88846143e9b32b7b78ed5ac8caf8a446cac55a1b4",
     "assets/imgi_8_7bCZJUraCFC0DQkcEEHToiQTFk-CfkNyi2a.png": "67a76d535861945e425274b9f137b033dff148cc7441a665df797e8c41f56f75",
     "assets/imgi_9_W6yiYTdcW0BT9FE0qobXvGVTCY-Dfm7ao7j.png": "b130b3ef7797ad8c3c9e10e04ddc70f1c92d8fe1cd431967a7b5d052ea9aa207",
-    "assets/index-CzD2O1Tc.css": "e290a3b51c2b708084c4e5eb8f8d36d67be40de4587561f44a92696ff898535c",
-    "assets/index-wLML7C2p.js": "9b5ef32a684f50f557eb21b7bdc6535e1cb2c433f653d2da3206379d486436d4",
+    "assets/index-CyPyf6XH.css": "3ae89c7c749f939681f32b0a490095e0e8255357d928b72615bb36bda83ffb30",
+    "assets/index-DUlDpr3n.js": "baffd3463b56b839d6281902265a11e71368e56166aef543699173d041163559",
     "assets/laptop-studio-b-DJpTJBhy.png": "f09af27be9d0fb0f265e164b58c881cf2b5750c2092757e73ee5987454ab0884",
     "assets/mouse-studio-b-Dxcb5m2C.png": "32f3ea9a59f02ebac21f9812175041dd478d1ac2fded3e308997b39e34506d45",
     "assets/notta-CMZdrD09.png": "de0ba37c7dd6b063a502d360fdcc3f9ed0f19b0b21f6aac6f8f117cdf119ab75",
@@ -62,7 +62,7 @@
     "favicon.png": "891f1d5846c3fa9da4da03eebbca0667cc601ad165e321897b4130935a32a8bc",
     "for-agents/index.html": "aef459636a57b212d5585383eab3f638d41d1b5f133a561ff82bd32cf2c51022",
     "for-agents.md": "cc666010b539f18701506cce17d4c354dd15867a6b5900ee4138ae1203641259",
-    "index.html": "ab8c92dbbd5e8b382c6237bd76f1dab981a62f84197040fb28ad20bdc48e1ebd",
+    "index.html": "165973b3089474bb4729c73257341b26cb82710321383079508f3d444ef5df8a",
     "llms-full.txt": "cc666010b539f18701506cce17d4c354dd15867a6b5900ee4138ae1203641259",
     "llms.txt": "6d843cf688eb0d320cfed73af88f4008a50b5ae593dd50ba0230a555123b8b2b"
   }
