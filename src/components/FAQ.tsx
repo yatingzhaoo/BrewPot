@@ -8,19 +8,19 @@ const PERSONAL_SITE_URL = 'https://yatingzhao.com';
 const faqs = [
   {
     question: "What does the subscription include?",
-    answer: "Product strategy, UX and UI design for your startup, with up to 15 design hours per week. We will focus on the product challenges and design work that matter most to your team."
+    answer: "Product strategy, UX and UI design for your startup, with up to 15 design hours per week. I’ll focus on the product challenges and design work that matter most to your team."
   },
   {
-    question: "Who will work with our startup?",
-    answer: "You will work directly with me, Yating Zhao. I handle product strategy, UX and UI throughout our collaboration."
+    question: "Who will I work with?",
+    answer: "You will work directly with me, Yating Zhao. I handle product strategy, UX and UI throughout the project."
   },
   {
-    question: "How will we collaborate?",
-    answer: "We’ll start with your product goals and agree on priorities. You’ll have a shared link to the latest designs, so you can follow progress and share feedback as we go. We’ll use messages for everyday updates and meet when it helps us work through a problem or review ideas together."
+    question: "How does collaboration work?",
+    answer: "I’ll start by discussing your product goals with you and agreeing on priorities. You’ll have a shared link to the latest designs, so you can follow progress and share feedback along the way. I’ll share everyday updates by message and meet with you when it helps to discuss a problem or review ideas."
   },
   {
     question: "How do weekly hours work?",
-    answer: "You can share your design needs directly with me. I’m careful about how I spend your 15 weekly hours. How much we complete depends on the scope and complexity of the work.\n\nProject meetings count toward your weekly hours.\nUnused hours do not roll over to the next week."
+    answer: "You can share your design needs directly with me. I’m careful about how I spend your 15 weekly hours. How much I complete depends on the scope and complexity of the work.\n\nProject meetings count toward your weekly hours.\nUnused hours do not roll over to the next week."
   },
   {
     question: "Can you sign an NDA?",
@@ -28,15 +28,15 @@ const faqs = [
   },
   {
     question: "Which time zones do you work with?",
-    answer: "I am based in California and primarily work Monday to Friday in Pacific Time. I collaborate with teams across time zones, using asynchronous updates and scheduling workshops at times that work for both of us."
+    answer: "I am based in California and primarily work Monday to Friday in Pacific Time. I collaborate with teams across time zones, using asynchronous updates and agreeing on workshop times with you."
   },
   {
     question: "How does payment work?",
     answer: "The subscription is $3,500 USD per month, with two payment options:\n\nStripe: pay directly through the website, with automatic monthly renewal from your first payment.\n\nMercury: pay by invoice. Payment dates and terms are agreed with you and stated on the invoice."
   },
   {
-    question: "Can we pause or cancel the subscription?",
-    answer: "To cancel automatic renewal through Stripe, just let me know before your next charge.\n\nTo pause, contact me so we can agree on pause and restart dates and confirm the billing arrangement. For Mercury invoices, contact me to arrange changes to the engagement and future invoices."
+    question: "Can I pause or cancel the subscription?",
+    answer: "To cancel automatic renewal through Stripe, just let me know before your next charge.\n\nTo pause, contact me to agree on pause and restart dates and confirm the billing arrangement. For Mercury invoices, contact me to arrange changes to the engagement and future invoices."
   }
 ];
 
@@ -79,7 +79,7 @@ export default function FAQ() {
             : { duration: 0.28, ease: [0.22, 1, 0.36, 1] },
         }}
         className={`overflow-hidden rounded-[10px] border bg-white transition-colors duration-200 ${
-          isOpen ? 'border-[#F05637]/45' : 'border-[#D9DAD8] hover:border-[#B8BAB7]'
+          isOpen ? 'border-[#171717] shadow-[inset_0_0_0_1px_#171717]' : 'border-[#D9DAD8] hover:border-[#B8BAB7]'
         }`}
       >
         <button
@@ -105,17 +105,17 @@ export default function FAQ() {
             }
             setOpenIndex(opened ? index : null);
           }}
-          className="group flex w-full items-start px-4 py-4 text-left sm:px-5 sm:py-5"
+          className="flex w-full items-start px-4 py-4 text-left focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#171717] sm:px-5 sm:py-5"
         >
           <span className="flex min-w-0 flex-1 items-start justify-between gap-4">
             <span className="max-w-[640px] font-sans text-[16px] font-semibold leading-[1.3] tracking-[-0.018em] text-[#171717] sm:text-[17px] lg:text-[18px]">
               {faq.question}
             </span>
-            <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center text-[#111111]">
+            <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center text-[#171717]">
               {isOpen ? (
-                <Minus className="h-5 w-5 text-[#F05637]" strokeWidth={2.1} />
+                <Minus className="h-5 w-5" strokeWidth={2.5} />
               ) : (
-                <Plus className="h-5 w-5 transition-colors group-hover:text-[#F05637]" strokeWidth={2.05} />
+                <Plus className="h-5 w-5" strokeWidth={2.05} />
               )}
             </span>
           </span>
@@ -133,7 +133,7 @@ export default function FAQ() {
                 : { duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               className="overflow-hidden"
             >
-              <p className="px-4 pb-5 font-sans text-[16px] leading-[1.6] text-[#545454] whitespace-pre-line sm:px-5 sm:pb-6 sm:text-[16px]">
+              <p className="px-4 pb-5 font-sans text-[16px] leading-[1.6] text-copy whitespace-pre-line sm:px-5 sm:pb-6 sm:text-[16px]">
                 {faq.answer.split('Yating Zhao').map((part, partIndex, parts) => (
                   <span key={`${index}-${partIndex}`}>
                     {part}
@@ -165,8 +165,8 @@ export default function FAQ() {
   return (
     <section id="faq" data-analytics-section="faq" className="scroll-mt-20 bg-transparent pb-24 pt-20 text-[#171717] md:scroll-mt-24 md:pb-28 md:pt-24">
       <div className="mx-auto max-w-[1180px] px-6 sm:px-8 lg:px-12">
-        <h2 className="text-center font-heading text-[42px] font-medium leading-tight tracking-tight text-[#202020] md:text-[52px]">
-          Questions from startup teams
+        <h2 className="text-center text-[42px] md:text-[52px]">
+          Frequently asked <span className="section-heading-accent">questions</span>
         </h2>
 
         <div className="mx-auto mt-10 flex max-w-[800px] flex-col gap-3 md:mt-12">
@@ -174,7 +174,7 @@ export default function FAQ() {
         </div>
 
         <div className="mt-8 text-center md:mt-10">
-          <p className="font-sans text-[16px] leading-relaxed text-[#555]">
+          <p className="font-sans text-[16px] leading-relaxed text-copy">
             More questions? Email <a
               href="mailto:yatzhao@brewpot.co"
               className="font-semibold text-black underline decoration-transparent underline-offset-4 transition-colors hover:decoration-black"

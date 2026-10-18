@@ -6,6 +6,7 @@
   --font-heading: "Bricolage Grotesque", sans-serif;
   --font-logo: "Saira", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-copy: #303030;
 }
 
 @keyframes glow-float {
@@ -31,6 +32,22 @@ body {
   background-color: #fdfcfb;
 }
 
+/* Main homepage section titles follow the hero's typography. */
+.subscription-overview h2,
+.online-gallery-heading h2,
+#faq h2,
+.brewpot-calendar-section .calendar-intro h2 {
+  color: #202020;
+  font-family: var(--font-sans);
+  font-weight: 650;
+  line-height: 1.12;
+  letter-spacing: -.035em;
+}
+
+.section-heading-accent {
+  color: #ff3f24;
+}
+
 .online-gallery-section {
   position: relative;
   z-index: 12;
@@ -53,17 +70,12 @@ body {
 
 .online-gallery-heading h2 {
   margin: 0;
-  color: #202020;
-  font-family: var(--font-heading);
   font-size: 48px;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
 }
 
 .online-gallery-heading p {
   margin: 8px auto 0;
-  color: #737373;
+  color: var(--color-copy);
   font-size: 17px;
   line-height: 1.5;
 }
@@ -288,7 +300,6 @@ body {
 
   .online-gallery-heading h2 {
     font-size: 38px;
-    line-height: 1.16;
   }
 
   .online-gallery-heading p {
@@ -392,10 +403,28 @@ body {
 
 .site-footer-inner p {
   margin: 0;
-  color: #6e6762;
+  color: #737373;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
 }
+
+.site-footer-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.site-footer-agent-link {
+  padding-block: 4px;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  text-underline-offset: 4px;
+  white-space: nowrap;
+}
+
+.site-footer-agent-link:hover { color: #171717; text-decoration: underline; }
+.site-footer-agent-link:focus-visible { outline: 2px solid #171717; outline-offset: 4px; border-radius: 2px; }
 
 :root {
   --brand-coral: #f05637;
@@ -749,6 +778,7 @@ body {
     text-align: center;
   }
   .site-footer-socials { justify-content: center; }
+  .site-footer-meta { flex-direction: column; gap: 4px; }
 }
 
 .brand-section { position: relative; overflow: hidden; padding: 112px 24px; }
@@ -882,7 +912,7 @@ body {
 
 /* Selected direction 2. Scoped to the homepage hero only. */
 .branding-hero .hero-copy h1 { color:#111214; font-weight:650; letter-spacing:-.04em; line-height:1.07; }
-.branding-hero .hero-copy p { max-width:660px; font-size:18px; font-weight:400; line-height:1.48; color:#55575d; text-wrap:balance; }
+.branding-hero .hero-copy p { max-width:660px; font-size:18px; font-weight:400; line-height:1.48; color:var(--color-copy); text-wrap:balance; }
 .branding-hero .availability-badge { border-color:#e0dfdc; background:#fff; color:#34363b; font-weight:400; }
 .branding-hero .brand-card { border-color:#e7e6e3; border-radius:14px; box-shadow:0 8px 24px rgba(35,30,25,.035); }
 .branding-hero .icon-cell,.branding-hero .mini-icon { border-color:#e3e3e1; background:#fff; }
@@ -931,20 +961,21 @@ body {
 .subscription-container { width: min(1180px, 100%); margin: 0 auto; padding: 0 48px; }
 .subscription-layout { display: grid; grid-template-columns: minmax(0, 1fr) 440px; align-items: center; gap: 96px; width: min(980px, 100%); margin: 0 auto; }
 .subscription-card { width: 100%; padding: 36px; border-radius: 12px; background: #fff; box-shadow: 0 14px 34px rgba(32,32,32,.06), inset 0 0 0 1px #e5e5e8; }
-.subscription-overview h2 { margin: 0; color: #202020; font-family: var(--font-heading); font-size: 48px; font-weight: 700; line-height: 1.12; letter-spacing: -.035em; }
+.subscription-overview h2 { margin: 0; font-size: 48px; }
 .subscription-overview h2 span { color: #ff3f24; }
-.subscription-overview > p { margin: 20px 0 0; color: #55575d; font-size: 18px; line-height: 1.6; text-wrap: balance; }
+.subscription-overview > p { margin: 20px 0 0; color: var(--color-copy); font-size: 18px; line-height: 1.6; text-wrap: balance; }
 .subscription-price { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 12px; row-gap: 8px; }
 .subscription-price > span:first-child { font-family: var(--font-heading); font-size: 64px; font-weight: 700; line-height: 1; letter-spacing: -.045em; }
 .subscription-price > span:last-child { font-size: 18px; font-weight: 500; white-space: nowrap; }
 .subscription-details { display: grid; gap: 14px; margin: 28px 0; padding: 0; list-style: none; }
-.subscription-details li { display: flex; align-items: flex-start; gap: 12px; color: #45474c; font-size: 18px; line-height: 1.5; }
+.subscription-details li { display: flex; align-items: flex-start; gap: 12px; color: var(--color-copy); font-size: 18px; line-height: 1.5; }
 .subscription-details li > svg { flex: 0 0 18px; width: 18px; height: 18px; margin-top: 4px; color: #ff3f24; stroke-width: 2.2; }
 .subscription-details strong { color: #202020; font-weight: 600; }
 .subscription-cta { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 48px; padding: 12px 20px; border-radius: 6px; background: #000; color: #fff; text-decoration: none; font-size: 18px; font-weight: 500; transition: opacity 200ms; }
 .subscription-cta:hover { opacity: .9; }
 .subscription-cta:focus-visible { outline: 2px solid #000; outline-offset: 4px; }
-.brewpot-calendar-section .calendar-intro > p { margin: 12px 0 0; color: #737373; font-size: 17px; line-height: 1.5; }
+.brewpot-calendar-section .calendar-intro > p { margin: 12px 0 0; color: var(--color-copy); font-size: 17px; line-height: 1.5; }
+.brewpot-calendar-section .calendar-status { color: var(--color-copy); }
 @media (max-width: 1023px) {
   .subscription-container { padding-inline: 32px; }
   .subscription-layout { grid-template-columns: minmax(0, 1fr) 400px; gap: 56px; }

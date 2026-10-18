@@ -37,7 +37,13 @@ export default function Footer() {
           </a>
         </div>
 
-        <p>© 2026 BrewPot LLC | All rights reserved.</p>
+        <div className="site-footer-meta">
+          <p>© 2026 BrewPot LLC</p>
+          <p>
+            All rights reserved. <span aria-hidden="true">·</span>{' '}
+            <a className="site-footer-agent-link" href="/for-agents/">For agents</a>
+          </p>
+        </div>
       </div>
     </footer>
   );

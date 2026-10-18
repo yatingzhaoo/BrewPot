@@ -16,10 +16,10 @@ export default function Logos() {
   const logos = [logo1, logo10, logoDeviceConnection, logo6, logo3, logo5, logo4, logo7, logo8, logo9, logo2];
 
   return (
-    <section data-analytics-section="client_logos" className="overflow-hidden bg-transparent pb-16 pt-16 md:pt-20">
+    <section data-analytics-section="client_logos" className="overflow-hidden bg-transparent pb-16 pt-20 md:pt-[104px]">
       <div className="w-full relative px-6 md:px-12 lg:px-24">
         <p className="text-center font-heading font-medium text-[26px] md:text-[32px] text-[#202020] tracking-tight leading-tight mb-11">
-          Trusted by startup teams:
+          Trusted by
         </p>
 
         <div className="relative flex w-full">

@@ -10,12 +10,13 @@ export default function Pricing() {
         <div className="subscription-layout">
           <div className="subscription-overview">
             <h2 id="pricing-title">Fixed price.<br /><span>Unlimited requests.</span></h2>
-            <p>Know what your startup will spend on design each month.</p>
+            <p>Know what you’ll spend on design each month.</p>
           </div>
           <article className="subscription-card" aria-label="Monthly design subscription">
             <div className="subscription-price"><span>$3,500</span><span>USD / month</span></div>
             <ul className="subscription-details" aria-label="Subscription details">
               <li><Check aria-hidden="true" /><span>Up to <strong>15 design hours</strong> per week</span></li>
+              <li><Check aria-hidden="true" /><span>Every hour put to good use</span></li>
               <li><Check aria-hidden="true" /><span>Unlimited design requests</span></li>
               <li><Check aria-hidden="true" /><span>Pause by arrangement</span></li>
             </ul>
